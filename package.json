@@ -1,0 +1,34 @@
+{
+  "name": "Are_You_A_Robot",
+  "version": "0.0.1",
+  "description": "An app that allows you to figure out whether other users are humans or bots.",
+  "author": "Are You A Robot",
+  "contributors": [
+    {
+      "name": "Stefanie Contreras",
+      "email": "stefsnow@gmail.com"
+    },
+    {
+      "name": "Chris Singhavong",
+      "email": "csinghavong@gmail.com"
+    },
+    {
+      "name": "Jonathan Warrick",
+      "email": "jonathan.warrick@gmail.com.com"
+    },
+    {
+      "name": "Collin Wu",
+      "email": "collinwu@gmail.com"
+    }
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.8.8"
+  },
+  "main": "server/app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AreYouARobot/AreYouARobot"
+  },
+  "license": "MIT"
+}
