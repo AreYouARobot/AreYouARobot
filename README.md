@@ -4,7 +4,7 @@
 
 ## Team
 
-  - __Product Owner__: Stefani Contreras
+  - __Product Owner__: Stefanie Contreras
   - __Scrum Master__: Collin Wu
   - __Development Team Members__: Chris Singhavong, Jonathan Warrick
 
