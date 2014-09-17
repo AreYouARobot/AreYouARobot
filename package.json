@@ -21,9 +21,18 @@
       "email": "collinwu@gmail.com"
     }
   ],
-  "dependencies": {},
+  "dependencies": {
+    "chai": "^1.9.1"
+  },
   "devDependencies": {
-    "gulp": "^3.8.8"
+    "gulp": "^3.8.8",
+    "gulp-jshint": "^1.8.4",
+    "gulp-mocha": "^1.1.0",
+    "gulp-shell": "^0.2.9",
+    "karma": "^0.12.23",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^0.1.9",
+    "mocha": "^1.21.4"
   },
   "main": "server/app.js",
   "repository": {
