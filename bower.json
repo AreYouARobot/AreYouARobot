@@ -19,6 +19,7 @@
     "angular": "~1.2.25",
     "restangular": "~1.4.0",
     "ui-router": "~0.2.11",
-    "paper-elements": "Polymer/paper-elements#~0.4.0"
+    "paper-elements": "Polymer/paper-elements#~0.4.0",
+    "angular-mocks": "~1.2.25"
   }
 }
