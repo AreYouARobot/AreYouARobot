@@ -1,13 +1,16 @@
 'use strict';
 
 var gulp = require('gulp');
-var mocha = require('gulp-mocha');
-var jshint = require('gulp-jshint');
+var karma = require('karma').server;
 
-gulp.task('test', function() {
-	gulp.src('./**/*spec.js', {read: false})
-	  .pipe(mocha({reporter: 'spec'}));
+gulp.task('test', function (done) {
+  karma.start({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done);
 });
+
+// var jshint = require('gulp-jshint');
 
 // gulp.task('lint', function() {
 //   gulp.src(['client/**/*.js'])
