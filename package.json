@@ -45,5 +45,8 @@
     "type": "git",
     "url": "https://github.com/AreYouARobot/AreYouARobot"
   },
+  "scripts": {
+    "test": "gulp test"
+  },
   "license": "MIT"
 }
