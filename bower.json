@@ -1,0 +1,25 @@
+{
+  "name": "Are_You_A_Robot",
+  "version": "0.0.1",
+  "homepage": "https://github.com/AreYouARobot/AreYouARobot",
+  "authors": [
+    "Are You A Robot"
+  ],
+  "description": "An app that allows you to figure out whether other users are humans or bots.",
+  "main": "server/app.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.25",
+    "restangular": "~1.4.0",
+    "ui-router": "~0.2.11",
+    "polymer": "~0.4.0",
+    "angular-touch": "~1.2.25"
+  }
+}
