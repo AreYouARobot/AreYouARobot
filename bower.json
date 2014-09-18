@@ -19,7 +19,6 @@
     "angular": "~1.2.25",
     "restangular": "~1.4.0",
     "ui-router": "~0.2.11",
-    "polymer": "~0.4.0",
-    "angular-touch": "~1.2.25"
+    "paper-elements": "Polymer/paper-elements#~0.4.0"
   }
 }
