@@ -4,6 +4,7 @@ var assert = chai.assert;
 var expect = chai.expect;
 var should = chai.should();
 
+// kick off test tests.
 describe('Testing example', function () {
   var test;
 
