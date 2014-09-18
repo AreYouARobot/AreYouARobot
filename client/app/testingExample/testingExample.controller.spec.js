@@ -1,26 +1,31 @@
 'use strict';
 
-var assert = chai.assert;
-var expect = chai.expect;
-var should = chai.should();
+describe('Controller: TestingExampleController', function () {
 
-describe('Testing example', function () {
-  var test;
+  // load the controller's module
+  beforeEach(module('AYARApp'));
 
-  beforeEach(function() {
-    test = 123;
-  });
-  
-  it('should have a value of test that evaluates to "123"', function () {
-    (test).should.equal(123);
-  });
+  var TestingExampleController, scope;
 
-  it('should be a function', function () {
-    (typeof testFunction).should.equal('function');
-  });
+  // Initialize the controller and a mock scope
+  beforeEach(inject(function ($controller, $rootScope) {
+    scope = $rootScope.$new();
+    TestingExampleController = $controller('TestingExampleController', {
+      $scope: scope
+    });
+  }));
 
-  it('should return a value', function () {
-    (testFunction(test)).should.equal(123);
+  it('should have a testFunction function', function () {
+    (typeof scope.testFunction).should.equal('function');
   });
 
+  it('testFunction should return test value', function () {
+    var test = 123;
+    (scope.testFunction(test)).should.equal(123);
+  });
+
+  it('testFunction should not return wrong test value', function () {
+    var test = 123;
+    (scope.testFunction(test)).should.not.equal(12332);
+  });
 });

@@ -2,6 +2,8 @@
 
 var gulp = require('gulp');
 var karma = require('karma').server;
+var jshint = require('gulp-jshint');
+var stylish = require('jshint-stylish');
 
 gulp.task('test', function (done) {
   karma.start({
@@ -10,19 +12,14 @@ gulp.task('test', function (done) {
   }, done);
 });
 
-// var jshint = require('gulp-jshint');
-
-// gulp.task('lint', function() {
-//   gulp.src(['client/**/*.js'])
-//     .pipe(jshint())
-//     .pipe(jshint.reporter('default'));
-// });
-
-// gulp.task('watch', function() {
-	// gulp.watch(/* insert path to files here */);
-	// gulp.watch(/* insert path to tests here */);
-// });
-
-gulp.task('default', function() {
-	console.log('default task runs!');
+gulp.task('lint', function() {
+  gulp.src(['client/**/*.js'])
+    .pipe(jshint())
+    .pipe(jshint.reporter(stylish));
 });
+
+gulp.task('watch', function() {
+	gulp.watch(['client/**/*.js', 'server/**/*.js'], ['lint', 'test']);
+});
+
+gulp.task('default', ['lint', 'test']);

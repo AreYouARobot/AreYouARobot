@@ -1,5 +1,8 @@
 'use strict';
 
-var testFunction = function(test) {
-	return test;
-};
+angular.module('AYARApp')
+	.controller('TestingExampleController', function($scope) {
+		$scope.testFunction = function(test) {
+			return test;
+		};
+	});
