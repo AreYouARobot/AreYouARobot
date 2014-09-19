@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('AYARApp', [
-	 'ui.router'
-	 ])
+  'ui.router'
+  ])
 	.config(function ($urlRouterProvider) {
     $urlRouterProvider
       .otherwise('/');
