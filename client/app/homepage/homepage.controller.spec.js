@@ -3,7 +3,7 @@
 describe('HomepageController', function(){
   var $scope, $rootScope, Homepage;
 
-  // beforeEach(module('app'));
+  // beforeEach(module('AYARApp'));
   // beforeEach(inject(function($injector) {
 
   //   // mock of dependencies within controller
