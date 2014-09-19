@@ -1,8 +1,8 @@
 <div class="splash">
-  <input type="checkbox" value="AYARChat!" ng-model="clicked"></input>
-  <div class="login" ng-show="clicked" >
-    <input type="text" text="username"></input>
-    <input type="text" text="password"></input>
-    <button>Sign Up!</button>
-  </div>
+  <input class="splashButton" type="button" value="AYARChat!" ng-click="showLogin()"></input>
+  <form class="login" ng-show="login" class="ng-hide">
+    <input type="text" ng-model="user.username"></input>
+    <input type="password" ng-model="user.password"></input>
+    <button ng-click="signup()">Sign Up!</button>
+  </form>
 </div>

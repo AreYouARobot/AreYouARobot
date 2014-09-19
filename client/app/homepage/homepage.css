@@ -1,0 +1,14 @@
+.splash {
+  font-family: Tahoma;
+}
+
+.splashButton {
+  background-color: red;
+  padding: 5px;
+  margin: 5px;
+  color: black;
+}
+
+.login {
+  margin: 5px;
+}

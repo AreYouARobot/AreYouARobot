@@ -1,7 +1,20 @@
-angular.module('AYARApp.homepage', [])
+'use strict';
 
-.controller('HomepageController', function($scope){
-  $scope.showLogin = function(){
+angular.module('AYARApp')
+  .controller('HomepageController', function($scope){
+    // input value for username and password
+    $scope.user = {};
 
-  }
-});
+    // toggles account input fields
+    $scope.login = false;
+    $scope.showLogin = function(){
+      $scope.login = !$scope.login;
+    };
+    $scope.signup = function(){
+      if( !$scope.user.username || !$scope.user.password ){
+        console.log('Please enter in a valid username and password!');
+      } else {
+        console.log($scope.user);
+      }
+    };
+  });
