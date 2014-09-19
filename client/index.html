@@ -1,16 +1,23 @@
 <!doctype html>
   <head>
+    <link rel="stylesheet" href="lib/bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="app/chatroom/chatroom.css"/>
   </head>
 
   <body ng-app="AYARApp">
     <!-- angular stuff goes in here -->
     <!--header/navbar-->
-    <div ui-view=""></div>
+    <h1>TEST HEADER!</h1>
+    <div ui-view></div>
+    <a ui-sref="chatroom">State 1</a>
 
-    <script src="../bower_components/angular/angular.js"></script>
-    <script src="../bower_components/angular-mocks/angular-mocks.js"></script>
+    <script src="lib/bower_components/angular/angular.js"></script>
+    <script src="lib/bower_components/ui-router/release/angular-ui-router.js"></script>
+    <script src="lib/bower_components/angular-mocks/angular-mocks.js"></script>
 
     <script src="app/app.js"></script>
+    <script src="app/chatroom/chatroom.controller.js"></script>
+    <script src="app/chatroom/chatroom.js"></script>
     <script src="app/testingExample/testingExample.controller.js"></script>
 
   </body>

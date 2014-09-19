@@ -1,0 +1,39 @@
+<!-- <!doctype html>
+  <head>
+    <link rel="stylesheet" href="../../../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="chatroom.css"/>
+  </head>
+
+  <body> -->
+  	<h1>Are You A Robot? - Chatroom</h1>
+    <div class="container-fluid chat-cointainer">
+    	<div class="row">
+	    	<div class="col-md-7 chat-messages">
+	    		<div class="test-messages">Test Message</div>
+	    		<div class="test-messages">Test Message</div>
+	    		<div class="test-messages">Test Message</div>
+	    		<div ng-repeat="message in messages">
+	    			{{message}}
+	    		</div>
+	    	</div>
+	    	<div class="col-md-1">
+	    	</div>
+	    	<div class="col-md-3 chat-users">
+	    		<div class="test-users">Test User</div>
+	    		<div class="test-users">Test User</div>
+	    		<div class="test-users">Test User</div>
+	    	</div>
+	    </div>
+	    <div class="row">
+	    	<div class="col-md-8">
+		  		<input ng-model="messageText" ng-submit="sendMessage(messageText)" type="text" class="form-control chat-text" placeholder="Text input">
+		  	</div>
+		  	<div class="col-md-3">
+		  		<button ng-click="sendMessage(messageText)">Submit!</button>
+		  </div>
+    </div>
+  <!-- </body> -->
+
+
+
+
