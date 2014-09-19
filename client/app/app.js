@@ -3,7 +3,7 @@
 angular.module('AYARApp', [
   'ui.router'
   ])
-	.config(function ($stateProvider, $urlRouterProvider) {
+	.config(function ($urlRouterProvider) {
     $urlRouterProvider
       .otherwise('/');
     });

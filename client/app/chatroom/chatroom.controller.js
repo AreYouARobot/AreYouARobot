@@ -3,6 +3,7 @@
 angular.module('AYARApp')
 	.controller('ChatroomController', function($scope, Messages, Users) {
 		$scope.messages = Messages.messages;
+		$scope.user = Users.user;
 		$scope.sendMessage = Messages.sendMessage;
 	})
 	.factory('Messages', function() {
@@ -14,7 +15,7 @@ angular.module('AYARApp')
 		return {
 			messages: messages,
 			sendMessage: sendMessage
-		}
+		};
 	})
 	.factory('Users', function() {
 		var user = {};

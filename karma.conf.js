@@ -51,7 +51,8 @@ module.exports = function(config) {
       // 'karma-jasmine',
       'karma-spec-reporter',
       'karma-mocha',
-      'karma-chai'
+      'karma-chai',
+      'karma-coverage'
     ],
 
     // Continuous Integration mode
@@ -60,8 +61,22 @@ module.exports = function(config) {
 
     colors: true,
 
-    // possible values: dots, progress, spec
-    reporters: ['spec'],
+    // progress reporter: lists each test run and whether they pass/fail
+    // coverage reporter: creates coverage reports for every tested browser
+    reporters: ['spec', 'coverage'],
+
+    preprocessors: {
+      // Source files you want to generate coverage reports for
+      // This should not include tests or libraries
+      // These files will be instrumented by Istanbul
+      'client/app/**/*.controller.js': ['coverage']
+    },
+
+    // Configure the reporter
+    coverageReporter: {
+      type: 'html',
+      dir: 'results/coverage/'
+    },
 
     // level of logging
     // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG

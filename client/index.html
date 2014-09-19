@@ -1,7 +1,10 @@
 <!doctype html>
   <head>
     <link rel="stylesheet" href="lib/bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="app/homepage/homepage.css"/>
+    <link rel="stylesheet" href="app/profile/profile.css"/>
     <link rel="stylesheet" href="app/chatroom/chatroom.css"/>
+    <link rel="stylesheet" href="app/testingExample/testingExample.css"/>
   </head>
 
   <body ng-app="AYARApp">
@@ -9,15 +12,22 @@
     <!--header/navbar-->
     <h1>TEST HEADER!</h1>
     <div ui-view></div>
-    <a ui-sref="chatroom">State 1</a>
+
+    <a ui-sref="homepage">Homepage</a>
+    <a ui-sref="profile">Profile</a>
+    <a ui-sref="chatroom">Chatroom</a>
 
     <script src="lib/bower_components/angular/angular.js"></script>
     <script src="lib/bower_components/ui-router/release/angular-ui-router.js"></script>
     <script src="lib/bower_components/angular-mocks/angular-mocks.js"></script>
 
     <script src="app/app.js"></script>
+    <script src="app/homepage/homepage.controller.js"></script>
+    <script src="app/homepage/homepage.js"></script>
+    <script src="app/profile/profile.controller.js"></script>
+    <script src="app/profile/profile.js"></script>
     <script src="app/chatroom/chatroom.controller.js"></script>
     <script src="app/chatroom/chatroom.js"></script>
     <script src="app/testingExample/testingExample.controller.js"></script>
-
+    <script src="app/testingExample/testingExample.js"></script>
   </body>
