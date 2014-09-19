@@ -70,7 +70,7 @@ var storage = {
 
 app.get('/api/messages', function(req, res) {
 	// Use some utility function
-	res.send(200, storage);
+	res.status(200).send(storage);
 	res.end();
 });
 
