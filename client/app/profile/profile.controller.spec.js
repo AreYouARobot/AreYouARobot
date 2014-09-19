@@ -24,14 +24,14 @@ describe('Controller: ProfileController', function () {
   });
 
   it('user should have a picture', function () {
-    (scope.user.pic).should.be.truthy;
+    (typeof scope.user.pic).should.equal('string');
   });
 
   it('user should have points', function () {
-    (scope.user.points).should.be.truthy;
+    (typeof scope.user.points).should.equal('number');
   });
 
   it('user should have achievements', function () {
-    (scope.user.achievements).should.be.truthy;
+    (scope.user.achievements).should.be.instanceof(Array);  
   });
 });

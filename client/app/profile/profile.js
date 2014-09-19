@@ -5,7 +5,7 @@ angular.module('AYARApp')
     $stateProvider
       .state('profile', {
         url: '/profile',
-        templateUrl: '/app/profile/profile.html',
+        templateUrl: 'app/profile/profile.html',
         controller: 'ProfileController'
       });
   });
