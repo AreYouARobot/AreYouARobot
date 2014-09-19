@@ -5,6 +5,9 @@ angular.module('AYARApp')
 		$scope.messages = Messages.messages;
 		$scope.user = Users.user;
 		$scope.sendMessage = Messages.sendMessage;
+		$scope.guessRobotOrUser = function() {
+			console.log('Robot or User?');
+		};
 	})
 	.factory('Messages', function() {
 		var messages = [];
