@@ -69,7 +69,6 @@ var storage = {
 }
 
 app.get('/api/messages', function(req, res) {
-	console.log("hit the api end point");
 	// Use some utility function
 	res.send(200, storage);
 	res.end();
@@ -79,7 +78,6 @@ app.post('/api/messages', function(req, res) {
 	// Use some utility function
 	var message = req.body;
 	storage['data'].push(message);
-	console.log(storage, "this is storage after new post");
 	res.status(302).end();
 });
 
