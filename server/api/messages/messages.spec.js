@@ -1,10 +1,9 @@
 'use strict';
 
-var chai = require('chai');
-var app = require('../../app');
+var chai = require('chai').should();
 var request = require('supertest');
+var app = require('../../app');
 
-chai.should();
 
 describe('GET /api/messages/', function() {
 	it('response should be a JSON object', function() {
@@ -71,17 +70,17 @@ describe('GET /api/messages/', function() {
 			});
 	});
 
-	// it('response should contain JSON object with createddate', function() {
-	// 	request(app)
-	// 		.get('/api/messages')
-	// 		.expect(200)
-	// 		.expect('Content-Type', 'application/json')
-	// 		.end(function(err, res) {
-	// 			if (err) return done(err);
-	// 			should.exist(res.body.createddate);
-	// 			done();
-	// 		});
-	// });
+	it('response should contain JSON object with createddate', function() {
+		request(app)
+			.get('/api/messages')
+			.expect(200)
+			.expect('Content-Type', 'application/json')
+			.end(function(err, res) {
+				if (err) return done(err);
+				should.exist(res.body.createddate);
+				done();
+			});
+	});
 
 	it('response should contain JSON object with an id', function() {
 		request(app)
@@ -95,26 +94,26 @@ describe('GET /api/messages/', function() {
 			});
 	});
 
-})
+});
 
-// describe('POST /api/messages/', function() {
-// 	it('posts should contain blahblahblah', function() {
-// 		request(app)
-// 			// Does supertest have a .post method? How come the yokel tests only show the .get method	
-// 			.post('/api/messages')
-// 			.expect(200)
-// 			// Post requests are sending data to the server. Is it also in json format?
-// 			// Initial thoughts is that it should be.
-
-// 			.expect('Content-Type', 'application/json')
-// 			// If we do a post request. what's the best way to test this?
-// 				// Do a post and then a get to see if res contains the message posted?
-// 			.end(function(err, res) {
-// 				if (err) return done(err);
-// 				should.exist(res.body.);
-// 				done;
-// 			});
-// 	});
+describe('POST /api/messages/', function() {
+	it('posts should contain blahblahblah', function() {
+		request(app)
+			// Does supertest have a .post method? How come the yokel tests only show the .get method	
+			.post('/api/messages')
+			.expect(200)
+			// Post requests are sending data to the server. Is it also in json format?
+			// Initial thoughts is that it should be.
+			.expect('Content-Type', 'application/json')
+			// If we do a post request. what's the best way to test this?
+				// Do a post and then a get to see if res contains the message posted?
+			.end(function(err, res) {
+				if (err) return done(err);
+				should.exist(res.body);
+				done;
+			});
+	});
+});
 
 // 	it('response should contain', function() {
 // 		request(app)
