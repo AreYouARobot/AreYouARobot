@@ -30,16 +30,16 @@ describe('GET /api/messages/', function() {
 			});
 	});
 	
-	// it('the response array should contain at least one object', function(done) {
-	// 	request(app)
-	// 		.get('/api/messages')
-	// 		.expect(200)
-	// 		.end(function(err, res) {
-	// 			if (err) return done(err);
-	// 			res.body.data[0].should.be.instanceof(Object);
-	// 			done();
-	// 		});
-	// });
+	it('the response array should contain at least one object', function(done) {
+		request(app)
+			.get('/api/messages')
+			.expect(200)
+			.end(function(err, res) {
+				if (err) return done(err);
+				res.body.data[0].should.be.instanceof(Object);
+				done();
+			});
+	});
 
 	// it('response should contain JSON object with an id', function(done) {
 	// 	request(app)
@@ -152,4 +152,4 @@ describe('GET /api/messages/', function() {
 // 			.post('/api')
 // 	})
 
-// })
+})
