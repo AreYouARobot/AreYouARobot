@@ -52,8 +52,6 @@ describe('GET /api/messages/', function() {
 			});
 	});
 
-
-
 	it('response should contain JSON object with a username', function(done) {
 		request(app)
 			.get('/api/messages')
