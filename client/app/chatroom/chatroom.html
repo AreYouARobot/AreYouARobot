@@ -12,16 +12,14 @@
 	    		<div class="test-messages">Test Message</div>
 	    		<div class="test-messages">Test Message</div>
 	    		<div class="test-messages">Test Message</div>
-	    		<div ng-repeat="message in messages">
-	    			{{message}}
-	    		</div>
+	    		<div ng-repeat="message in messages track by $index">{{message}}</div>
 	    	</div>
 	    	<div class="col-md-1">
 	    	</div>
 	    	<div class="col-md-3 chat-users">
-	    		<div class="test-users">Test User</div>
-	    		<div class="test-users">Test User</div>
-	    		<div class="test-users">Test User</div>
+	    		<div class="test-users" ng-click="guessRobotOrUser()">Test User</div>
+	    		<div class="test-users" ng-click="guessRobotOrUser()">Test User</div>
+	    		<div class="test-users" ng-click="guessRobotOrUser()">Test User</div>
 	    	</div>
 	    </div>
 	    <div class="row">

@@ -6,14 +6,15 @@ angular.module('AYARApp')
 		$scope.user = Users.user;
 		$scope.sendMessage = Messages.sendMessage;
 		$scope.guessRobotOrUser = function() {
-			console.log('Robot or User?');
+			$scope.guess = prompt('Robot or User?');
+			console.log($scope.guess);
 		};
 	})
 	.factory('Messages', function() {
 		var messages = [];
 		var sendMessage = function(text) {
 			console.log('sendMessage triggered with text:', text);
-			messages.push('User says:', text);
+			messages.push('User says: ' + text);
 		};
 		return {
 			messages: messages,
