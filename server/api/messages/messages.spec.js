@@ -1,22 +1,22 @@
-'use strict';
+// 'use strict';
 
-var should = require('chai').should();
-var request = require('supertest');
-var app = require('../../app');
+// var should = require('chai').should();
+// var request = require('supertest');
+// var app = require('../../app');
 
-describe('GET /api/messages/', function() {
-	it('response should be a JSON object', function(done) {
-		request(app)
-			.get('/api/messages')
-			// .set('Accept', 'application/json')
-			.expect('Content-Type', /json/)
-			.expect(200)
-			.end(function(err, res) {
-				if (err) return done(err);
-				res.should.be.instanceof(Object);
-				done();
-			});
-	});
+// describe('GET /api/messages/', function() {
+// 	it('response should be a JSON object', function(done) {
+// 		request(app)
+// 			.get('/api/messages')
+// 			// .set('Accept', 'application/json')
+// 			.expect('Content-Type', /json/)
+// 			.expect(200)
+// 			.end(function(err, res) {
+// 				if (err) return done(err);
+// 				res.should.be.instanceof(Object);
+// 				done();
+// 			});
+// 	});
 
 	// it('response should contain a JSON array', function(done) {
 	// 	request(app)
@@ -89,7 +89,7 @@ describe('GET /api/messages/', function() {
 	// 		});
 	// });
 
-});
+// });
 
 // I will test post requests later
 
