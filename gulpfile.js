@@ -18,23 +18,22 @@ gulp.task('lint', function() {
     .pipe(jshint.reporter(stylish));
 });
 
-gulp.task('test', function (done) {
+// Combined task test to test client then server (via callback)
+gulp.task('test', function (cb) {
   karma.start({
     configFile: __dirname + '/karma.conf.js',
     singleRun: true
-  }, done);
-});
-
-gulp.task('servertest', function() {
-  gulp.src(['server/api/messages/messages.spec.js'])
-    .pipe(mocha())
-    .on('end', function() {
-      process.exit(0);
-    });
+  }, function() {
+    gulp.src(['server/api/messages/messages.spec.js'])
+      .pipe(mocha())
+      .on('end', function() {
+        process.exit(0);
+      });
+  })
 });
 
 gulp.task('watch', function() {
-	gulp.watch(['client/**/*.js', 'server/**/*.js'], ['clean', 'lint', 'test', 'severtest']);
+	gulp.watch(['client/**/*.js', 'server/**/*.js'], ['clean', 'lint', 'test']);
 });
 
-gulp.task('default', ['clean', 'lint', 'test', 'servertest']);
+gulp.task('default', ['clean', 'lint', 'test']);
