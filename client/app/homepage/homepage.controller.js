@@ -10,9 +10,10 @@ angular.module('AYARApp')
     $scope.showLogin = function(){
       $scope.login = !$scope.login;
     };
-    $scope.signup = function(){
+    $scope.signup = function(err){
       if( !$scope.user.username || !$scope.user.password ){
         console.log('Please enter in a valid username and password!');
+        throw(err);
       } else {
         console.log($scope.user);
       }
