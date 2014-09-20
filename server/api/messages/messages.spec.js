@@ -18,28 +18,28 @@ describe('GET /api/messages/', function() {
 			});
 	});
 
-	it('response should contain a JSON array', function(done) {
-		request(app)
-			.get('/api/messages')
-			.expect(200)
-			.expect('Content-Type', /json/)
-			.end(function(err, res) {
-				if (err) return done(err);
-				res.body.data.should.be.instanceof(Array);
-				done();
-			});
-	});
+	// it('response should contain a JSON array', function(done) {
+	// 	request(app)
+	// 		.get('/api/messages')
+	// 		.expect(200)
+	// 		.expect('Content-Type', /json/)
+	// 		.end(function(err, res) {
+	// 			if (err) return done(err);
+	// 			res.body.data.should.be.instanceof(Array);
+	// 			done();
+	// 		});
+	// });
 	
-	it('the response array should contain at least one object', function(done) {
-		request(app)
-			.get('/api/messages')
-			.expect(200)
-			.end(function(err, res) {
-				if (err) return done(err);
-				res.body.data[0].should.be.instanceof(Object);
-				done();
-			});
-	});
+	// it('the response array should contain at least one object', function(done) {
+	// 	request(app)
+	// 		.get('/api/messages')
+	// 		.expect(200)
+	// 		.end(function(err, res) {
+	// 			if (err) return done(err);
+	// 			res.body.data[0].should.be.instanceof(Object);
+	// 			done();
+	// 		});
+	// });
 
 	// it('response should contain JSON object with an id', function(done) {
 	// 	request(app)
