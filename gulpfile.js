@@ -27,7 +27,10 @@ gulp.task('test', function (done) {
 
 gulp.task('servertest', function() {
   gulp.src(['server/api/messages/messages.spec.js'])
-    .pipe(mocha());
+    .pipe(mocha())
+    .on('end', function() {
+      process.exit(0);
+    });
 });
 
 gulp.task('watch', function() {
