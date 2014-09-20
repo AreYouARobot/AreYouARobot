@@ -1,0 +1,39 @@
+.splash {
+  font-family: 'Lucinda Grande', sans-serif;
+}
+
+.userInputs {
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+form input {
+  height: 30px;
+}
+
+.signupButton {
+  background-color: #00CC99;
+  /*padding: 5px;*/
+  margin: 5px 0 5px 0;
+  color: white;
+  padding: 5px;
+  border: 5px;
+}
+
+.splashButton {
+  background-color: #00CC99;
+  /*padding: 5px;*/
+  margin: 0 auto;
+  color: white;
+}
+
+.login {
+  margin: 0 auto;
+  width: 400px;
+  height: 400px;
+}
+
+img {
+  max-width: 400px;
+}
