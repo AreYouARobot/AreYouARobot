@@ -92,6 +92,7 @@ describe('GET /api/messages/', function() {
 });
 
 // I will test post requests later
+// Should be different for post requests
 
 // describe('POST /api/messages/', function(done) {
 // 	it('posts should contain blahblahblah', function() {
