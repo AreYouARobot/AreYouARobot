@@ -21,7 +21,12 @@
       "email": "collinwu@gmail.com"
     }
   ],
-  "dependencies": {},
+
+  "dependencies": {
+    "express": "^4.9.3",
+    "body-parser": "^1.8.2"
+  },
+
   "devDependencies": {
     "angular-mocks": "^1.2.22",
     "blanket": "^1.1.6",
