@@ -26,7 +26,7 @@ gulp.task('test', function (done) {
 });
 
 gulp.task('servertest', function() {
-  return gulp.src(['server/api/messages/messages.spec.js'])
+  gulp.src(['server/api/messages/messages.spec.js'])
     .pipe(mocha());
 });
 
