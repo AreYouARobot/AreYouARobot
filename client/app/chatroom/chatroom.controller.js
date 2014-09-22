@@ -58,3 +58,9 @@ angular.module('AYARApp')
 			user: user
 		};
 	});
+
+// NOTES: JW
+// Needs to pull logged-in user as part of message text
+// Needs to auto-generate ID for each user
+// Needs to only populate messages that haven't already been populated (stop getting duplicate messages on pull requests)
+// Needs to scroll/iFrame
