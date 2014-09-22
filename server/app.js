@@ -87,7 +87,7 @@ app.post('/api/messages', function(req, res) {
 	// Use some utility function
 	var message = req.body;
 	storage['data'].push(message);
-	res.status(302).end();
+	res.status(202).send();
 });
 
 app.get('/api/user', function(req, res) {
@@ -100,7 +100,7 @@ app.get('/api/user', function(req, res) {
 app.post('/api/user', function(req, res) {
 	var userData = req.body;
 	// Do soemthing with the data such as store it in a variable or handle in db
-	res.status(302).end();
+	res.status(202).send();
 })
 
 app.listen(port);
