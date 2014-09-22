@@ -55,7 +55,7 @@ var storage = {
 		},
 		{
 			id: 7,
-			username: 'tooprettyforschool',  
+			username: 'tooprettyforschool',
 			message: 'if you don\'t have anything nice to say don\'t say it',
 			createddate: "blah"
 		},
