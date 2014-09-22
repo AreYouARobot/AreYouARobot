@@ -97,6 +97,12 @@ app.get('/api/user', function(req, res) {
 	res.end();
 })
 
+app.post('/api/user', function(req, res) {
+	var userData = req.body;
+	// Do soemthing with the data such as store it in a variable or handle in db
+	res.status(302).end();
+})
+
 app.listen(port);
 console.log('Server running on port %d', port);
 
