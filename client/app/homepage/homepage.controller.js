@@ -11,12 +11,11 @@ angular.module('AYARApp')
       $scope.login = !$scope.login;
     };
     $scope.signup = function(err){
-      Auth.signin($scope.user);
       if( !$scope.user.username || !$scope.user.password ){
         console.log('Please enter in a valid username and password!');
         throw(err);
       } else {
-        console.log($scope.user);
+        Auth.signin($scope.user);
       }
     };
   });

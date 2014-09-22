@@ -10,11 +10,11 @@ angular.module('AYARApp')
       });
   })
 
-  .factory('Auth', function ($http) {
+  .factory('Auth', function ($http, $location) {
     var signin = function (user) {
       return $http({
         method: 'POST',
-        url: '/api/messages',
+        url: '/api/user',
         data: user
       });
     };
