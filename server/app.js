@@ -68,6 +68,15 @@ var storage = {
 	]
 }
 
+var user1 = {
+      username: 'Fluffy',
+      pic: 'http://38.media.tumblr.com/bc7ad1e6a8d4e78063466815ce94043c/tumblr_nb0vfnDO731tnlgoco1_500.gif',
+      points: 30,
+      achievements: ['awesome',
+                      'kickass'
+                    ]
+    };
+
 app.get('/api/messages', function(req, res) {
 	// Use some utility function
 	res.status(200).send(storage);
@@ -78,8 +87,21 @@ app.post('/api/messages', function(req, res) {
 	// Use some utility function
 	var message = req.body;
 	storage['data'].push(message);
-	res.status(302).end();
+	res.status(202).send();
 });
+
+app.get('/api/user', function(req, res) {
+	var userInfo = req.body;
+	// For quick turnaround, we're just returning a hard-coded user example
+	res.status(200).send(user1);
+	res.end();
+})
+
+app.post('/api/user', function(req, res) {
+	var userData = req.body;
+	// Do soemthing with the data such as store it in a variable or handle in db
+	res.status(202).send();
+})
 
 app.listen(port);
 console.log('Server running on port %d', port);
