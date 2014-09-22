@@ -55,7 +55,8 @@
     "url": "https://github.com/AreYouARobot/AreYouARobot"
   },
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "start": "node server/app.js"
   },
   "license": "MIT"
 }
