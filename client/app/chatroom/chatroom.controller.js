@@ -2,19 +2,54 @@
 
 angular.module('AYARApp')
 	.controller('ChatroomController', function($scope, Messages, Users) {
-		$scope.messages = Messages.messages;
-		$scope.user = Users.user;
-		$scope.sendMessage = Messages.sendMessage;
+		$scope.messages = [];
+		$scope.sendMessage = function(text) {
+			Messages.sendMessage({
+				id: 100,
+				username: 'Test User',
+				message: text,
+				createdate: 'now!'
+			});
+		};
+		$scope.getMessages = function() {
+			Messages.getMessages(function(data) {
+				for(var i = 0; i < data.data.length; i++) {
+					console.log('individual data object is', data.data[i]);
+					$scope.messages.push(data.data[i]);
+				}
+				console.log($scope.messages);
+			});
+		};
+		$scope.guessRobotOrUser = function() {
+			$scope.guess = prompt('Robot or User?');
+			console.log($scope.guess);
+		};
+		$scope.getMessages();
 	})
-	.factory('Messages', function() {
-		var messages = [];
+	.factory('Messages', function($http) {
 		var sendMessage = function(text) {
-			console.log('sendMessage triggered with text:', text);
-			messages.push('User says:', text);
+			console.log('in sendMessage');
+			$http.post('api/messages', text)
+			  .success(function(data) {
+			  	console.log('Success:', data)
+			  })
+			  .error(function(data) {
+			  	console.error('Error:', data);
+			  });
+		};
+		var getMessages = function(callback) {
+			$http.get('api/messages')
+			  .success(function(data) {
+			  	console.log('GET request successful.');
+			  	callback(data);
+			  })
+			  .error(function(data) {
+			  	console.error('Error:', data);
+			  });
 		};
 		return {
-			messages: messages,
-			sendMessage: sendMessage
+			sendMessage: sendMessage,
+			getMessages: getMessages
 		};
 	})
 	.factory('Users', function() {
@@ -23,3 +58,9 @@ angular.module('AYARApp')
 			user: user
 		};
 	});
+
+// NOTES: JW
+// Needs to pull logged-in user as part of message text
+// Needs to auto-generate ID for each user
+// Needs to only populate messages that haven't already been populated (stop getting duplicate messages on pull requests)
+// Needs to scroll/iFrame
