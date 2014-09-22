@@ -5,7 +5,8 @@ describe('Controller: HomepageController', function () {
   // load the controller's module
   beforeEach(module('AYARApp'));
 
-  var HomepageController, scope;
+  var HomepageController;
+  var scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
