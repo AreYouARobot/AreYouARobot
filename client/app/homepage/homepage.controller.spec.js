@@ -24,7 +24,8 @@ describe('Controller: HomepageController', function () {
   });
   it('should have a signup function', function() {
     (typeof scope.signup).should.equal('function');
-    scope.user.password = 'sing', scope.user.password = 'secret';
+    scope.user.password = 'sing';
+    scope.user.password = 'secret';
     scope.signup();
     (scope.user.username).should.not.equal('');
     (scope.user.password).should.not.equal('');

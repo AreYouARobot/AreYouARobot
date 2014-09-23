@@ -1,6 +1,8 @@
+'use strict';
+
 angular.module('AYARApp')
 .factory('Robot', function() {
-	robot = {
+	var robot = {
 		username: 'Jonathan Robot',
 		isBot: true,
 		badVotes: 0,
