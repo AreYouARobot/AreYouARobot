@@ -2,18 +2,19 @@
 
 // Primary server file
 var express = require('express');
-var bodyParser = require('body-parser');
-var http = require('http');
 
 // Require bluebird so that as soon as req comes in, promisify it.
 var app = express();
-
 var port = process.env.PORT || 8085;
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser());
+// Require middleware
+require('./config/middleware.js')(app, express);
 
-app.use(express.static(__dirname + '../../client')); // __dirname = server right now. dirname + ../ = AreYouARobot, so dirname + '../client'
+// Require database connections
+require('./config/developmentdb.js');
+
+// Require API route handling
+require('./config/routes.js');
 
 var storage = {
 	data: [
