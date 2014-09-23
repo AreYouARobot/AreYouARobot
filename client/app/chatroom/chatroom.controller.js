@@ -15,7 +15,7 @@ angular.module('AYARApp')
 			Messages.sendMessage({
 				id: 101,
 				username: Robot.robot.username,
-				message: Robot.robot.sendMessage(),
+				message: Robot.robot.sendMessage(text),
 				createdate: 'now!'
 			});
 			$scope.getMessages();
