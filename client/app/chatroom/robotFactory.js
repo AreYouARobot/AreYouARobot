@@ -17,7 +17,7 @@ angular.module('AYARApp')
 				'greetings',
 				'sup?'
 			],
-			"how are you?": [
+			"how are you": [
 				'good',
 				'fine',
 				'bad',
@@ -28,17 +28,23 @@ angular.module('AYARApp')
 		lastMessageSent: '',
 		chooseResponse: function(userMessage) {
 			// first, receive text input from user-sent message
-			var userText = userMessage;
+			var userText = userMessage.toLowerCase().replace(/[\.\[\],-\/#!%@?$&\^&\*;:{}=\-_`~()]/g,"");
 			var phrase = robot.phraseLibrary[userText];
 			// second, match response to keyword(s) in phrase library
 			if (phrase) {
 				// choose a random response from phrases linked to keyword(s)
-				return phrase[Math.floor(Math.random() * phrase.length)];	
+				var response = phrase[Math.floor(Math.random() * phrase.length)];	
+				if (response !== robot.lastMessageSent) {
+					robot.lastMessageSent = response;
+					return response;
+				} else {
+					return robot.chooseResponse(userMessage);
+				}
 			} else {
 				// default value for now
+				robot.lastMessageSent = '';
 				return 'I don\'t know what you\'re saying!';
 			}
-			// send response (function below)
 		},
 		sendMessage: function(userMessage) {
 		  return robot.chooseResponse(userMessage);
