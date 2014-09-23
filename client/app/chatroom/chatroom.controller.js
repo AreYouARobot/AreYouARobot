@@ -1,13 +1,19 @@
 'use strict';
 
 angular.module('AYARApp')
-	.controller('ChatroomController', function($scope, Messages) {
+	.controller('ChatroomController', function($scope, Messages, Robot) {
 		$scope.messages = [];
 		$scope.sendMessage = function(text) {
 			Messages.sendMessage({
 				id: 100,
 				username: 'Test User',
 				message: text,
+				createdate: 'now!'
+			});
+			Messages.sendMessage({
+				id: 101,
+				username: Robot.robot.username,
+				message: Robot.robot.sendMessage(),
 				createdate: 'now!'
 			});
 		};
