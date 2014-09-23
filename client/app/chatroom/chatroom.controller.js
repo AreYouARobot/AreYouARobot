@@ -10,6 +10,12 @@ angular.module('AYARApp')
 				message: text,
 				createdate: 'now!'
 			});
+			Messages.sendMessage({
+				id: 101,
+				username: Messages.robot.name,
+				message: Messages.robot.chooseResponse(),
+				createdate: 'now!'
+			});
 		};
 		$scope.getMessages = function() {
 			Messages.getMessages(function(data) {
@@ -47,9 +53,23 @@ angular.module('AYARApp')
 			  	console.error('Error:', data);
 			  });
 		};
+		var robot = {
+			name: 'Jonathan Robot',
+			responses: [
+				'hey',
+				'hi',
+				'yo',
+				'greetings',
+				'sup?'
+			],
+			chooseResponse: function() {
+				return robot.responses[Math.floor(Math.random() * robot.responses.length)];
+			}
+		};
 		return {
 			sendMessage: sendMessage,
-			getMessages: getMessages
+			getMessages: getMessages,
+			robot: robot
 		};
 	})
 	.factory('Users', function() {
