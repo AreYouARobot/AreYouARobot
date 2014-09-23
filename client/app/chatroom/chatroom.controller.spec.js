@@ -23,10 +23,6 @@ describe('Controller: ChatroomController', function () {
     (typeof scope.guessRobotOrUser).should.equal('function');
   });
 
-  it('should have a messages variable', function() {
-  	(scope.messages).should.not.equal(undefined);
-  });
-
   it('should have a messages variable that is an array', function() {
   	(Array.isArray(scope.messages)).should.equal(true);
   });

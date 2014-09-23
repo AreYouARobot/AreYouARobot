@@ -27,7 +27,7 @@ angular.module('AYARApp')
 		var sendMessage = function(text) {
 			$http.post('api/messages', text)
 			  .success(function(data) {
-			  	console.log('Success:', data)
+			  	console.log('Success:', data);
 			  })
 			  .error(function(data) {
 			  	console.error('Error:', data);
@@ -47,7 +47,7 @@ angular.module('AYARApp')
 			sendMessage: sendMessage,
 			getMessages: getMessages
 		};
-	})
+	});
 
 // NOTES: JW
 // Needs to pull logged-in user as part of message text

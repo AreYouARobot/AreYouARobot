@@ -10,7 +10,7 @@ angular.module('AYARApp')
       });
   })
 
-  .factory('Auth', function ($http, $location) {
+  .factory('Auth', function ($http) {
     var signin = function (user) {
       return $http({
         method: 'POST',
@@ -21,5 +21,5 @@ angular.module('AYARApp')
 
     return {
       signin: signin
-    }
+    };
   });

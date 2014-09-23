@@ -21,6 +21,7 @@
   "globals": {
     "angular": false, //stop JSHint throwing a fit about 'undefined' angular variable.
     "window": false, //stops JSHint throwing a fit about 'undefined' window variable. 
+    "prompt": true,
     "describe": true,
     "it": true,
     "before": true,
