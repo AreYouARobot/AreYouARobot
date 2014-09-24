@@ -4,6 +4,8 @@ angular.module('AYARApp')
 	.controller('ChatroomController', function($scope, Messages, Robot) {
 		$scope.messages = [];
 		$scope.sendMessage = function(text) {
+		  $scope.messages = [];
+
 			Messages.sendMessage({
 				id: 100,
 				username: 'Test User',
@@ -16,19 +18,34 @@ angular.module('AYARApp')
 				message: Robot.robot.sendMessage(),
 				createdate: 'now!'
 			});
+			$scope.getMessages();
+			$scope.clearText();
 		};
 		$scope.getMessages = function() {
 			Messages.getMessages(function(data) {
-				for(var i = 0; i < data.data.length; i++) {
-					$scope.messages.push(data.data[i]);
-				}
+				$scope.messages = data.data;
+				// for(var i = 0; i < data.data.length; i++) {
+				// 	$scope.messages.push(data.data[i]);
+				// }
 			});
 		};
 		$scope.guessRobotOrUser = function() {
 			$scope.guess = prompt('Robot or User?');
+			if($scope.guess.toLowerCase() === 'robot' ){
+				Robot.robot.badVotes++;
+				console.log(Robot.robot.badVotes);
+			} else if ($scope.guess.toLowerCase() === 'user') {
+				Robot.robot.goodVotes++;
+				console.log(Robot.robot.goodVotes);
+			}
 		};
+		$scope.clearText = function() {
+			$scope.messageText = '';
+		};
+
 		$scope.getMessages();
 	})
+
 	.factory('Messages', function($http) {
 		var sendMessage = function(text) {
 			$http.post('api/messages', text)
@@ -49,6 +66,7 @@ angular.module('AYARApp')
 			  	console.error('Error:', data);
 			  });
 		};
+
 		return {
 			sendMessage: sendMessage,
 			getMessages: getMessages

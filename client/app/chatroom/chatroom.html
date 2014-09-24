@@ -1,20 +1,20 @@
 <h1>Are You A Robot? - Chatroom</h1>
 <div class="container-fluid chat-cointainer">
 	<div class="row">
-  	<div class="col-md-11 chat-messages">
+  	<div id="chatField" class="col-md-11 chat-messages">
   		<div ng-repeat="message in messages track by $index">
-  			<span ng-click="guessRobotOrUser()">{{message.username}}: </span>{{message.message}} 
+  			<span ng-click="guessRobotOrUser()">{{message.username}}: </span>{{message.message}}
   		</div>
   	</div>
   </div>
-  <div class="row">
+  <form class="row">
   	<div class="col-md-8">
   		<input ng-model="messageText" ng-submit="sendMessage(messageText)" type="text" class="form-control chat-text" placeholder="Text input">
   	</div>
   	<div class="col-md-3">
   		<button ng-click="sendMessage(messageText)">Send your message!</button>
   </div>
-</div>
+</form>
 
 
 
