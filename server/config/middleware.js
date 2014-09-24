@@ -3,6 +3,7 @@
 var fs = require('fs');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var helpers = require('./helpers.js');
 // var jwtCheck = require()
 
 module.exports = function(app, express) {
@@ -18,5 +19,19 @@ module.exports = function(app, express) {
 
 	// Set static file directory
 	app.use(express.static(__dirname + '../../../client'));
+
+	// Routing
+	var userRouter = express.Router();
+	console.log(userRouter, "this is userRouter");
+	var messagesRouter = express.Router();
+	console.log(messagesRouter, "this is messagesRouter");
+
+	app.use('/api/user', userRouter); // User router for all user requests
+	app.use('/api/messages', messagesRouter); // Messages router for all messages requests
+	app.use(helpers.errorLogger);
+	app.use(helpers.errorHandler); 
+
+	require('../api/messages/messages.router.js')(messagesRouter);
+	// require('../api/user/user.router.js')(userRouter);
 
 };
