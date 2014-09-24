@@ -26,6 +26,7 @@ describe('Controller: ChatroomController', function () {
     (factory.robot).should.be.an('object');
     (factory.robot.goodVotes).should.equal(0);
     (factory.robot.badVotes).should.equal(0);
+    (factory.robot.isBot).should.equal(true);
     (factory.robot.responses).should.be.an('array');
     (typeof factory.robot.chooseResponse).should.equal('function');
     (typeof factory.robot.sendMessage).should.equal('function');
