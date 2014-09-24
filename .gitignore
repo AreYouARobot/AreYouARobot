@@ -24,6 +24,7 @@ server/*.txt
 */bower_components/
 platforms/
 plugins/
+server/config/devConstants.js
 
 # Logs
 logs
