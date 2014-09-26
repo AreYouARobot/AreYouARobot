@@ -4,7 +4,7 @@ var fs = require('fs');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var helpers = require('./helpers.js');
-// var jwtCheck = require()
+var jwtCheck = require('../auth/authJWT.js').jwtCheck;
 
 module.exports = function(app, express) {
 
@@ -22,10 +22,15 @@ module.exports = function(app, express) {
 
 	// Routing
 	var userRouter = express.Router();
+	var authHandling = express.Router();
 
-	app.use('/api/user', userRouter); // User router for all user requests
+	app.use('/api/user', jwtCheck, userRouter); // User router for all user requests
+	// require('../api/user/user.router.js')(userRouter);
+
+	app.use('/auth', authHandling);
+	require('../auth/authRouting.js')(authHandling);
+	
 	app.use(helpers.errorLogger);
 	app.use(helpers.errorHandler); 
-	// require('../api/user/user.router.js')(userRouter);
 
 };
