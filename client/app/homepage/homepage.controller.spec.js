@@ -30,4 +30,9 @@ describe('Controller: HomepageController', function () {
     (scope.user.username).should.not.equal('');
     (scope.user.password).should.not.equal('');
   });
+  it('should clear input fields after submit', function() {
+    scope.clearText();
+    (scope.user.username).should.equal('');
+    (scope.user.password).should.equal('');
+  });
 });
