@@ -2,13 +2,36 @@
   border: 1px solid black;
 }
 
+#name {
+  font-family: From Cartoon Blocks;
+}
+
+#points {
+  font-family: From Cartoon Blocks;
+}
+
+.achievement {
+  margin-top: 10px;
+  font-size: 50px;
+  vertical-align: middle;
+  background-color: #F1A833;
+  height: 400px;
+  width: 600px;
+  border-width: 5px;
+  box-shadow: 10px 10px 5px #888888;
+}
+
 .header {
   font-size: 50px;
   vertical-align: middle;
+  background-color: #EFECE3;
+  height: 200px;
+  width: 600px;
+  border-width: 5px;
+  box-shadow: 10px 10px 5px #888888;
 
 }
 #pic {
-  background-color: blue;
   width: 25%;
   height: auto;
   float:left;
@@ -16,11 +39,12 @@
 
 #name {
 float: left;
-width: 65%;
+color: #DB5A25;
+width: 45%;
 text-align: center;
 }
 
 #points{
-  width:10%;
+  width:13%;
   float:right;
 }
