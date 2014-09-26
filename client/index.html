@@ -1,6 +1,7 @@
 <!doctype html>
   <head>
     <link rel="stylesheet" href="lib/bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="app/app.css" />
     <link rel="stylesheet" href="app/homepage/homepage.css"/>
     <link rel="stylesheet" href="app/profile/profile.css"/>
     <link rel="stylesheet" href="app/chatroom/chatroom.css"/>
@@ -8,15 +9,17 @@
   </head>
 
   <body ng-app="AYARApp">
+    <div id="fb-root"></div>
     <!-- angular stuff goes in here -->
     <!--header/navbar-->
     <!-- <h1>TEST HEADER!</h1> -->
-
+    <div id="nav">
     <a ui-sref="homepage">Homepage</a>
     <a ui-sref="profile">Profile</a>
     <a ui-sref="chatroom">Chatroom</a>
     <a ui-sref="testingExample">Test</a>
-
+</div>
+    <img id="main" src="http://www.robotaton.com/images/blogbot.png" />
     <div ui-view></div>
 
     <script src="lib/bower_components/angular/angular.js"></script>
@@ -33,4 +36,5 @@
     <script src="app/chatroom/robotFactory.js"></script>
     <script src="app/testingExample/testingExample.controller.js"></script>
     <script src="app/testingExample/testingExample.js"></script>
+    <script src="http://connect.facebook.net/en_US/all.js"></script>
   </body>

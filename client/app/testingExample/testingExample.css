@@ -42,12 +42,13 @@ h1 {
   font-weight: normal;
 }*/
 
-.container {
+.testContainer {
   background-color: #F1A833;
   height: 650px;
   width: 600px;
   border-width: 5px;
   box-shadow: 10px 10px 5px #888888;
+  margin: 0 auto;
 }
 
 .answer {

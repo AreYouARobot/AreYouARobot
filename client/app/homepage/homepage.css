@@ -3,9 +3,12 @@
 }
 
 .userInputs {
-  width: 400px;
-  height: 400px;
-  margin: 0 auto;
+ background-color: antiquewhite;
+ height: 250px;
+ width: 600px;
+ border-width: 5px;
+ box-shadow: 10px 10px 5px #888888;
+ margin: 0 auto;
 }
 
 form input {
@@ -13,7 +16,7 @@ form input {
 }
 
 .signupButton {
-  background-color: #00CC99;
+  background-color: #F1A833;
   /*padding: 5px;*/
   margin: 5px 0 5px 0;
   color: white;
@@ -22,6 +25,7 @@ form input {
 }
 
 .splashButton {
+  position: relative;
   background-color: #00CC99;
   /*padding: 5px;*/
   margin: 0 auto;
@@ -30,10 +34,15 @@ form input {
 
 .login {
   margin: 0 auto;
+  margin-top: 10px;
   width: 400px;
   height: 400px;
 }
 
-img {
+/*.fb-login-button {
+  height: 50px;
+}*/
+
+/*img {
   max-width: 400px;
-}
+}*/

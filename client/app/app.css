@@ -1,0 +1,10 @@
+#main {
+  /*width: 330px;
+  height: 350px;*/
+  position: absolute;
+  bottom: 0;
+}
+
+#nav {
+  position: absolute;
+}
