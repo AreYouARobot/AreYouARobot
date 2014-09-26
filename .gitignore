@@ -16,6 +16,8 @@ public
 dist
 .tmp
 .idea
+setuptools-5.8.zip
+server/*.txt
 
 # public modules
 */node_modules/

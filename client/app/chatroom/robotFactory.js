@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('AYARApp')
-.factory('Robot', function() {
+.factory('Robot', function($http) {
 	var robot = {
 		username: 'Jonathan Robot',
 		isBot: true,
@@ -47,7 +47,19 @@ angular.module('AYARApp')
 			}
 		},
 		sendMessage: function(userMessage) {
+			robot.getSentenceStuff(userMessage);
 		  return robot.chooseResponse(userMessage);
+		}, 
+		getSentenceStuff: function(userMessage) {
+			console.log('userMessage is', userMessage);
+			console.log('typeof user message is', typeof userMessage);
+			return $http.post('/robot', {sentence: userMessage})
+			            .success(function(data) {
+			            	console.log('success in getStuff:', data);
+			            })
+			            .error(function(error) {
+			            	console.error('failed :(', error);
+			            });
 		}
 	};
 	return {

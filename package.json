@@ -22,12 +22,15 @@
     }
   ],
   "dependencies": {
+    "body-parser": "^1.8.2",
     "express": "^4.9.3",
     "body-parser": "^1.8.2",
     "mongoose": "^3.8.16",
     "request": "^2.44.0",
     "bluebird": "^2.3.2",
-    "jsonwebtoken": "^1.1.2"
+    "jsonwebtoken": "^1.1.2",
+    "pos": "^0.1.7",
+    "wordpos": "^0.1.10"
   },
   "devDependencies": {
     "angular-mocks": "^1.2.22",
