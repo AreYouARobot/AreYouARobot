@@ -25,7 +25,7 @@
 			$('.getStuff').click(function() {
 				console.log("click works");
 				$.ajax({
-					url: '/api/messages',
+					url: '/api/messages/',
 					method: "GET",
 					success: function(data) {
 						console.log(data);
