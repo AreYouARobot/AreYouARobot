@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Testing Only</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	</head>
+
+	<body>
+		<h3>Sup - testing</h3>
+
+		<div class="button">
+			<button class="getStuff">Getting Stuff</button>
+		</div>
+
+		<div class="button">
+			<button class="getUser">Get User</button>
+		</div>	
+
+		<div class="postmsg">
+			<input class="msgbox" type="text">
+			<button class="sendMsg">Send Msg</button>
+		</div>
+
+		<div class="fboauth">
+			<button class="fblogin">Click to Login to Facebook</button>
+		</div>
+
+		<script>
+			$('.getStuff').click(function() {
+				console.log("click works");
+				$.ajax({
+					url: '/api/messages/',
+					method: "GET",
+					success: function(data) {
+						console.log(data);
+						console.log("get request successful");
+					},
+					error: function() {
+						console.log("get request failed");
+					}
+				});
+			});
+
+			$('.getUser').click(function() {
+				console.log("click works");
+				$.ajax({
+					url: '/api/user',
+					method: "GET",
+					success: function(data) {
+						console.log(data);
+						console.log("get request successful");
+					},
+					error: function() {
+						console.log("get request failed");
+					}
+				});
+			});
+
+			$('.sendMsg').click(function() {
+				console.log("button works");
+				$.ajax({
+					url: '/api/messages',
+					method: 'POST',
+					data: {
+						username: 'lols',
+						message: $('.msgbox').val() 
+					},
+					success: function() {
+						console.log('Post successful');
+					},
+					error: function() {
+						console.log('post error');
+					}
+ 				})
+			})
+
+			$('.fblogin').click(function() {
+				console.log("this fb login button works");
+				var sendtoFB = function() {
+					window.location.assign('https://www.facebook.com/dialog/oauth?client_id=856871080999075&display=popup&redirect_uri=http://localhost:8085/testindex.html');
+					var url = window.location.search;
+					console.log(url, "this is url in the sendtoFB function");
+				}
+				// var sendAuthCode = function() {
+				// 	var url = window.location.search;
+				// 	console.log(url, "this is url");
+				// 	// var code = url.split('code=')[1];
+				// 	console.log(code, "this is the access code");
+				// }
+				sendtoFB();
+			});
+
+			var grabUrl = function() {
+				var url = window.location.search;
+				return url;
+			};
+
+			$(document).ready(function() {
+				var codeUrl = grabUrl();
+				if (codeUrl !== '') {
+					sendAuthCode(codeUrl);
+				}
+			});
+			// document.addEventListener("DOMContentLoaded", grabUrl, false);
+
+			var sendAuthCode = function(codeUrl) {
+				var code = codeUrl.split('code=')[1];
+				// console.log(code, "this is the code isolated");
+				$.ajax({
+					url: 'auth/fb',
+					method: 'POST',
+					data: {code: code},
+					success: function() {
+						console.log("successful post", code);
+					},
+					error: function() {
+						console.log("error posting");
+					}
+				})
+			}
+
+		</script>
+
+	</body>
+
+</html>
+
