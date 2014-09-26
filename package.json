@@ -35,8 +35,12 @@
     "request": "^2.44.0",
     "socket.io": "^1.1.0",
     "wordpos": "^0.1.10",
+<<<<<<< HEAD
     "q": "^1.0.1",
     "restangular": "^1.4.0"
+=======
+    "q": "^1.0.1"
+>>>>>>> FB OAuth working. Not saving to DB and no jwt issued yet.
   },
   "devDependencies": {
     "angular-mocks": "^1.2.22",
