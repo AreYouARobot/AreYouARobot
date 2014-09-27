@@ -1,8 +1,7 @@
 'use strict';
 
-angular.module('AYARApp')
-.factory('Robot', function($http) {
-	var robot = {
+module.exports = {
+	robot: {
 		username: 'Jonathan Robot',
 		isBot: true,
 		badVotes: 0,
@@ -21,7 +20,7 @@ angular.module('AYARApp')
 		chooseResponse: function(userMessage) {
 			// first, receive text input from user-sent message
 			var userText = userMessage.toLowerCase().replace(/[\.\[\],-\/#!%@$&\^&\*;:{}=\-_`~()]/g,"");
-			var phrase = robot.phraseLibrary[userText];
+			var phrase = this.phraseLibrary[userText];
 			console.log(userText);
 			// second, match response to keyword(s) in phrase library
 			if (phrase) {
@@ -40,7 +39,7 @@ angular.module('AYARApp')
 			}
 		},
 		sendMessage: function(userMessage) {
-		  return robot.chooseResponse(userMessage);
+		  return this.chooseResponse(userMessage);
 		}
 		// getSentenceStuff: function(userMessage) {
 		// 	console.log('userMessage is', userMessage);
@@ -53,8 +52,5 @@ angular.module('AYARApp')
 		// 	            	console.error('failed :(', error);
 		// 	            });
 		// }
-	};
-	return {
-		robot: robot
-	};
-});
+	}
+};
