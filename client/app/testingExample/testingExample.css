@@ -1,10 +1,10 @@
 body {
-  background-color: #8DA598;
+  background-color: #F8F7EE;
 }
 
 h1 {
   font-family: From Cartoon Blocks;
-  color: white;
+  color: #2B344D;
   font-size: 60px;
   margin-bottom: 0;
 }
@@ -43,7 +43,7 @@ h1 {
 }*/
 
 .testContainer {
-  background-color: #F1A833;
+  background-color: #EE5555;
   height: 650px;
   width: 600px;
   border-width: 5px;
@@ -55,7 +55,7 @@ h1 {
   overflow: hidden;
   font-family: From Cartoon Blocks;
   color: black;
-  background-color: #DB5A25;
+  background-color: #52BBB2;
   height: 125px;
   width: 400px;
   margin: 30px;
