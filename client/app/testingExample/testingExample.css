@@ -12,6 +12,7 @@ body {
   height: 200px;
   width: 450px;
   font-size: 35px;
+  background-color: antiquewhite;
 }
 
 .scoreboard tr {
