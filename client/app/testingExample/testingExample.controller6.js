@@ -6,4 +6,3 @@ angular.module('AYARApp')
 			return test;
 		};
 	});
-	

@@ -6,4 +6,3 @@ angular.module('AYARApp')
       $state.go('testingExample.view4');
     };
   });
-  
