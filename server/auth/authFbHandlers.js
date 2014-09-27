@@ -37,7 +37,6 @@ var exchangeCodeForToken = function(accessCode) {
 		return token;
 	}
 	return request(fbTokenUrl).then(parseToken);
-	// return;
 };
 
 var fetchUserFbProfile = function(token) {
@@ -62,15 +61,15 @@ var checkIfUserExists = function(profileData) {
 		// Why not just try it? Do a User.findOne({'username': username})
 		// Q makes Scott's findUser call return a promise
 		console.log("got here");
-		return;
+		var findUser = Q.nbind(User.findOne, User);
+		console.log(findUser({username: username}));
+		return findUser({username: username});
 }
 
 // Might refactor all of this into Q for promisifying stuff.
 // Reference Shortly-Angular
 var updateUserProfile = function(userModel, fbProfileInfo, accessToken) {
-	var findOne = Q.nbind(User.findOne, User);
-	console.log("got to updateUserProfile");
-	findOne({username: username})
+	return userModel.findOneAndUpdate()
 	return;
 }
 
@@ -125,16 +124,16 @@ module.exports.fbLogin = function(req, res) {
 	})
 
 	// Afterward, check if the user exists
-	// .then(checkIfUserExists)
+	.then(checkIfUserExists)
 
-	// .then(function(userModel) {
-	// 	var userExists = !!userModel;
-	// 	if (userExists) {
-	// 		return updateUserProfile(userModel, fbProfileInfo, accessToken);
-	// 	} else {
-	// 		return createUserProfile(fbProfileInfo, accessToken);
-	// 	}
-	// })
+	.then(function(userModel) {
+		var userExists = !!userModel;
+		if (userExists) {
+			return updateUserProfile(userModel, fbProfileInfo, accessToken);
+		} else {
+			return createUserProfile(fbProfileInfo, accessToken);
+		}
+	})
 
 	// // Returns user's account information
 	// // Need to create a JWT and send it back to the client to store
