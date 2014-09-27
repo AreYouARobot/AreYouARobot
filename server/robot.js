@@ -19,8 +19,9 @@ app.use(bodyParser());
 app.use(express.static(__dirname + '../../client')); // __dirname = server right now. dirname + ../ = AreYouARobot, so dirname + '../client'
 
 app.post('/api/ask', function(req, res) {
+  console.log(req.body)
 	var question = req.body.question;
-	var response = robot.robot.chooseResponse(question);
+	var response = markov.makeSentence(question);
 	res.status(200).send(response);
 	res.end();
 });
@@ -59,7 +60,7 @@ setTimeout(function() {
     markov.addSnippets(value);
     markov.addBackSnippets(value);
   });
-  console.log(markov.makeBackSentence('abraham') + markov.makeSentence('abraham'));
+  console.log(markov.makeSentence('abraham'));
 }, 1000);
 
 

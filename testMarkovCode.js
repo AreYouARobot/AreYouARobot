@@ -13,23 +13,24 @@ var backwardChain = {};
 // var sentenceArray = testSentence.replace(/\./g, ' EOSMARKER BOSMARKER').split(' ');
 
 // for each sentence, take current indexed word 
-exports.addSnippets = function(sentence) {
+exports.addSnippets = function (sentence) {
 	sentence = sentence.toLowerCase().replace(/\n/g, ' ').replace(/\./g, ' EOSMARKER BOSMARKER').split(' ');
   for (var i = 0; i < sentence.length - 1; i++) {
+    //glom together 2-4 words
     if (!markovChain[sentence[i]]) {
       markovChain[sentence[i]] = {};
       markovChain[sentence[i]].totNumOfWords = 0;
     }
     markovChain[sentence[i]].totNumOfWords++;
-    if (!markovChain[sentence[i]][sentence[i + 1]]) {
-      markovChain[sentence[i]][sentence[i + 1]] = 0;
+    if (!markovChain[sentence[i]][sentence[i + 1] + ' ' + sentence[i + 2]]) {
+      markovChain[sentence[i]][sentence[i + 1]  + ' ' + sentence[i + 2]] = 0;
     }
-    markovChain[sentence[i]][sentence[i + 1]]++;
+    markovChain[sentence[i]][sentence[i + 1]  + ' ' + sentence[i + 2]]++;
   }
 };
 
 // for each sentence, take current indexed word 
-exports.addBackSnippets = function(sentence) {
+exports.addBackSnippets = function (sentence) {
 	sentence = sentence.toLowerCase().replace(/\n/g, ' ').replace(/\./g, ' EOSMARKER BOSMARKER').split(' ');
   for (var i = sentence.length - 1; i > 0; i--) {
     if (!backwardChain[sentence[i]]) {
@@ -59,7 +60,7 @@ exports.makeBackSentence = function (startingWord) {
     for (var key in backwardChain[currentWord]) {
       if (key !== 'totNumOfWords') {
         if (cumulativeCount < seed && seed <= cumulativeCount + backwardChain[currentWord][key]) {
-          if(key !== 'BOSMARKER'){
+          if (key !== 'BOSMARKER') {
             sentence = key + ' ' + sentence;
           }
           currentWord = key;
@@ -87,13 +88,14 @@ exports.makeSentence = function (startingWord) {
   while (currentWord !== 'EOSMARKER') {
     seed = Math.random() * markovChain[currentWord].totNumOfWords;
     cumulativeCount = 0;
+    //keys are 2 words
     for (var key in markovChain[currentWord]) {
       if (key !== 'totNumOfWords') {
         if (cumulativeCount < seed && seed <= cumulativeCount + markovChain[currentWord][key]) {
-          if(key !== 'EOSMARKER'){
+          if (key !== 'EOSMARKER') {
             sentence += ' ' + key;
           }
-          currentWord = key;
+          currentWord = key.slice(key.indexOf(' ') + 1);
           break;
         } else {
           cumulativeCount += markovChain[currentWord][key];
