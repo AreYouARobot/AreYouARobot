@@ -1,0 +1,47 @@
+.container {
+  background-color: #EE5555;
+  height: 650px;
+  width: 600px;
+  border-width: 5px;
+  box-shadow: 10px 10px 5px #888888;
+  margin: 0 auto;
+}
+
+.questionInput {
+  font-family: Snacker Comic Personal Use Only;
+  font-size: 40px;
+  text-align: center;
+  margin-top: 125px;
+  height: 80px;
+  width: 500px;
+  background-color: antiquewhite;
+}
+
+.submitQuestion {
+  overflow: hidden;
+  font-family: From Cartoon Blocks;
+  color: black;
+  background-color: #52BBB2;
+  height: 60px;
+  width: 175px;
+  margin: 30px;
+  font-size: 35px;
+  border-radius: 5px;
+  border-color: black;
+  /*-webkit-text-stroke-width: 1px;*/
+  /*-webkit-text-stroke-color: black;*/
+  box-shadow: 8px 8px 5px #888888;
+  -webkit-transition: all .1s ease;
+  -moz-transition: all .1s ease;
+  -ms-transition: all .1s ease;
+  -o-transition: all .1s ease;
+  transition: all .1s ease;
+}
+
+.submitQuestion:active {
+  -webkit-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
+  -moz-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
+  box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
+  position: relative;
+  top: 6px;
+}
