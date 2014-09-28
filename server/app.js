@@ -32,18 +32,17 @@ console.log('Server running on port %d', port);
 var messages = [];
 
 io.on('connection', function(socket) {
-	console.log('a user connected');
+	// console when a user connects to the game and nest all events within
+	console.log('user connected');
+
+	// listen for user disconnecting and console log
 	socket.on('disconnect', function() {
 		console.log('user disconnected');
 	});
 	
-	socket.on('test', function(msg) {
-		console.log('this is a test message: ' + msg);
-		messages.push(msg);
-		console.log('messsages:', messages);
-		if (messages.length === 2) {
-			io.emit('sendBack', msg);
-		}
+	// listen for user sending initial question
+	socket.on('guesserAskedQuestion', function(question) {
+		console.log('question received:', question);
 	});
 });
 

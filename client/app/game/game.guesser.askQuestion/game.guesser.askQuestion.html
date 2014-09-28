@@ -1,5 +1,4 @@
 <form class="question">
-<input ng-model="question" class="questionInput" type="text" placeholder="What is your question?"></input>
-<button ng-click="goToNextView()" class="submitQuestion">Submit</button>
-<button ng-click="sendTest()" class="submitQuestion">SocketIO test</button>
+	<input ng-model="question" class="questionInput" type="text" placeholder="What is your question?"></input>
+	<button ng-click="askQuestion(question)" class="submitQuestion">Submit</button>
 </form>
