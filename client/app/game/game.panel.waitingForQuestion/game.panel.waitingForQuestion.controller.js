@@ -5,8 +5,9 @@ angular.module('AYARApp')
 		$scope.question = 'TEST';
 		socket.on('sendingGuesserQuestion', function(question) {
 			console.log('gotcha question:', question);
-			$scope.question = question;
-			$scope.$apply();
-			console.log('question is a question', $scope.question);
+			$scope.$apply(function() {
+				$scope.question = question;
+			});
+			$state.go('game.panelGiveAnswer', {'question': $scope.question});
 		});
 	});

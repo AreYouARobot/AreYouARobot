@@ -34,7 +34,8 @@ angular.module('AYARApp')
       })
       // Old View 5
       .state('game.panelGiveAnswer', {
-        url: '/panelGiveAnswer',
+        // url: '/panelGiveAnswer',
+        params: ['question'],
         templateUrl: '/app/game/game.panel.giveAnswer/game.panel.giveAnswer.html',
         controller: 'PanelGiveAnswerController'
       })

@@ -43,7 +43,8 @@ io.on('connection', function(socket) {
 	// listen for user sending initial question
 	socket.on('guesserAskedQuestion', function(question) {
 		console.log('question received:', question);
-		io.emit('sendingGuesserQuestion', question)
+		// send question to panel.waitingForQuestion
+		io.emit('sendingGuesserQuestion', question);
 	});
 });
 
