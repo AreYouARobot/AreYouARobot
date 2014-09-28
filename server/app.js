@@ -30,9 +30,10 @@ http.listen(port);
 console.log('Server running on port %d', port);
 
 var messages = [];
+
 io.on('connection', function(socket) {
 	console.log('a user connected');
-	socket.on('disconnet', function() {
+	socket.on('disconnect', function() {
 		console.log('user disconnected');
 	});
 	

@@ -25,11 +25,8 @@ module.exports = function(app, express) {
 	var messagesRouter = express.Router();
 
 	app.use('/api/user', userRouter); // User router for all user requests
-	app.use('/api/messages', messagesRouter); // Messages router for all messages requests
 	app.use(helpers.errorLogger);
 	app.use(helpers.errorHandler); 
-
-	require('../api/messages/messages.router.js')(messagesRouter);
 	// require('../api/user/user.router.js')(userRouter);
 
 };
