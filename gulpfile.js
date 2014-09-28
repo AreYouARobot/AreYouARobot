@@ -23,12 +23,13 @@ gulp.task('test', function (cb) {
   karma.start({
     configFile: __dirname + '/karma.conf.js',
     singleRun: true
-  }, function() {
-    gulp.src(['server/api/messages/messages.spec.js', 'server/api/user/user.spec.js'])
-      .pipe(mocha())
-      .on('end', function() {
-        process.exit(0);
-      });
+  // }, function() {
+  //   gulp.src(['server/api/user/user.spec.js'])
+  //     .pipe(mocha())
+  //     .on('end', function() {
+  //       console.log('hit end');
+  //       process.exit(0);
+  //     });
   })
 });
 

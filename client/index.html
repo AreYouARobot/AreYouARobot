@@ -4,23 +4,12 @@
     <link rel="stylesheet" href="app/app.css" />
     <link rel="stylesheet" href="app/homepage/homepage.css"/>
     <link rel="stylesheet" href="app/profile/profile.css"/>
-    <link rel="stylesheet" href="app/chatroom/chatroom.css"/>
-    <link rel="stylesheet" href="app/testingExample/testingExample.css"/>
-    <link rel="stylesheet" href="app/question/question.css" />
+    <link rel="stylesheet" href="app/game/game.css"/>
   </head>
 
   <body ng-app="AYARApp">
     <div id="fb-root"></div>
-    <!-- angular stuff goes in here -->
-    <!--header/navbar-->
-    <!-- <h1>TEST HEADER!</h1> -->
-    <!-- <div id="nav">
-    <a ui-sref="homepage">Homepage</a>
-    <a ui-sref="profile">Profile</a>
-    <a ui-sref="chatroom">Chatroom</a>
-    <a ui-sref="testingExample">Test</a>
-    <a ui-sref="question">?</a>
-    </div> -->
+
     <img id="main" src="http://www.robotaton.com/images/blogbot.png" />
     <div ui-view></div>
 
@@ -33,18 +22,45 @@
     <script src="app/homepage/homepage.js"></script>
     <script src="app/profile/profile.controller.js"></script>
     <script src="app/profile/profile.js"></script>
-    <script src="app/chatroom/chatroom.controller.js"></script>
-    <script src="app/chatroom/chatroom.js"></script>
-    <script src="app/chatroom/robotFactory.js"></script>
-    <script src="app/testingExample/testingExample.controller.js"></script>
-    <script src="app/testingExample/testingExample.controller1.js"></script>
-    <script src="app/testingExample/testingExample.controller2.js"></script>
-    <script src="app/testingExample/testingExample.controller3.js"></script>
-    <script src="app/testingExample/testingExample.controller4.js"></script>
-    <script src="app/testingExample/testingExample.controller5.js"></script>
-    <script src="app/testingExample/testingExample.controller6.js"></script>
-    <script src="app/testingExample/testingExample.js"></script>
-    <script src="app/question/question.js"></script>
-    <script src="app/question/question.controller.js"></script>
+    <script src="app/game/game.controller.js"></script>
+    <script src="app/game/game.js"></script>
+
+    <script src="app/game/game.all.chooseAnswer/game.all.chooseAnswer.controller.js"></script>
+    <script src="app/game/game.all.chooseAnswer/game.all.chooseAnswer.js"></script>
+
+    <script src="app/game/game.all.createOrJoinGame/game.all.createOrJoinGame.controller.js"></script>
+    <script src="app/game/game.all.createOrJoinGame/game.all.createOrJoinGame.js"></script>
+
+    <script src="app/game/game.all.createOrJoinGame/game.createNewGame/game.createNewGame.controller.js"></script>
+    <script src="app/game/game.all.createOrJoinGame/game.createNewGame/game.createNewGame.js"></script>
+
+    <script src="app/game/game.all.createOrJoinGame/game.joinExistingGame/game.joinExistingGame.controller.js"></script>
+    <script src="app/game/game.all.createOrJoinGame/game.joinExistingGame/game.joinExistingGame.js"></script>
+
+    <script src="app/game/game.all.displayResults/game.all.displayResults.controller.js"></script>
+    <script src="app/game/game.all.displayResults/game.all.displayResults.js"></script>
+
+    <script src="app/game/game.all.lobby/game.all.lobby.controller.js"></script>
+    <script src="app/game/game.all.lobby/game.all.lobby.js"></script>
+
+    <script src="app/game/game.guesser.askQuestion/game.guesser.askQuestion.controller.js"></script>
+    <script src="app/game/game.guesser.askQuestion/game.guesser.askQuestion.js"></script>
+
+    <script src="app/game/game.guesser.waitingForResponses/game.guesser.waitingForResponses.controller.js"></script>
+    <script src="app/game/game.guesser.waitingForResponses/game.guesser.waitingForResponses.js"></script>
+
+    <script src="app/game/game.panel.giveAnswer/game.panel.giveAnswer.controller.js"></script>
+    <script src="app/game/game.panel.giveAnswer/game.panel.giveAnswer.js"></script>
+
+    <script src="app/game/game.panel.waitingForQuestion/game.panel.waitingForQuestion.controller.js"></script>
+    <script src="app/game/game.panel.waitingForQuestion/game.panel.waitingForQuestion.js"></script>
+
+    <script src="app/game/game.panel.waitingForResponses/game.panel.waitingForResponses.controller.js"></script>
+    <script src="app/game/game.panel.waitingForResponses/game.panel.waitingForResponses.js"></script>
+
     <script src="http://connect.facebook.net/en_US/all.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      // var socket = io();
+    </script>
   </body>
