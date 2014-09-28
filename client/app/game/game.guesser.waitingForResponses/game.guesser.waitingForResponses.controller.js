@@ -2,5 +2,5 @@
 
 angular.module('AYARApp')
 	.controller('GuesserWaitingForResponsesController', function($scope) {
-		$scope.text1 = 'waiting';
+		// $scope.text1 = 'waiting';
 	});
