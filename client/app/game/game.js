@@ -43,6 +43,12 @@ angular.module('AYARApp')
         url: '/panelWaitingForResponses',
         templateUrl: '/app/game/game.panel.waitingForResponses/game.panel.waitingForResponses.html',
         controller: 'PanelWaitingForResponsesController'
+      })
+      // New View
+      .state('game.panelWaitingForQuestion', {
+        url: '/panelWaitingForQuestion',
+        templateUrl: '/app/game/game.panel.waitingForQuestion/game.panel.waitingForQuestion.html',
+        controller: 'PanelWaitingForQuestionController'
       });
   });
 
