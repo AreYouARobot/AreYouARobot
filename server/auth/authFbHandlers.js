@@ -60,14 +60,18 @@ var checkIfUserExists = function(profileData) {
 
 // Might refactor all of this into Q for promisifying stuff.
 // Reference Shortly-Angular
+
 var updateUserProfile = function(userModel, fbProfileInfo, accessToken) {
 	console.log("INSIDE UPDATEUSERPROFILE");
-	var updateUser = Q.nbind(userModel.update, User);
-	return updateUser({facebook_user_id: fbProfileInfo.id}, {
-		facebook_access_token: accessToken
+	console.log("userModel is this: ", userModel);
+	var updateUser = Q.nbind(User.findOne, User);
+	return updateUser({facebook_user_id: fbProfileInfo.id})
+		.then(function(user) {
+			user.facebook_access_token = accessToken;
+			user.save();
+			return user;
 		})
-		// REDO THIS FUNCTION!!!
-		.then(function() {
+		.then(function(user) {
 			console.log("INSIDE UPDATEUSERPROFILE CALLBACK");
 			console.log(user, "this is user INSIDE UPDATEUSERPROFILE");
 			var isNewUser = true;
