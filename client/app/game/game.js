@@ -45,11 +45,35 @@ angular.module('AYARApp')
         templateUrl: '/app/game/game.panel.waitingForResponses/game.panel.waitingForResponses.html',
         controller: 'PanelWaitingForResponsesController'
       })
-      // New View
+      // New View -- Panel Waiting For Question From Guesser
       .state('game.panelWaitingForQuestion', {
         url: '/panelWaitingForQuestion',
         templateUrl: '/app/game/game.panel.waitingForQuestion/game.panel.waitingForQuestion.html',
         controller: 'PanelWaitingForQuestionController'
+      })
+      // New View -- Create / Join Game
+      .state('game.createOrJoinGame', {
+        url: '/allCreateOrJoinGame',
+        templateUrl: '/app/game/game.all.createOrJoinGame/game.all.createOrJoinGame.html',
+        controller: 'AllCreateOrJoinGameController'
+      })
+      // New View -- Create New Game
+      .state('game.createGame', {
+        url: '/allCreateGame',
+        templateUrl: '/app/game/game.all.createOrJoinGame/game.createNewGame/game.createNewGame.html',
+        controller: 'AllCreateGameController'
+      })
+      // New View -- Join Existing Game
+      .state('game.joinGame', {
+        url: '/allJoinGame',
+        templateUrl: '/app/game/game.all.createOrJoinGame/game.joinExistingGame/game.joinExistingGame.html',
+        controller: 'AllJoinGameController'
+      })
+      // New View -- Lobby
+      .state('game.lobby', {
+        url: '/lobby',
+        templateUrl: '/app/game/game.all.lobby/game.all.lobby.html',
+        controller: 'AllLobbyController'
       });
   });
 
