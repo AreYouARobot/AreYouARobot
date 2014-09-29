@@ -22,13 +22,13 @@ angular.module('AYARApp')
       })
       // Old View 3
       .state('game.allChooseAnswer', {
-        url: '/allChooseAnswer',
+        url: '/allChooseAnswer?responses',
         templateUrl: '/app/game/game.all.chooseAnswer/game.all.chooseAnswer.html',
         controller: 'AllChooseAnswerController'
       })
       // Old View 4
       .state('game.allDisplayResults', {
-        url: '/allDisplayResults',
+        url: '/allDisplayResults?result',
         templateUrl: '/app/game/game.all.displayResults/game.all.displayResults.html',
         controller: 'AllDisplayResultsController'
       })

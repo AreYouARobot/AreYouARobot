@@ -41,7 +41,7 @@ h1 {
   font-family: Snacker Comic Personal Use Only;
 }
 
-.questionInput {
+.questionInput, .answerInput {
   font-family: Snacker Comic Personal Use Only;
   font-size: 40px;
   text-align: center;

@@ -29,7 +29,7 @@ if(database.seedDB) { require('./config/seed'); };
 http.listen(port);
 console.log('Server running on port %d', port);
 
-var messages = [];
+var panelResponses = ['robot response'];
 
 io.on('connection', function(socket) {
 	// console when a user connects to the game and nest all events within
@@ -40,11 +40,45 @@ io.on('connection', function(socket) {
 		console.log('user disconnected');
 	});
 	
-	// listen for user sending initial question
+	// listen for guesser sending initial question
 	socket.on('guesserAskedQuestion', function(question) {
 		console.log('question received:', question);
 		// send question to panel.waitingForQuestion
 		io.emit('sendingGuesserQuestion', question);
+	});
+
+	// listen for panel responses
+	socket.on('panelSentAnswer', function(answer) {
+		console.log('response received:', answer);
+		
+		// push to list of responses
+		panelResponses.push(answer);
+
+		// check responses
+		console.log('panelResponses:', panelResponses);
+
+		// check if list of responses is equal to number of players (including robot)
+		if (panelResponses.length === 3) {
+			// if so, emit responses to all
+			io.emit('sendingAllResponses', panelResponses);
+		}
+	});
+	
+	// listen for guesser to choose answer
+	// NEED TO RESTRICT THIS TO ONLY RESPONSES FROM THE GUESSER AND NOT PANEL
+	socket.on('guesserChoseAnswer', function(answer) {
+		console.log('guess received', answer);
+
+		// temp winning/losing logic
+		if (answer === panelResponses[0]) {
+			var result = 'Guesser chose correctly!';
+		} else {
+			var result = 'Guesser chose wrong! Bot response was: ' + panelResponses[0];
+		}
+
+		console.log('result sending:', result);
+
+		io.emit('displayResults', result);
 	});
 });
 

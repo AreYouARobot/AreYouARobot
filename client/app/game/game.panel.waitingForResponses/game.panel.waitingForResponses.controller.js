@@ -1,8 +1,12 @@
 'use strict';
 
 angular.module('AYARApp')
-	.controller('PanelWaitingForResponsesController', function($scope) {
-		$scope.testFunction = function(test) {
-			return test;
-		};
+	.controller('PanelWaitingForResponsesController', function($scope, $state) {
+		socket.on('sendingAllResponses', function(responses) {
+			console.log('got responses', responses);
+			$scope.$apply(function() {
+				$scope.responses = responses;
+			});
+			$state.go('game.allChooseAnswer', {responses: $scope.responses});
+		});
 	});
