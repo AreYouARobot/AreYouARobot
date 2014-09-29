@@ -77,7 +77,7 @@
 			$('.fblogin').click(function() {
 				console.log("this fb login button works");
 				var sendtoFB = function() {
-					window.location.assign('https://www.facebook.com/dialog/oauth?client_id=856871080999075&display=popup&redirect_uri=http://localhost:8085/testindex.html');
+					window.location.assign('https://www.facebook.com/dialog/oauth?client_id=856871080999075&display=popup&redirect_uri=http://localhost:8085/testindex.html&scope=email');
 					var url = window.location.search;
 					console.log(url, "this is url in the sendtoFB function");
 				}
@@ -105,7 +105,8 @@
 
 			var sendAuthCode = function(codeUrl) {
 				var code = codeUrl.split('code=')[1];
-				// console.log(code, "this is the code isolated");
+				console.log(codeUrl, "this is codeUrl");
+				console.log(code, "this is the code isolated");
 				$.ajax({
 					url: 'auth/fb',
 					method: 'POST',
