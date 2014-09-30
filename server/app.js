@@ -29,7 +29,10 @@ if(database.seedDB) { require('./config/seed'); };
 http.listen(port);
 console.log('Server running on port %d', port);
 
+// *************************** SOCKET.IO STUFF ***************************** //
+
 var panelResponses = ['robot response'];
+var players = {};
 
 io.on('connection', function(socket) {
 	// console when a user connects to the game and nest all events within
@@ -40,6 +43,26 @@ io.on('connection', function(socket) {
 		console.log('user disconnected');
 	});
 	
+	// listen for creation/joining of new game using roomID
+	socket.on('joinGame', function(gameInfo) {
+		console.log('got a player', gameInfo);
+
+		if (!players[gameInfo.gameID]) {
+			players[gameInfo.gameID] = [];
+		}
+
+		players[gameInfo.gameID].push(gameInfo.playerName);
+		
+		var room = gameInfo.gameID;
+
+		socket.join(room);
+
+		if (players[gameInfo.gameID].length === 3) {
+			console.log('emitting gameStart with', players[gameInfo.gameID]);
+			io.in(room).emit('gameStart', players[gameInfo.gameID]);
+		}
+	});
+
 	// listen for guesser sending initial question
 	socket.on('guesserAskedQuestion', function(question) {
 		console.log('question received:', question);
@@ -80,6 +103,7 @@ io.on('connection', function(socket) {
 
 		io.emit('displayResults', result);
 	});
+
 });
 
 exports = module.exports = app;

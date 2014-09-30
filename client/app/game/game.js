@@ -71,10 +71,17 @@ angular.module('AYARApp')
       })
       // New View -- Lobby
       .state('game.lobby', {
-        url: '/lobby',
+        url: '/lobby?players',
         templateUrl: '/app/game/game.all.lobby/game.all.lobby.html',
         controller: 'AllLobbyController'
-      });
+      })
+      // New View -- Waiting For Players To Join
+      .state('game.waitForStart', {
+        url: '/allWaitForStart',
+        templateUrl: '/app/game/game.all.waitForStart/game.all.waitForStart.html',
+        controller: 'AllWaitForStartController'
+      })      
+      ;
   });
 
 
