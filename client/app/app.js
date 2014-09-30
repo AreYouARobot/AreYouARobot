@@ -52,7 +52,7 @@
 // angular.module('AYARApp', [
 //   'ui.router'
 //   ])
-// 	.config(['$urlRouterProvider', function ($urlRouterProvider) {
+//  .config(['$urlRouterProvider', function ($urlRouterProvider) {
 //     $urlRouterProvider
 //       // .when('/code=', '/game')
 //       .otherwise('/login');
