@@ -12,7 +12,7 @@ var UserSchema = new Schema({
 	points: Number,
 	achievements: Array,
 	completed_setup: Boolean,
-	time: {type: Date, default: Date.now }
+	ceatedDateTime: {type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model('User', UserSchema);

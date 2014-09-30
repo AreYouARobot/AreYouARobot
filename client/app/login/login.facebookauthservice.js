@@ -7,7 +7,7 @@ angular.module('AYARApp')
       var newBrowserWindow;
       var deferred;
 
-      loginUrlWithParameters = loginUrlWithParameters + facebookParams.oauthRedirectUrl;
+      loginUrlWithParameters = loginUrlWithParameters + facebookParams.oauthRedirectUrlLocal;
 
       $window._app.oauthCallback = function (url) {
         console.log(url, "THIS IS URL");
@@ -50,7 +50,7 @@ angular.module('AYARApp')
 
 
 
-
+// CODE COULD BE REFACTORED USABLE
 
   // .factory('fbAuth', ['facebookParams', '$window', '$q', 'Restangular', '$state', function(facebookParams, $window, $q, Restangular, $state) {
 

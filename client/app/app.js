@@ -47,6 +47,8 @@
 
 })();
 
+// KEEP CODE IN CASE I WANT TO REFACTOR INTO NON-IIFE
+
 // angular.module('AYARApp', [
 //   'ui.router'
 //   ])
@@ -55,4 +57,3 @@
 //       // .when('/code=', '/game')
 //       .otherwise('/login');
 //   }])
-
