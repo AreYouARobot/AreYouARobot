@@ -25,19 +25,21 @@ angular.module('AYARApp')
       this.sendAuthCode = function(url){
         console.log("THIS IS THE URL PARAM: ", url);
         var code = url.split('code=')[1];
+        console.log(code, "THIS IS THE CODE SENT TO SERVER");
 
         return Restangular.all('auth/fb')
           .post({code: code})
           .then(function(data){
+            console.log("MADE IT TO RECEIVING JWT");
+            console.log(data, "THIS IS THE JWT");
             $window.localStorage.jwt = data.token;
             $window.localStorage.firstName = data.fbProfileInfo.first_name;
-            });
-            //REMOVE WHEN NOT IN USE
-            // profileInfo = data.fbProfileInfo;
 
-          // .catch(function(error){
-          //   console.log('Failed to convert access code to Token: ', error);
-          // });
+            $state.go('homepage');
+          })
+          .catch(function(error){
+            console.log('Failed to convert access code to Token: ', error);
+          });
 
       //REMOVE WHEN NOT IN USE
       var profileInfo;

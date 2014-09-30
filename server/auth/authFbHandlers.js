@@ -18,6 +18,7 @@ var exchangeCodeForToken = function(accessCode){
   var fbTokenUrl = fbTokenUrlGenerator(accessCode);
   console.log(fbTokenUrl, "this is fbTokenUrl that uses the fbTokenUrlGenerator+AccessCode");
   var parseToken = function(data){
+  	console.log(data, "THIS IS DATA FROM FB REQ");
     var token = data[1].split('=')[1].split('&expires')[0];
     console.log(token, "this is token");
     return token;
