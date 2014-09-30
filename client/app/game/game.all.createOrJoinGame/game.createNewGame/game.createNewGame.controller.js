@@ -1,17 +1,13 @@
 'use strict';
 
 angular.module('AYARApp')
-	.controller('AllCreateGameController', function($scope, $state) {
+	.controller('AllCreateGameController', function($scope, $state, gameStorage) {
+		// create random Game ID upon instantiation
 		$scope.gameID = Math.floor(Math.random() * 9999);
 
-		$scope.joinGame = function() {
-			// need to send broadcast here
-			
-			socket.emit('joinGame', {
-				gameID: $scope.gameID,
-				playerName: $scope.playerName
-			});
-			
-			$state.go('game.waitForStart');
+		// create new game and join game upon click
+		$scope.createGame = function() {
+			gameStorage.createGame($scope.gameID, $scope.playerName);
+			$state.go('game.lobby', {room: $scope.gameID});
 		};
 	});

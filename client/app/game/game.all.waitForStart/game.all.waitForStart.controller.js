@@ -1,12 +1,19 @@
-'use strict';
+// 'use strict';
 
-angular.module('AYARApp')
-	.controller('AllWaitForStartController', function($scope, $state) {
-		socket.on('gameStart', function(players) {
-			console.log('got players', players);
-			$scope.$apply(function() {
-				$scope.players = players;
-			});
-			$state.go('game.lobby', {players: $scope.players});
-		});
-	});
+// angular.module('AYARApp')
+// 	.controller('AllWaitForStartController', function(myStorage, $scope, $state, mySocket) {
+// 		// socket.on('gameStart', function(newGame) {
+// 		// 	console.log('got a new game!', newGame);
+// 		// 	$scope.$apply(function() {
+// 		// 		$scope.game = newGame;
+// 		// 	});
+// 		// 	$state.go('game.lobby', {game: $scope.game});
+// 		// });
+// 		socket.on('gameStart', function(newGame) {
+// 			console.log('got a new game!', newGame);
+// 			$scope.$apply(function() {
+// 				$scope.game = newGame;
+// 			});
+// 			$state.go('game.lobby', {game: $scope.game});
+// 		});
+// 	});
