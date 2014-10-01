@@ -1,5 +1,7 @@
 'use strict'
 
+// How does this play with SocketIO?
+// I would need the JWT to obtain the OBJECT ID? 
 
 var decideWinner = function() {
 	// Need to take guesser's answer selection, and bot's answer 
@@ -31,3 +33,5 @@ var updateUserScoresInDB = function() {
 
 
 // Since there are multiple individuals' scores to update, loop through every object in an array to be updated? Batch queries? Need to research
+
+
