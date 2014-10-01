@@ -7,4 +7,3 @@ angular.module('AYARApp')
 		oauthRedirectUrlLocal: 'http://localhost:8085/oauthcallback.html',
 		oauthRedirectUrlDeployed: ''
 	})
-	
