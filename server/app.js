@@ -189,6 +189,7 @@ io.on('connection', function(socket) {
 
 		if (activeGames[room].answers.length === 3) {
 			console.log('sending panel answers in five seconds!');
+			
 			setTimeout(function() {
 				console.log('sending panel answers in ', activeGames[room]);
 				

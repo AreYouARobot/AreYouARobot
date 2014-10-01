@@ -3,7 +3,7 @@
 angular.module('AYARApp')
 	.controller('AllLobbyController', function($scope, $state, $stateParams, gameStorage) {
 		// set players equal to players associated with that room
-		$scope.game = gameStorage.get($stateParams.room);
+		$scope.game = $stateParams.room;
 
 		// set up listening event for player who is guesser
 		socket.on('startGuesser', function(room) {

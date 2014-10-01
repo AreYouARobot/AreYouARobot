@@ -1,16 +1,12 @@
 'use strict';
 
 angular.module('AYARApp', [
-  'ui.router',
-  'btford.socket-io'
+  'ui.router'
   ])
 	.config(function ($urlRouterProvider) {
     $urlRouterProvider
       .otherwise('/');
     })
-  .factory('mySocket', function (socketFactory) {
-    return socketFactory();
-  })
   .run(function ($rootScope, $window) {
     $window.fbAsyncInit = function() {
         // Executed when the SDK is loaded
