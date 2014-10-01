@@ -125,6 +125,10 @@ angular.module('AYARApp')
   		// }
   		socket.emit('guesserChoseAnswer', answer, room)
   	};
+
+  	this.gameNextTurn = function(room) {
+  		socket.emit('gameNextTurn', room);
+  	};
   	
   	// listen for response from server to display results
   	// socket.on('displayResults', function(result) {

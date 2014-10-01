@@ -67,6 +67,7 @@ io.on('connection', function(socket) {
 				playerName: socket.nickname,
 				playerID: socket.id
 			}],
+			currentGuesserIndex: 0,
 			question: '',
 			answers: [],
 			gameResult: ''
@@ -111,9 +112,16 @@ io.on('connection', function(socket) {
 				console.log('starting game in gameInstance', activeGames[room]);
 				
 				// send different messages to guesser and panel to start game
-				io.sockets.connected[activeGames[room].players[0].playerID].emit('startGuesser', activeGames[room]);
-				io.sockets.connected[activeGames[room].players[1].playerID].emit('startPanel', activeGames[room]);
-				io.sockets.connected[activeGames[room].players[2].playerID].emit('startPanel', activeGames[room]);
+				for (var i = 0; i < activeGames[room].players.length; i++) {
+					if (i === activeGames[room].currentGuesserIndex) {
+						io.sockets.connected[activeGames[room].players[i].playerID].emit('startGuesser', activeGames[room]);		
+					} else {
+						io.sockets.connected[activeGames[room].players[i].playerID].emit('startPanel', activeGames[room]);		
+					}
+				}
+				// io.sockets.connected[activeGames[room].players[0].playerID].emit('startGuesser', activeGames[room]);
+				// io.sockets.connected[activeGames[room].players[1].playerID].emit('startPanel', activeGames[room]);
+				// io.sockets.connected[activeGames[room].players[2].playerID].emit('startPanel', activeGames[room]);
 			}, 5000);
 		}
 	});
@@ -144,11 +152,20 @@ io.on('connection', function(socket) {
 
 		// see what activeGames looks like at this point
 		console.log('activeGames[room] is', activeGames[room]);
+
+		// send different messages to guesser and panel to start game
+		for (var i = 0; i < activeGames[room].players.length; i++) {
+			if (i === activeGames[room].currentGuesserIndex) {
+				io.sockets.connected[activeGames[room].players[i].playerID].emit('guesserWait', activeGames[room]);		
+			} else {
+				io.sockets.connected[activeGames[room].players[i].playerID].emit('sendPanelQuestion', activeGames[room]);		
+			}
+		}
 		
 		// trigger panel to switch views and act
-		io.sockets.connected[activeGames[room].players[0].playerID].emit('guesserWait', activeGames[room]);
-		io.sockets.connected[activeGames[room].players[1].playerID].emit('sendPanelQuestion', activeGames[room]);
-		io.sockets.connected[activeGames[room].players[2].playerID].emit('sendPanelQuestion', activeGames[room]);
+		// io.sockets.connected[activeGames[room].players[0].playerID].emit('guesserWait', activeGames[room]);
+		// io.sockets.connected[activeGames[room].players[1].playerID].emit('sendPanelQuestion', activeGames[room]);
+		// io.sockets.connected[activeGames[room].players[2].playerID].emit('sendPanelQuestion', activeGames[room]);
 	});
 
 	// // listen for all panel responses
@@ -210,6 +227,41 @@ io.on('connection', function(socket) {
 		}, 5000);
 	});
 
+	socket.on('gameNextTurn', function(room) {
+		console.log('starting new round in room', room);
+		// update currentGuesserIndex to move to next player
+		activeGames[room].currentGuesserIndex++;
+
+		// check to see if game is over
+		if (activeGames[room].currentGuesserIndex >= activeGames[room].players.length) {
+			io.in(room).emit('gameOver');
+		}
+
+		// if game is not over, continue to next round
+		// reset question, answers, and gameResult
+		activeGames[room].question = '';
+		activeGames[room].answers = [];
+		activeGames[room].gameResult = '';
+
+		if (activeGames[room].players.length === 3) {
+			console.log('starting new game in five seconds!');
+			setTimeout(function() {
+				console.log('starting game in gameInstance', activeGames[room]);
+				
+				// send different messages to guesser and panel to start game
+				for (var i = 0; i < activeGames[room].players.length; i++) {
+					if (i === activeGames[room].currentGuesserIndex) {
+						io.sockets.connected[activeGames[room].players[i].playerID].emit('startGuesser', activeGames[room]);		
+					} else {
+						io.sockets.connected[activeGames[room].players[i].playerID].emit('startPanel', activeGames[room]);		
+					}
+				}
+				// io.sockets.connected[activeGames[room].players[0].playerID].emit('startGuesser', activeGames[room]);
+				// io.sockets.connected[activeGames[room].players[1].playerID].emit('startPanel', activeGames[room]);
+				// io.sockets.connected[activeGames[room].players[2].playerID].emit('startPanel', activeGames[room]);
+			}, 5000);
+		}
+	});
 
 
 });
