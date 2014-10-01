@@ -1,6 +1,6 @@
-<p class="speech"><b>What is your favorite sport?</p>
-<h1 class="robotSpeech">Robot says: 'My favorite sport is badminton'</h1>
+<p class="speech"><b>Guesser Question: {{game.question}}</p>
+<h4 class="robotSpeech">Robot says: {{game.answers[0].answer}}</h4>
 <form class="question">
-<input ng-model="question" class="questionInput" style="margin-top: 50px" type="text" placeholder="What is your answer?"></input>
-<button ng-click="goToNextView()" class="submitQuestion">Submit</button>
+	<input ng-model="answer" class="answerInput" style="margin-top: 50px" type="text" placeholder="What is your answer?"></input>
+	<button ng-click="panelSendAnswer()" class="submitQuestion">Submit</button>
 </form>

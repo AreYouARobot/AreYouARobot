@@ -1,3 +1,2 @@
-<button ng-click="goToNextView()" class="answer">I like King James, not LeBron</button>
-<button ng-click="goToNextView()" class="answer">I like apples</button>
-<button ng-click="goToNextView()" class="answer">My favorite sport is badminton</button>
+<h3>Question: {{game.question}}</h3>
+<button ng-click="guesserChooseAnswer(answer)" class="answer" ng-repeat="answer in game.answers">{{answer.answer}}</button>

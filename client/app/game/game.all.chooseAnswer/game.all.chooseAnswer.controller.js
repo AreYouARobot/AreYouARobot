@@ -1,8 +1,23 @@
 'use strict';
 
 angular.module('AYARApp')
-  .controller('AllChooseAnswerController', function($scope, $state) {
-    // $scope.goToNextView = function() {
-    //   $state.go('testingExample.view4');
-    // };
+  .controller('AllChooseAnswerController', function(gameStorage, $scope, $state, $stateParams) {
+  	console.log('you have made it this far with responses.', $stateParams.room.answers);
+		
+		$scope.game = $stateParams.room;
+		
+		// $scope.question = $stateParams.room.question;
+		// $scope.answers = $stateParams.room.answers;
+		console.log('$stateParams.room in AllChooseAnswerController is:', $stateParams.room);
+		
+		$scope.guesserChooseAnswer = function(answer) {
+			gameStorage.guesserChooseAnswer(answer, $stateParams.room.room);
+		};
+
+		socket.on('displayResults', function(room) {
+			console.log('room in displayResults emit is', room);
+			$state.go('game.allDisplayResults', {room: room});
+		});
+
   });
+  

@@ -1,10 +1,14 @@
 <div>
-  <h1 class="robotSpeech">Robot says: "My favorite sport is badminton"</h1>
+  <!-- <h1 class="robotSpeech">Robot says: "My favorite sport is badminton"</h1> -->
   <div align="center">
   <br/>
   <br/>
   <div align="center">
-    <table class="scoreboard">
+    <h3>Question: {{game.question}}</h3>
+    <h3>Choice: {{game.guesserChoice}}</h3>
+    <h3>Game Result: {{game.gameResult}}</h3>
+    <button ng-click="gameNextTurn()">Play next turn</button>
+    <!-- <table class="scoreboard">
       <tr>
         <td>Chris</td>
         <td>110</td>
@@ -21,6 +25,6 @@
         <td>Collin</td>
         <td>0</td>
       </tr>
-    </table>
+    </table> -->
   </div>
 </div>
