@@ -1,79 +1,59 @@
 'use strict';
 
-angular.module('AYARApp', [
-  'ui.router'
-  ])
-	.config(function ($urlRouterProvider) {
-    $urlRouterProvider
-      .otherwise('/');
-    })
-  .run(function ($rootScope, $window) {
-    $window.fbAsyncInit = function() {
-        // Executed when the SDK is loaded
+(function(){
 
-        FB.init({
+  //Global object for storing callback functions
+  window._app = {};
 
-          /*
-           The app id of the web app;
-           To register a new app visit Facebook App Dashboard
-           ( https://developers.facebook.com/apps/ )
-          */
+  var defaultRouteConfig = function($urlRouterProvider){
+    $urlRouterProvider.otherwise('/login');
+  };
 
-          appId: '856871080999075',
+  var restangularConfig = function(Restangular, $window, $state){
 
-          /*
-           Adding a Channel File improves the performance
-           of the javascript SDK, by addressing issues
-           with cross-domain communication in certain browsers.
-          */
-
-          // channelUrl: 'app/channel.html',
-
-          /*
-           Set if you want to check the authentication status
-           at the start up of the app
-          */
-
-          status: true,
-
-          /*
-           Enable cookies to allow the server to access
-           the session
-          */
-
-          cookie: true,
-
-          /* Parse XFBML */
-
-          xfbml: true
-        });
-
-        // sAuth.watchAuthenticationStatusChange();
-
+    var jwtRequestInterceptor = function(element, operation, route, url, headers, params, httpConfig){
+      var jwt = $window.localStorage.getItem('jwt');
+      if (jwt){
+        headers['x-access-token'] = jwt;
+      }
+      return {
+        headers: headers
       };
+    };
 
-      // Are you familiar to IIFE ( http://bit.ly/iifewdb ) ?
+    var errorResponseInterceptor = function(response, deferred, responseHandler) {
+      var isUnauthorized = response.status === 401;
+      var routeToLogin = response.data ? response.data.routeToLogin : false;
 
-      (function(d){
-        // load the Facebook javascript SDK
+      if (isUnauthorized && routeToLogin){
+        console.log('Unauthorized, Error Response Interceptor: ', response);
+        $state.go('login');
+      }
+    };
 
-        var js,
-        id = 'facebook-jssdk',
-        ref = d.getElementsByTagName('script')[0];
+    Restangular.setErrorInterceptor(errorResponseInterceptor);
+    Restangular.addFullRequestInterceptor(jwtRequestInterceptor);
+  };
 
-        if (d.getElementById(id)) {
-          return;
-        }
+  angular
+    .module('AYARApp', [
+      'ui.router',
+      'restangular'
+      ])
 
-        js = d.createElement('script');
-        js.id = id;
-        js.async = true;
-        js.src = "//connect.facebook.net/en_US/all.js";
+    .config(['$urlRouterProvider', defaultRouteConfig])
 
-        ref.parentNode.insertBefore(js, ref);
+    .run(['Restangular', '$window', '$state', restangularConfig])
 
-      }(document));
+})();
 
-  });
+// KEEP CODE IN CASE I WANT TO REFACTOR INTO NON-IIFE
 
-//some config and dependencies will go here
+// angular.module('AYARApp', [
+//   'ui.router'
+//   ])
+//  .config(['$urlRouterProvider', function ($urlRouterProvider) {
+//     $urlRouterProvider
+//       // .when('/code=', '/game')
+//       .otherwise('/login');
+//   }])
