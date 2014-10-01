@@ -5,12 +5,14 @@ angular.module('AYARApp')
   	console.log('you have made it this far with responses.', $stateParams.room.answers);
 		
 		$scope.answers = $stateParams.room.answers;
+		console.log('$stateParams.room in AllChooseAnswerController is:', $stateParams.room);
 		
 		$scope.guesserChooseAnswer = function(answer) {
 			gameStorage.guesserChooseAnswer(answer, $stateParams.room.room);
 		};
 
 		socket.on('displayResults', function(room) {
+			console.log('room in displayResults emit is', room);
 			$state.go('game.allDisplayResults', {room: room});
 		});
 
