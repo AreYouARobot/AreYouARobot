@@ -1,37 +1,10 @@
-'use strict';
-
-// Primary server file
-var express = require('express');
-var app = express();
-
-var mongoose = require('mongoose');
-var database = require('./config/developmentdb.js');
-
-var $storage = require('./storage.js');
+var app = require('./../app.js');
 
 var http = require('http');
 http = http.Server(app);
 
 var io = require('socket.io');
 io = io(http);
-
-var shuffle = require('knuth-shuffle');
-
-// Require bluebird so that as soon as req comes in, promisify it.
-var port = process.env.PORT || 8085;
-
-// Require middleware (also handles initial API routing)
-require('./config/middleware.js')(app, express);
-
-// // Require database connections
-// // mongoose.connect(database); // connect to mongo database named 'areyouarobot-dev'
-mongoose.connect('mongodb://localhost/areyouarobot-dev');
-// // Seed the MongoDB with sample user data
-
-if(database.seedDB) { require('./config/seed'); };
-
-http.listen(port);
-console.log('Server running on port %d', port);
 
 // *************************** SOCKET.IO STUFF ***************************** //
 
@@ -72,7 +45,6 @@ io.on('connection', function(socket) {
 			currentGuesserIndex: 0,
 			question: '',
 			answers: [],
-			guesserChoice: '',
 			gameResult: ''
 		};
 
@@ -192,9 +164,6 @@ io.on('connection', function(socket) {
 
 		if (activeGames[room].answers.length === 3) {
 			console.log('sending panel answers in five seconds!');
-
-			// shuffle answers
-			shuffle.knuthShuffle(activeGames[room].answers);
 			
 			setTimeout(function() {
 				console.log('sending panel answers in ', activeGames[room]);
@@ -210,94 +179,63 @@ io.on('connection', function(socket) {
 		console.log('player answer received in guesserChoseAnswer', answer);
 		console.log('player room received in guesserChoseAnswer', room);
 
-		// check if socket that triggered event is current player
-		if (activeGames[room].players[activeGames[room].currentGuesserIndex].playerID === socket.id) {
-
-			console.log('the guesser is the one that clicked');
-
-			// assign guesser's choice to game instance
-			activeGames[room].guesserChoice = answer.answer;
-
-			// check if answer is correct
-			activeGames[room].answers.forEach(function(panelAnswer) {
-				console.log(panelAnswer, 'panelAnswer is something now in loop');
-				if (panelAnswer.answer === activeGames[room].guesserChoice) {
-					console.log('found the match answer');
-					if (panelAnswer.isBot) {
-						console.log('right');
-						activeGames[room].gameResult = 'Player Guessed Correctly!';
-					} else {
-						console.log('wrong');
-						activeGames[room].gameResult = 'Player Guessed Incorrectly!';
-					}
+		// check if answer is correct
+		activeGames[room].answers.forEach(function(panelAnswer) {
+			console.log(panelAnswer, 'panelAnswer is something now in loop');
+			if (panelAnswer.answer === answer.answer) {
+				console.log('found the match answer');
+				if (panelAnswer.isBot) {
+					console.log('rith');
+					activeGames[room].gameResult = 'Player Guessed Correctly!';
+				} else {
+					console.log('wrong');
+					activeGames[room].gameResult = 'Player Guessed Incorrectly!';
 				}
-			});
+			}
+		});
 
-			console.log('sending game results in five seconds!');
-			setTimeout(function() {
-				console.log('sending game results in ', activeGames[room]);
-				
-				// send to all players in the room
-				io.in(room).emit('displayResults', activeGames[room]);
-			}, 5000);
-		} else {
-			console.log('the guesser is NOTTTTTT the one that clicked');
-		}
+		console.log('sending game results in five seconds!');
+		setTimeout(function() {
+			console.log('sending game results in ', activeGames[room]);
+			
+			// send to all players in the room
+			io.in(room).emit('displayResults', activeGames[room]);
+		}, 5000);
 	});
 
 	socket.on('gameNextTurn', function(room) {
-		if (activeGames[room].players[activeGames[room].currentGuesserIndex].playerID === socket.id) {
+		console.log('starting new round in room', room);
+		// update currentGuesserIndex to move to next player
+		activeGames[room].currentGuesserIndex++;
 
-		console.log('the guesser is the one that clicked');
-		
-			// update currentGuesserIndex to move to next player
-			activeGames[room].currentGuesserIndex++;
+		// check to see if game is over
+		if (activeGames[room].currentGuesserIndex >= activeGames[room].players.length) {
+			io.in(room).emit('gameOver');
+		}
 
-			// check to see if game is over
-			if (activeGames[room].currentGuesserIndex >= activeGames[room].players.length) {
-				// delete game
-				delete activeGames[room];
+		// if game is not over, continue to next round
+		// reset question, answers, and gameResult
+		activeGames[room].question = '';
+		activeGames[room].answers = [];
+		activeGames[room].gameResult = '';
 
-				console.log('double check game is deleted', activeGames);
-
-				// emit gameOver event, taking all users back to create/join page
-				io.in(room).emit('gameOver');
-			} else {
-
-				console.log('starting new round in room', room);
-				// if game is not over, continue to next round
-				// reset question, answers, and gameResult
-				activeGames[room].question = '';
-				activeGames[room].answers = [];
-				activeGames[room].guesserChoice = '';
-				activeGames[room].gameResult = '';
-
-				if (activeGames[room].players.length === 3) {
-					console.log('starting new game in five seconds!');
-					setTimeout(function() {
-						console.log('starting game in gameInstance', activeGames[room]);
-						
-						// send different messages to guesser and panel to start game
-						for (var i = 0; i < activeGames[room].players.length; i++) {
-							if (i === activeGames[room].currentGuesserIndex) {
-								io.sockets.connected[activeGames[room].players[i].playerID].emit('startGuesser', activeGames[room]);		
-							} else {
-								io.sockets.connected[activeGames[room].players[i].playerID].emit('startPanel', activeGames[room]);		
-							}
-						}
-						// io.sockets.connected[activeGames[room].players[0].playerID].emit('startGuesser', activeGames[room]);
-						// io.sockets.connected[activeGames[room].players[1].playerID].emit('startPanel', activeGames[room]);
-						// io.sockets.connected[activeGames[room].players[2].playerID].emit('startPanel', activeGames[room]);
-					}, 5000);
+		if (activeGames[room].players.length === 3) {
+			console.log('starting new game in five seconds!');
+			setTimeout(function() {
+				console.log('starting game in gameInstance', activeGames[room]);
+				
+				// send different messages to guesser and panel to start game
+				for (var i = 0; i < activeGames[room].players.length; i++) {
+					if (i === activeGames[room].currentGuesserIndex) {
+						io.sockets.connected[activeGames[room].players[i].playerID].emit('startGuesser', activeGames[room]);		
+					} else {
+						io.sockets.connected[activeGames[room].players[i].playerID].emit('startPanel', activeGames[room]);		
+					}
 				}
-			}
-		} else {
-			console.log('the guesser is NOTTTTTT the one that clicked');
+				// io.sockets.connected[activeGames[room].players[0].playerID].emit('startGuesser', activeGames[room]);
+				// io.sockets.connected[activeGames[room].players[1].playerID].emit('startPanel', activeGames[room]);
+				// io.sockets.connected[activeGames[room].players[2].playerID].emit('startPanel', activeGames[room]);
+			}, 5000);
 		}
 	});
 });
-
-exports = module.exports = app;
-		// var newG = new $storage()
-		// newG.newGame()
-		// Collection.set(newG)

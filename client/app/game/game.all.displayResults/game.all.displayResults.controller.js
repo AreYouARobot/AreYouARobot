@@ -2,7 +2,8 @@
 
 angular.module('AYARApp')
 	.controller('AllDisplayResultsController', function($scope, $state, $stateParams, gameStorage) {
-		$scope.gameResult = $stateParams.room.gameResult;
+		$scope.game = $stateParams.room;
+		// $scope.gameResult = $stateParams.room.gameResult;
 		console.log('$stateParams.room in DisplayResultsController is:', $stateParams.room);
 		
 		$scope.gameNextTurn = function() {
@@ -21,5 +22,6 @@ angular.module('AYARApp')
 
 		socket.on('gameOver', function() {
 			console.log('Game Over!');
+			$state.go('game.createOrJoinGame');
 		});
 	});

@@ -1,1 +1,2 @@
-<button ng-click="guesserChooseAnswer(answer)" class="answer" ng-repeat="answer in answers">{{answer.answer}}</button>
+<h3>Question: {{game.question}}</h3>
+<button ng-click="guesserChooseAnswer(answer)" class="answer" ng-repeat="answer in game.answers">{{answer.answer}}</button>

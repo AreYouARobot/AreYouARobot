@@ -28,6 +28,8 @@
     "fs": "0.0.2",
     "http": "0.0.0",
     "jsonwebtoken": "^1.1.2",
+    "knuth-shuffle": "^1.0.1",
+    "lodash.shuffle": "^2.4.1",
     "mongoose": "^3.8.16",
     "pos": "^0.1.7",
     "request": "^2.44.0",
