@@ -3,6 +3,12 @@
 // How does this play with SocketIO?
 // I would need the JWT to obtain the OBJECT ID? 
 
+// Is it safe to have the object ids of all active players stored on the server somewhere for each reference?
+// Then once the JWTs of each token are decoded, compare the object id to the stored object ids on the server (cached?)
+// BONUS: Incorporate reddis? Otherwise just use a native javascript object to store this stuff.
+
+
+
 var decideWinner = function() {
 	// Need to take guesser's answer selection, and bot's answer 
 
@@ -28,6 +34,8 @@ var assignScores = function(winner) {
 var updateUserScoresInDB = function() {
 
 	// Takes an object with user identification property and score update property and sends an update query to the Mongo database
+
+	// 
 
 }
 
