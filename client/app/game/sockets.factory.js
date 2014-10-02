@@ -8,7 +8,8 @@ angular.module('AYARApp')
   		console.log('createGame called in service with gameID and playerName', gameID, playerName);
   		socket.emit('createGame', {
   			gameID: gameID,
-  			playerName: playerName
+  			playerName: playerName,
+        playerToken: playerToken
   		});
   	};
 
@@ -16,7 +17,8 @@ angular.module('AYARApp')
   	this.joinGame = function(gameID, playerName, playerToken) {
   		socket.emit('joinGame', {
   			gameID: gameID,
-  			playerName: playerName
+  			playerName: playerName,
+        playerToken: playerToken
   		});
   	};
 

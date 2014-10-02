@@ -62,12 +62,19 @@ io.on('connection', function(socket) {
 		// join room
 		socket.join(room);
 
+// **********************************************
+// THIS IS WHERE DECODE WILL GO
+// var playerObjID = decode(gameInfo.playerToken);
+// **********************************************
+
 		// create a new game to be stored in gameStorage
 		var newGame = {
 			room: room,
 			players: [{
 				playerName: socket.nickname,
-				playerID: socket.id
+				playerID: socket.id,
+				playerObjID: playerObjID,
+				playerCurrentScore: 0
 			}],
 			currentGuesserIndex: 0,
 			question: '',
@@ -77,9 +84,6 @@ io.on('connection', function(socket) {
 		};
 
 		activeGames[room] = newGame;
-
-		// store newGame instance in the service
-		// io.emit('saveNewGame', newGame);
 	});
 
 	// listen for creation/joining of new game using roomID
@@ -97,16 +101,16 @@ io.on('connection', function(socket) {
 		// join room
 		socket.join(room);
 
-		// update existing game with new player
-		// io.emit('updateExistingGame', {
-		// 	room: room,
-		// 	playerName: socket.nickname,
-		// 	playerID: socket.id
-		// });
+// **********************************************
+// THIS IS WHERE DECODE WILL GO
+// var playerObjID = decode(gameInfo.playerToken);
+// **********************************************
 
 		activeGames[room].players.push({
 			playerName: socket.nickname,
-			playerID: socket.id
+			playerID: socket.id,
+			playerObjID: playerObjID,
+			playerCurrentScore: 0
 		});
 
 		if (activeGames[room].players.length === 3) {
@@ -122,23 +126,9 @@ io.on('connection', function(socket) {
 						io.sockets.connected[activeGames[room].players[i].playerID].emit('startPanel', activeGames[room]);		
 					}
 				}
-				// io.sockets.connected[activeGames[room].players[0].playerID].emit('startGuesser', activeGames[room]);
-				// io.sockets.connected[activeGames[room].players[1].playerID].emit('startPanel', activeGames[room]);
-				// io.sockets.connected[activeGames[room].players[2].playerID].emit('startPanel', activeGames[room]);
 			}, 5000);
 		}
 	});
-
-	// listen for response from service, stating that game was saved
-	// start game
-	// socket.on('startGame', function(gameInstance) {
-	// 	console.log('starting game in gameInstance', gameInstance);
-		
-	// 	// send different messages to guesser and panel to start game
-	// 	io.sockets.connected[gameInstance.players[0].playerID].emit('startGuesser', gameInstance.room);
-	// 	io.sockets.connected[gameInstance.players[1].playerID].emit('startPanel', gameInstance.room);
-	// 	io.sockets.connected[gameInstance.players[2].playerID].emit('startPanel', gameInstance.room);
-	// });
 
 	// listen for guesser sending initial question
 	socket.on('guesserSentQuestion', function(question, botResponse, room) {
@@ -150,7 +140,8 @@ io.on('connection', function(socket) {
 		activeGames[room].question = question;
 		activeGames[room].answers.push({
 			answer: botResponse,
-			isBot: true
+			isBot: true,
+			playerID: 'none'
 		});
 
 		// see what activeGames looks like at this point
@@ -164,17 +155,7 @@ io.on('connection', function(socket) {
 				io.sockets.connected[activeGames[room].players[i].playerID].emit('sendPanelQuestion', activeGames[room]);		
 			}
 		}
-		
-		// trigger panel to switch views and act
-		// io.sockets.connected[activeGames[room].players[0].playerID].emit('guesserWait', activeGames[room]);
-		// io.sockets.connected[activeGames[room].players[1].playerID].emit('sendPanelQuestion', activeGames[room]);
-		// io.sockets.connected[activeGames[room].players[2].playerID].emit('sendPanelQuestion', activeGames[room]);
 	});
-
-	// // listen for all panel responses
-	// socket.on('guesserChooseAnswer', function(gameInstance) {
-	// 	console.log('all answers received in panelSendAnswers', gameInstance.answers);
-	// });
 
 	// listen for each panel member to send answer
 	socket.on('panelSentAnswer', function(answer, room) {
@@ -184,7 +165,8 @@ io.on('connection', function(socket) {
 		// store answer
 		activeGames[room].answers.push({
 			answer: answer,
-			isBot: false
+			isBot: false,
+			playerID: socket.id
 		});
 
 		// see what activeGames looks like at this point
@@ -216,7 +198,14 @@ io.on('connection', function(socket) {
 			console.log('the guesser is the one that clicked');
 
 			// assign guesser's choice to game instance
+			// answer is object with text of answer, isBot, and playerID
 			activeGames[room].guesserChoice = answer.answer;
+
+// **********************************************
+// THIS IS WHERE DECIDE WINNER LOGIC WILL GO
+// THIS IS WHERE SCORING LOGIC WILL ALSO GO
+// THIS IS WHERE LEARNING LOGIC FOR ROBOT WILL ALSO GO
+// **********************************************			
 
 			// check if answer is correct
 			activeGames[room].answers.forEach(function(panelAnswer) {
@@ -255,6 +244,11 @@ io.on('connection', function(socket) {
 
 			// check to see if game is over
 			if (activeGames[room].currentGuesserIndex >= activeGames[room].players.length) {
+
+// **********************************************
+// THIS IS WHERE DB LOGIC WILL GO, SENDING PLAYEROBJID AND CURRENTSCORE
+// **********************************************	
+
 				// delete game
 				delete activeGames[room];
 
@@ -285,9 +279,6 @@ io.on('connection', function(socket) {
 								io.sockets.connected[activeGames[room].players[i].playerID].emit('startPanel', activeGames[room]);		
 							}
 						}
-						// io.sockets.connected[activeGames[room].players[0].playerID].emit('startGuesser', activeGames[room]);
-						// io.sockets.connected[activeGames[room].players[1].playerID].emit('startPanel', activeGames[room]);
-						// io.sockets.connected[activeGames[room].players[2].playerID].emit('startPanel', activeGames[room]);
 					}, 5000);
 				}
 			}
@@ -298,6 +289,3 @@ io.on('connection', function(socket) {
 });
 
 exports = module.exports = app;
-		// var newG = new $storage()
-		// newG.newGame()
-		// Collection.set(newG)
