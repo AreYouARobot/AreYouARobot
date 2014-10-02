@@ -53,19 +53,19 @@ angular.module('AYARApp')
       })
       // New View -- Create / Join Game
       .state('game.createOrJoinGame', {
-        url: '/allCreateOrJoinGame',
+        url: '/allCreateOrJoinGame/:jwt',
         templateUrl: '/app/game/game.all.createOrJoinGame/game.all.createOrJoinGame.html',
         controller: 'AllCreateOrJoinGameController'
       })
       // New View -- Create New Game
       .state('game.createGame', {
-        url: '/allCreateGame',
+        url: '/allCreateGame/:jwt',
         templateUrl: '/app/game/game.all.createOrJoinGame/game.createNewGame/game.createNewGame.html',
         controller: 'AllCreateGameController'
       })
       // New View -- Join Existing Game
       .state('game.joinGame', {
-        url: '/allJoinGame',
+        url: '/allJoinGame/:jwt',
         templateUrl: '/app/game/game.all.createOrJoinGame/game.joinExistingGame/game.joinExistingGame.html',
         controller: 'AllJoinGameController'
       })
