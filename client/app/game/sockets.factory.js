@@ -3,7 +3,8 @@
 angular.module('AYARApp')
   .service('gameStorage', function() {
   	// create new game, generating a gameID
-  	this.createGame = function(gameID, playerName) {
+  	this.createGame = function(gameID, playerName, playerToken) {
+      console.log('PLAYER TOKEN', playerToken);
   		console.log('createGame called in service with gameID and playerName', gameID, playerName);
   		socket.emit('createGame', {
   			gameID: gameID,
@@ -12,7 +13,7 @@ angular.module('AYARApp')
   	};
 
   	// join existing game, using a gameID
-  	this.joinGame = function(gameID, playerName) {
+  	this.joinGame = function(gameID, playerName, playerToken) {
   		socket.emit('joinGame', {
   			gameID: gameID,
   			playerName: playerName

@@ -32,10 +32,11 @@ angular.module('AYARApp')
           .then(function(data){
             console.log("MADE IT TO RECEIVING JWT");
             console.log(data, "THIS IS THE JWT");
+            console.log('this is the token', data.token);
             $window.localStorage.jwt = data.token;
             $window.localStorage.firstName = data.fbProfileInfo.first_name;
 
-            $state.go('homepage');
+            $state.go('game.createOrJoinGame', {jwt: data.token});
           })
           .catch(function(error){
             console.log('Failed to convert access code to Token: ', error);
