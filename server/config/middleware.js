@@ -23,6 +23,7 @@ module.exports = function(app, express) {
 	// Routing
 	var userRouter = express.Router();
 	var authHandling = express.Router();
+	var gameHandling = express.Router();
 
 	app.use('/api/user', jwtCheck, userRouter); // User router for all user requests
 	// require('../api/user/user.router.js')(userRouter);
@@ -30,6 +31,9 @@ module.exports = function(app, express) {
 	app.use('/auth', authHandling);
 	require('../auth/authRouting.js')(authHandling);
 	
+	// app.use('/game', jwtCheck, gameHandling);
+	// require('../game/gamerouting.js')(gameHandling);
+
 	app.use(helpers.errorLogger);
 	app.use(helpers.errorHandler); 
 
