@@ -6,6 +6,7 @@ var app = express();
 
 var mongoose = require('mongoose');
 var database = require('./config/developmentdb.js');
+var game = require('./game/mechanics.js');
 
 var $storage = require('./storage.js');
 
