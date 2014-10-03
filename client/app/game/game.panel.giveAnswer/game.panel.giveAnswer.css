@@ -1,0 +1,35 @@
+.face {
+  border-radius: 7vw;
+  border: 1px solid #ddd;
+  width: 8vw;
+  margin: 16px;
+}
+
+.botFace {
+  width: 10vw;
+}
+
+.answerInput {
+  margin-top: 2vh;
+}
+
+.answerInfo {
+  margin-top: 2vh;
+  height: 25vh;
+  font-family: TOYZARUX;
+}
+
+.answerFaces {
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  width: 55px;
+  margin: 16px;
+}
+
+.answerInfo h2 {
+  font-size: 3vh;
+}
+
+.answerInfo h3 {
+  font-size: 2.75vh;
+}

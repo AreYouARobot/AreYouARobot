@@ -23,12 +23,14 @@ module.exports = function(config) {
       'client/lib/bower_components/lodash/dist/lodash.js',
       'client/lib/bower_components/restangular/dist/restangular.js',
       'client/lib/bower_components/ui-router/release/angular-ui-router.js',
+      'client/lib/bower_components/angular-material/angular-material.js',
+      'client/lib/bower_components/angular-animate/angular-animate.js',
       'client/app/**/*.js',
       'client/app/**/*spec.js'
     ],
 
     // list of files / patterns to exclude
-    exclude: ['server/**/*.js'],  
+    exclude: ['server/**/*.js'],
 
     // web server port
     port: 9786,

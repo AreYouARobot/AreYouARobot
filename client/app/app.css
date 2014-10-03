@@ -1,10 +1,87 @@
-#main {
-  /*width: 330px;
-  height: 350px;*/
-  position: absolute;
-  bottom: 0;
+form {
+  margin-top: 6vh;
 }
 
-#nav {
-  position: absolute;
+textarea, input[type="text"] {
+  font-size: 5vh;
+}
+
+material-button {
+  margin-top: 2vh;
+  background-color: antiquewhite;
+  /*padding: 2vh;*/
+  font-size: 5vh;
+  width: 10vw;
+  font-family: snacker;
+}
+
+material-input-group {
+  font-size: 8vh;
+}
+
+material-input-group input {
+  font-size: 5vh;
+  color: black;
+  margin-top: 1vh;
+  padding: .5em;
+  height: 7vh;
+  width: 21vw;
+  text-align: center;
+  font-family: snacker;
+  background-color: antiquewhite;
+}
+
+material-input-group label {
+  color: #2B344D;
+  /*font-size: .65em;*/
+  font-family: snacker;
+  margin-bottom: 6vh;
+}
+
+material-tabs {
+  font-family: cartoonblocks;
+}
+material-tab {
+  font-size: 8vh;
+  height: 10vh;
+  background-color: antiquewhite;
+  color: black;
+}
+
+.tabs-header {
+  height: 10vh;
+}
+
+material-tab.active {
+  color: #F79C65;
+}
+
+material-tab:hover {
+  color: grey;
+}
+
+*:focus {
+  border: none;
+}
+
+material-divider {
+  height: 1.5px;
+  /*width: 70%;*/
+  background-color: antiquewhite;
+}
+
+material-ink-bar {
+  background: black;
+}
+
+material-tab .material-ripple-container {
+  color: black;
+}
+
+.chooseAnswer {
+  padding-top: 1em;
+}
+
+.tabs-header-items-container {
+  background-color: antiquewhite;
 }

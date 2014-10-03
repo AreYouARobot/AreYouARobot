@@ -1,6 +1,25 @@
-<p class="speech"><b>Guesser Question: {{game.question}}</p>
-<h4 class="robotSpeech">Robot says: {{game.answers[0].answer}}</h4>
+<material-item-content class="answerInfo">
+  <div class="material-tile-left">
+    <img src="{{item.face}}" class="face botFace">
+  </div>
+  <div class="material-tile-content">
+    <h2>{{game.question}}</h2><hr>
+    <h2 style="color: antiquewhite; padding-bottom: 2%">{{game.answers[0].answer}}</h2>
+    <h3><b>{{item.who}}</b></h3>
+  </div>
+</material-item-content>
+
+<form class="answerInput" ng-submit="panelSendAnswer()">
+  <ig ng-model="answer" label="What is your answer?" value="{{answer}}"></ig>
+  <material-button class="material-button-raised">Submit</material-button>
+</form>
+
+
+<!-- <p class="speech"><b>What is your favorite sport?</p>
+<h1 class="robotSpeech">Robot says: 'My favorite sport is badminton'</h1>
+>>>>>>> (feat) implement matieral design to front-end
 <form class="question">
 	<input ng-model="answer" class="answerInput" style="margin-top: 50px" type="text" placeholder="What is your answer?"></input>
 	<button ng-click="panelSendAnswer()" class="submitQuestion">Submit</button>
 </form>
+ -->

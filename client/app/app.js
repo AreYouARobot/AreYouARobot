@@ -39,6 +39,7 @@
 
   angular
     .module('AYARApp', [
+      'ngMaterial',
       'ui.router',
       'restangular'
       ])

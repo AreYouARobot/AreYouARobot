@@ -83,9 +83,6 @@ angular.module('AYARApp')
       });
   });
 
-
-
-
 // SAVE THIS FOREVER THIS WORKS
 // .state('game.gAskQuestion', {
 //   url: '/guesser',

@@ -13,7 +13,7 @@ angular.module('AYARApp')
         console.log(url, "THIS IS URL");
         deferred.resolve(url);
       };
-      
+
       this.login = function(){
         deferred = $q.defer();
         newBrowserWindow = $window.open(loginUrlWithParameters, '_blank', 'location=no');
@@ -63,7 +63,7 @@ angular.module('AYARApp')
   //     // Make sure the Redirect url is uniform for the server and the client
   //     // If they're logged in, redirect them back to index.html, but with another view; the join/host game view
   //   var sendToFB = function() {
-  //     // Window.location? 
+  //     // Window.location?
   //     console.log("INSIDE fbAuth FACTORY");
   //     window.location.replace(loginUrlWithParameters);
   //   }
@@ -73,7 +73,7 @@ angular.module('AYARApp')
 
     // }
 
-    // // Then send the accessCode to the server 
+    // // Then send the accessCode to the server
     // var sendAccessCode = function(accessCode) {
 
     // }
