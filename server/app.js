@@ -208,19 +208,7 @@ io.on('connection', function(socket) {
 // **********************************************			
 
 			// check if answer is correct
-			activeGames[room].answers.forEach(function(panelAnswer) {
-				console.log(panelAnswer, 'panelAnswer is something now in loop');
-				if (panelAnswer.answer === activeGames[room].guesserChoice) {
-					console.log('found the match answer');
-					if (panelAnswer.isBot) {
-						console.log('right');
-						activeGames[room].gameResult = 'Player Guessed Correctly!';
-					} else {
-						console.log('wrong');
-						activeGames[room].gameResult = 'Player Guessed Incorrectly!';
-					}
-				}
-			});
+			activeGames[room] = game.pickWinnerAndScoring(activeGames[room]);
 
 			console.log('sending game results in five seconds!');
 			setTimeout(function() {
