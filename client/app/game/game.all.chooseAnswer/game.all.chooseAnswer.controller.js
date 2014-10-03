@@ -18,3 +18,4 @@ angular.module('AYARApp')
 			console.log('room in displayResults emit is', room);
 			$state.go('game.allDisplayResults', {room: room});
 		});
+	});

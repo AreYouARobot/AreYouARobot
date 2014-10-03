@@ -14,11 +14,6 @@ angular.module('AYARApp')
 			  });
 		};
 
-		$scope.question = '';
-		$scope.data = {
-		      selectedIndex: 0
-		    };
-		$scope.locked = true;
 		$scope.console = function(){
 			console.log($scope.question);
 		}
@@ -31,7 +26,6 @@ angular.module('AYARApp')
 		// socket.on('sendBack', function(msg) {
 		// 	$state.go('testingExample.view2');
 	})
-
 
 	.directive('ig', function() {
 	  return {
