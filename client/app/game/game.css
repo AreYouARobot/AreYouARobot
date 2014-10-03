@@ -39,3 +39,51 @@ h1 {
   height: 100vh;
   width: 100vw;
 }
+
+.splashRobo {
+  position: absolute;
+  bottom: 0;
+}
+
+.bubble
+{
+position: absolute;
+width: 230px;
+height: 120px;
+padding: 0px;
+background: #FFFFFF;
+-webkit-border-radius: 80px;
+-moz-border-radius: 80px;
+border-radius: 80px;
+border: #7F7F7F solid 12px;
+}
+
+.bubble:after
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 30px 20px 0;
+border-color: #FFFFFF transparent;
+display: block;
+width: 0;
+z-index: 1;
+margin-left: -20px;
+bottom: -30px;
+left: 36%;
+}
+
+.bubble:before
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 41px 31px 0;
+border-color: #7F7F7F transparent;
+display: block;
+width: 0;
+z-index: 0;
+margin-left: -31px;
+bottom: -53px;
+left: 36%;
+}
