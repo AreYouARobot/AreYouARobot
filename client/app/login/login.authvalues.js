@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 angular.module('AYARApp')
 	.value('facebookParams', {
@@ -6,4 +6,4 @@ angular.module('AYARApp')
 		appId: 856871080999075,
 		oauthRedirectUrlLocal: 'http://localhost:8085/oauthcallback.html',
 		oauthRedirectUrlDeployed: ''
-	})
+	});
