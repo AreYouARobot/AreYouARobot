@@ -16,7 +16,7 @@ module.exports.jwtCheck = function(req, res, next) {
 
 			// After jwt verifies the token with the secret, it takes a callback
 			// What is decoded.id ? It's the success portion of the callback?
-			isValidToken = !err && typeof decoded.id === 'number';
+			isValidToken = !err && typeof decoded.id === 'string';
 
 			if(isValidToken) {
 				req.userId = decoded.id;

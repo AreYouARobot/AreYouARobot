@@ -6,6 +6,7 @@ var app = express();
 
 var mongoose = require('mongoose');
 var database = require('./config/developmentdb.js');
+var game = require('./game/mechanics.js');
 
 var $storage = require('./storage.js');
 
@@ -65,6 +66,8 @@ io.on('connection', function(socket) {
 // **********************************************
 // THIS IS WHERE DECODE WILL GO
 // var playerObjID = decode(gameInfo.playerToken);
+		var playerObjID = game.decodeJWT(gameInfo.playerToken);
+
 // **********************************************
 
 		// create a new game to be stored in gameStorage
@@ -104,6 +107,7 @@ io.on('connection', function(socket) {
 // **********************************************
 // THIS IS WHERE DECODE WILL GO
 // var playerObjID = decode(gameInfo.playerToken);
+		var playerObjID = game.decodeJWT(gameInfo.playerToken);
 // **********************************************
 
 		activeGames[room].players.push({

@@ -15,6 +15,8 @@
       var jwt = $window.localStorage.getItem('jwt');
       if (jwt){
         headers['x-access-token'] = jwt;
+        console.log(headers['x-access-token'], "THIS IS HEADERS['x-access-token']");
+        console.log(headers, "THIS IS HEADERS");
       }
       return {
         headers: headers
