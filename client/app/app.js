@@ -3,6 +3,7 @@
 (function(){
 
   //Global object for storing callback functions
+  // Quick comment for a new commit
   window._app = {};
 
   var defaultRouteConfig = function($urlRouterProvider){
