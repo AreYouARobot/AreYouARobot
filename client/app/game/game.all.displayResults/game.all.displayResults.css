@@ -1,0 +1,8 @@
+.displayAnswer {
+  margin-top: 15vh;
+  width: 20vw;
+  height: 20vh;
+  font-size: 10vh;
+  border-radius: 1vh;
+  border: .5vh solid black;
+}

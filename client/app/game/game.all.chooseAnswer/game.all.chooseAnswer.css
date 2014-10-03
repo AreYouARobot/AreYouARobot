@@ -1,0 +1,60 @@
+.panelAnswers {
+  font-family: Tahoma;
+  color: black;
+  transition: background-color .6s;
+}
+
+.panelAnswers h2 {
+  /*position: absolute;*/
+  font-family: snacker;
+  font-size: 5vh;
+}
+
+.choiceButton {
+  border: .16vw solid black;
+  position: absolute;
+  width: 12vw;
+  top: 5vh;
+  right: 4vw;
+  /*width: 80%;*/
+  height: 7vh;
+  background-color: #E4E8C2;
+  /*transition: display 1s !important;*/
+}
+
+.panelAnswers:hover {
+  background-color: yellow;
+}
+
+/*.choiceButton .ng-show {
+  transition: 1s linear all;
+}*/
+
+.animate-show {
+  /*line-height: 0;*/
+  opacity:1;
+  padding: 10px;
+  /*border:1px solid black;*/
+  /*background: antiquewhite;*/
+}
+
+.animate-show.ng-hide-add.ng-hide-add-active,
+.animate-show.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.4s;
+}
+
+.animate-show.ng-hide {
+  line-height: 0;
+  /*line-height:0;*/
+  opacity:0;
+  padding:0 10px;
+}
+
+/*.panelAnswers:hover material-button {
+  display: block;
+}
+*/
+/*.choiceButton:hover {
+  display: block;
+}*/

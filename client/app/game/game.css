@@ -1,130 +1,29 @@
+html {
+  background-color: #E4E8C2;
+}
+
 body {
   background-color: #E4E8C2;
 }
 
-.robotSpeech {
-  font-size: 50px;
-  margin-bottom: 0 auto;
-}
-
-.scoreboard {
-  font-family: From Cartoon Blocks;
-  height: 200px;
-  width: 450px;
-  font-size: 35px;
-  background-color: antiquewhite;
-}
-
-.scoreboard tr {
-  margin-left: 20px;
-}
-
 h1 {
-  font-family: From Cartoon Blocks;
+  font-family: cartoonblocks;
   color: #2B344D;
-  font-size: 60px;
+  font-size: 10vh;
   margin-bottom: 10px;
 }
 
-#avatar {
-  position: absolute;
-  margin-left: -420px;
-  margin-top: -190px;
-}
-
-#footer {
-  background-color: transparent;
-  position: absolute;
-}
-
-.testFont {
-  font-family: Snacker Comic Personal Use Only;
-}
-
-.questionInput, .answerInput {
-  font-family: Snacker Comic Personal Use Only;
-  font-size: 40px;
-  text-align: center;
-  margin-top: 125px;
-  height: 80px;
-  width: 500px;
-  background-color: antiquewhite;
-}
-
-p.speech {
-  margin-top: 60px;
-  font-family: From Cartoon Blocks;
-  font-size: 22px;
-  /*overflow: hidden;*/
-  margin-left: 525px;
-  position: absolute;
-  width: 350px;
-  height: 100px;
-  text-align: center;
-  line-height: 100px;
-  background-color: #fff;
-  border: 8px solid #666;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  border-radius: 30px;
-  -webkit-box-shadow: 2px 2px 4px #888;
-  -moz-box-shadow: 2px 2px 4px #888;
-  box-shadow: 2px 2px 4px #888;
-}
-
-p.speech:before {
-  content: ' ';
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: 30px;
-  top: 92px;
-  border: 25px solid;
-  border-color: #666 transparent transparent #666;
-}
-
-p.speech:after {
-  content: ' ';
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: 38px;
-  top: 92px;
-  border: 15px solid;
-  border-color: #fff transparent transparent #fff;
-}
-
-
-/*@font-face {
-  font-family: snacker;
-  src: url("snacker.ttf");
-  font-style: normal;
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: orangejuice;
-  src: url("orange-juice.ttf");
-  font-style: normal;
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: cartoonblocks;
-  src: url("cartoon-blocks.ttf");
-  font-style: normal;
-  font-weight: normal;
-}*/
-
 .testContainer {
-  padding-top: 10px;
+  width: 45vw;
+  height: 90vh;
+  padding-top: .75em;
   background-color: #F79C65;
-  height: 650px;
-  width: 600px;
   border-width: 5px;
   box-shadow: 10px 10px 5px #888888;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 1%;
+  /*padding-bottom: 6%;*/
+  margin-bottom: 1%;
 }
 
 .load {
@@ -136,37 +35,7 @@ p.speech:after {
   margin-top: 10px;
 }
 
-.answer {
-  overflow: hidden;
-  font-family: From Cartoon Blocks;
-  color: #C9C9C0;
-  background-color: #296B84;
-  height: 125px;
-  width: 400px;
-  margin: 30px;
-  font-size: 40px;
-  border-radius: 5px;
-  border-color: black;
-  /*-webkit-text-stroke-width: 1px;*/
-  /*-webkit-text-stroke-color: black;*/
-  box-shadow: 10px 10px 5px #888888;
-  -webkit-transition: all .1s ease;
-  -moz-transition: all .1s ease;
-  -ms-transition: all .1s ease;
-  -o-transition: all .1s ease;
-  transition: all .1s ease;
-}
-
-.answer:hover {
-  border-color: #0E1D24;
-  border-radius: 5px;
-  border-width: 4px;
-}
-
-.answer:active {
-    -webkit-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
-    -moz-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
-    box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
-    position: relative;
-    top: 6px;
+.papaDiv {
+  height: 100vh;
+  width: 100vw;
 }

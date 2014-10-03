@@ -1,0 +1,34 @@
+@font-face {
+  font-family: snacker;
+  src: url("snacker.ttf");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: orangejuice;
+  src:url("orange-juice.ttf");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: cartoonblocks;
+  src: url('cartoon-blocks.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: call-me;
+  src: url('Call me maybe.ttf');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: PW;
+  src: url('PWPerspective.ttf');
+  font-style: normal;
+  font-weight: normal;
+}

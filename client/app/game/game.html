@@ -1,8 +1,18 @@
-<div class="testContainer">
+<div class="papaDiv" layout="vertical" layout-lg="vertical">
+  <div flex class="testContainer">
   <center>
   <h1>AYAR?</h1>
-  <hr style="margin: 0">
+  <!-- <hr style="margin: 0"> -->
+  <div ng-controller="GuesserAskQuestionController">
+  <material-tabs selected="data.selectedIndex" center>
+          <material-tab label="A"></material-tab>
+          <material-tab label="Y"></material-tab>
+          <material-tab label="A"></material-tab>
+          <material-tab label="R"></material-tab>
+          <material-tab label="?"></material-tab>
+  </material-tabs>
 <div ui-view></div>
+</div>
 </div>
 
 
