@@ -4,8 +4,7 @@
 var express = require('express');
 var app = express();
 
-var mongoose = require('mongoose');
-var database = require('./config/developmentdb.js');
+var database = require('./config/dbConnectionConfig.js');
 var game = require('./game/mechanics.js');
 
 var $storage = require('./storage.js');
@@ -26,9 +25,8 @@ require('./config/middleware.js')(app, express);
 
 // // Require database connections
 // // mongoose.connect(database); // connect to mongo database named 'areyouarobot-dev'
-mongoose.connect('mongodb://localhost/areyouarobot-dev');
-// // Seed the MongoDB with sample user data
 
+// // Seed the MongoDB with sample user data
 if(database.seedDB) { require('./config/seed'); };
 
 http.listen(port);

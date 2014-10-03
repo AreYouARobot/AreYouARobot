@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 angular.module('AYARApp')
   .config(function ($stateProvider) {
@@ -8,4 +8,4 @@ angular.module('AYARApp')
         templateUrl: 'app/login/loginTemplate.html',
         controller: 'LoginController'
       });
-  })
+  });

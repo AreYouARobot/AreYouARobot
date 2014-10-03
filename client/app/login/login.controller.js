@@ -1,15 +1,15 @@
- 'use strict'
+ 'use strict';
 
 angular.module('AYARApp')
-	.controller('LoginController', ['$scope', 'fbAuth', '$location', function($scope, fbAuth, $location) {
-		console.log("INSIDE LOGINCONTROLLER");
+	.controller('LoginController', ['$scope', 'fbAuth', '$location', function($scope, fbAuth) {
+		console.log('INSIDE LOGINCONTROLLER');
 
 		$scope.sendtoFB = function() {
 			fbAuth.login()
 				.then(fbAuth.sendAuthCode);
-		}
+		};
 
-	}])
+	}]);
 
 // REFACTOR INTO STANDARD NON-IIFE PATTERN
 
