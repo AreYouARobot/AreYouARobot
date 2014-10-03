@@ -63,30 +63,27 @@ io.on('connection', function(socket) {
 		// join room
 		socket.join(room);
 
-// **********************************************
-// THIS IS WHERE DECODE WILL GO
-// var playerObjID = decode(gameInfo.playerToken);
-		var playerObjID = game.decodeJWT(gameInfo.playerToken);
+		// THIS IS WHERE DECODE WILL GO
+		game.decodeJWT(gameInfo.playerToken, function(playerObjID) {
 
-// **********************************************
+			// create a new game to be stored in gameStorage
+			var newGame = {
+				room: room,
+				players: [{
+					playerName: socket.nickname,
+					playerID: socket.id,
+					playerObjID: playerObjID,
+					playerCurrentScore: 0
+				}],
+				currentGuesserIndex: 0,
+				question: '',
+				answers: [],
+				guesserChoice: '',
+				gameResult: ''
+			};
 
-		// create a new game to be stored in gameStorage
-		var newGame = {
-			room: room,
-			players: [{
-				playerName: socket.nickname,
-				playerID: socket.id,
-				playerObjID: playerObjID,
-				playerCurrentScore: 0
-			}],
-			currentGuesserIndex: 0,
-			question: '',
-			answers: [],
-			guesserChoice: '',
-			gameResult: ''
-		};
-
-		activeGames[room] = newGame;
+			activeGames[room] = newGame;
+		});
 	});
 
 	// listen for creation/joining of new game using roomID
@@ -104,34 +101,33 @@ io.on('connection', function(socket) {
 		// join room
 		socket.join(room);
 
-// **********************************************
-// THIS IS WHERE DECODE WILL GO
-// var playerObjID = decode(gameInfo.playerToken);
-		var playerObjID = game.decodeJWT(gameInfo.playerToken);
-// **********************************************
+		// THIS IS WHERE DECODE WILL GO
 
-		activeGames[room].players.push({
-			playerName: socket.nickname,
-			playerID: socket.id,
-			playerObjID: playerObjID,
-			playerCurrentScore: 0
-		});
+		game.decodeJWT(gameInfo.playerToken, function(playerObjID) {
 
-		if (activeGames[room].players.length === 3) {
-			console.log('starting new game in five seconds!');
-			setTimeout(function() {
-				console.log('starting game in gameInstance', activeGames[room]);
-				
-				// send different messages to guesser and panel to start game
-				for (var i = 0; i < activeGames[room].players.length; i++) {
-					if (i === activeGames[room].currentGuesserIndex) {
-						io.sockets.connected[activeGames[room].players[i].playerID].emit('startGuesser', activeGames[room]);		
-					} else {
-						io.sockets.connected[activeGames[room].players[i].playerID].emit('startPanel', activeGames[room]);		
+			activeGames[room].players.push({
+				playerName: socket.nickname,
+				playerID: socket.id,
+				playerObjID: playerObjID,
+				playerCurrentScore: 0
+			});
+
+			if (activeGames[room].players.length === 3) {
+				console.log('starting new game in five seconds!');
+				setTimeout(function() {
+					console.log('starting game in gameInstance', activeGames[room]);
+					
+					// send different messages to guesser and panel to start game
+					for (var i = 0; i < activeGames[room].players.length; i++) {
+						if (i === activeGames[room].currentGuesserIndex) {
+							io.sockets.connected[activeGames[room].players[i].playerID].emit('startGuesser', activeGames[room]);		
+						} else {
+							io.sockets.connected[activeGames[room].players[i].playerID].emit('startPanel', activeGames[room]);		
+						}
 					}
-				}
-			}, 5000);
-		}
+				}, 5000);
+			}
+		});
 	});
 
 	// listen for guesser sending initial question
