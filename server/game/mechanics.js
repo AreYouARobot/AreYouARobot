@@ -13,7 +13,7 @@ var User = require('../api/user/user.model.js');
 module.exports = {
 
 	// With the JWT, decode the JWT and grab the object ID
-	decodeJWT: function(clientToken) {
+	decodeJWT: function(clientToken, callback) {
 		console.log(clientToken, "THIS IS CLIENT TOKEN");
 		var isValidToken;
 		var	userObjId;
@@ -26,7 +26,7 @@ module.exports = {
 			if (isValidToken) {
 				userObjId = decoded.id;
 				console.log(userObjId, "this is userObjId");
-				return userObjId;
+				callback(userObjId);
 			} else {
 				return null;
 			}
