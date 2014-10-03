@@ -14,6 +14,7 @@ module.exports = {
 
 	// With the JWT, decode the JWT and grab the object ID
 	decodeJWT: function(clientToken) {
+		console.log(clientToken, "THIS IS CLIENT TOKEN");
 		var isValidToken;
 		var	userObjId;
 
@@ -64,10 +65,12 @@ module.exports = {
 		if (panelWinnerID) {
 			for (var j = 0; j < playersArray.length; j++) {
 				var player = playersArray[i];
+				// Update the panelWinner's score with +15
 				if (player['playerID'] === panelWinnerID) {
 					player['playerCurrentScore'] += 15;
 				}
 				// Now I need to handle the 2nd panelist's score OR just say not bot && not guesser
+				// Find the second panel player and update his score by 10
 				if (player['playerID'] !== guesserID || player['playerID'] !== panelWinnerID || player['playerID'] !== botID) {
 					// Increase the other player's points by 10  
 					player['playerCurrentScore'] += 10;
