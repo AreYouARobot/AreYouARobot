@@ -7,7 +7,9 @@ angular.module('AYARApp')
       var newBrowserWindow;
       var deferred;
 
-      loginUrlWithParameters = loginUrlWithParameters + facebookParams.oauthRedirectUrlLocal;
+      loginUrlWithParameters = loginUrlWithParameters + facebookParams.oauthRedirectUrlDeployed;
+      // Look into eventlistener for pageload URL. If URL contains localhost, use localhost for oauthredirectUrl
+      // Else configure it to use the server/deployed URL
 
       $window._app.oauthCallback = function (url) {
         console.log(url, 'THIS IS URL');
