@@ -66,6 +66,8 @@ io.on('connection', function(socket) {
 // **********************************************
 // THIS IS WHERE DECODE WILL GO
 // var playerObjID = decode(gameInfo.playerToken);
+		var playerObjID = game.decodeJWT(gameInfo.playerToken);
+
 // **********************************************
 
 		// create a new game to be stored in gameStorage
