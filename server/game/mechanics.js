@@ -34,50 +34,57 @@ module.exports = {
 	},
 
 	pickWinnerAndScoring: function(gameObj) {
+		console.log('gameObj in pickWinnerAndScoring is', gameObj);
 		// gameObj is basically the key on the activeGame object where the value is an object with newGame properties
 		var playersArray = gameObj.players; // This is an array with players
 		var answersArray = gameObj.answers; // This is an array with objects
 
 		var guesserWinner;
-		var guesserID = gameObj.players[gameObj.currentGuesserIndex][playerID];
+		var guesserID = gameObj.players[gameObj.currentGuesserIndex].playerID;
 		var panelWinnerID;
 		var botID;
 
+		console.log('playersArray', playersArray);
+		console.log('answersArray', answersArray);
+		console.log('guesserID', guesserID);
+
 		for (var i = 0; i < answersArray.length; i++) {
 			var playerResponseObject = answersArray[i]; // Answers array is an array of answer objs
-			if (playerResponseObj.isBot) {
-				botID = playerResponseObj.playerID;
+			if (playerResponseObject.isBot) {
+				botID = playerResponseObject.playerID;
 			}
 			if (playerResponseObject.answer === gameObj.guesserChoice) {
 				// This is a valid response
-				if (playerResponseObj.isBot) {
-					gameObj.gameResults = 'Player Guessed Correctly!'; // Put this in the socket logic
-					gameObj.players[gameObj.currentGuesserIndex][playerCurrentScore] += 30;
+				if (playerResponseObject.isBot) {
+					gameObj.gameResult = 'Player Guessed Correctly!'; // Put this in the socket logic
+					gameObj.players[gameObj.currentGuesserIndex].playerCurrentScore += 30;
 					guesserWinner = true;
 				} else {
 					// Panel wins - then I need to loop through the player array to find who has the playerREsponseObj[playerID]
-					panelWinnerID = playerResponseObj[playerID];
-					gameObj.gameResults = 'Player Guessed Incorrectly'; // Put this in the socket 	
+					panelWinnerID = playerResponseObject.playerID;
+					gameObj.gameResult = 'Player Guessed Incorrectly'; // Put this in the socket 	
 				}
 			}
 		}
 
 		if (panelWinnerID) {
 			for (var j = 0; j < playersArray.length; j++) {
-				var player = playersArray[i];
+				var player = playersArray[j];
 				// Update the panelWinner's score with +15
-				if (player['playerID'] === panelWinnerID) {
-					player['playerCurrentScore'] += 15;
+				if (player.playerID === panelWinnerID) {
+					player.playerCurrentScore += 15;
 				}
 				// Now I need to handle the 2nd panelist's score OR just say not bot && not guesser
 				// Find the second panel player and update his score by 10
-				if (player['playerID'] !== guesserID || player['playerID'] !== panelWinnerID || player['playerID'] !== botID) {
+				if (player.playerID !== guesserID && player.playerID !== panelWinnerID && player.playerID !== botID) {
 					// Increase the other player's points by 10  
-					player['playerCurrentScore'] += 10;
+					player.playerCurrentScore += 10;
 				}
 				
 			}
 		}
+
+		console.log('gameObj at end of scoring is', gameObj);
 
 		return gameObj;
 
