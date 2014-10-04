@@ -9,7 +9,7 @@ var UserSchema = new Schema({
 	username: {type: String, unique: true},
 	email: {type: String, lowercase: true},
 	pic: String,
-	points: Number,
+	points: {type: Number, default: 0},
 	achievements: Array,
 	completed_setup: Boolean,
 	ceatedDateTime: {type: Date, default: Date.now }
