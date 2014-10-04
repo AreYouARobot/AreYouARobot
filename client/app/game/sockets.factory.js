@@ -31,7 +31,7 @@ angular.module('AYARApp')
 		};
 
   	this.guesserChooseAnswer = function(answer, room) {
-  		socket.emit('guesserChoseAnswer', answer, room)
+  		socket.emit('guesserChoseAnswer', answer, room);
   	};
 
   	this.gameNextTurn = function(room) {

@@ -16,15 +16,7 @@ angular.module('AYARApp')
 
 		$scope.console = function(){
 			console.log($scope.question);
-		}
-		// $scope.goToNextView = function() {
-		// 	$state.go('testingExample.view2');
-		// };
-		// $scope.sendTest = function() {
-		// 	socket.emit('test', 'this is a test');
-		// }
-		// socket.on('sendBack', function(msg) {
-		// 	$state.go('testingExample.view2');
+		};
 	})
 
 	.directive('ig', function() {
@@ -33,7 +25,7 @@ angular.module('AYARApp')
 	    replace: true,
 	    scope: {
 	      fid: '@',
-	      value: "=ngModel",
+	      value: '=ngModel',
 	      label: '@'
 	    },
 	    template:
