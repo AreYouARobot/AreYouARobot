@@ -81,6 +81,7 @@ io.on('connection', function(socket) {
 			};
 
 			activeGames[room] = newGame;
+			io.in(room).emit('addPlayer', socket.nickname);
 		});
 	});
 
@@ -109,6 +110,8 @@ io.on('connection', function(socket) {
 				playerObjID: playerObjID,
 				playerCurrentScore: 0
 			});
+
+			io.in(room).emit('addPlayer', socket.nickname);
 
 			if (activeGames[room].players.length === 3) {
 				console.log('starting new game in five seconds!');
@@ -231,9 +234,7 @@ io.on('connection', function(socket) {
 			// check to see if game is over
 			if (activeGames[room].currentGuesserIndex >= activeGames[room].players.length) {
 
-// **********************************************
-// THIS IS WHERE DB LOGIC WILL GO, SENDING PLAYEROBJID AND CURRENTSCORE
-// **********************************************	
+				game.updateUserScoresInDB(activeGames[room]);
 
 				// delete game
 				delete activeGames[room];

@@ -29,6 +29,7 @@
     "after": true,
     "afterEach": true,
     "chai": true,
-    "inject": true
+    "inject": true,
+    "socket": true
   }
 }

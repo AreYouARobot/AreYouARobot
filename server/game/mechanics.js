@@ -97,8 +97,9 @@ module.exports = {
 		// var updateUser = Q.nbind(User.findByIdAndUpdate, User);
 
 		playersArray.forEach(function(playerObj) {
-			Users.findByIdAndUpdate(playerObj[playerObjID], {$inc: { points: playerObj[playerCurrentScore]}}, function(err, user) {
+			Users.findByIdAndUpdate(playerObj.playerObjID, {$inc: { points: playerObj.playerCurrentScore}}, function(err, user) {
 				if (err) return err;
+				console.log('user object after db save is', user);
 				return user;
 			});
 		});
