@@ -81,7 +81,10 @@ io.on('connection', function(socket) {
 			};
 
 			activeGames[room] = newGame;
-			io.in(room).emit('addPlayer', socket.nickname);
+			
+			setTimeout(function() {
+				io.in(room).emit('addPlayer', socket.nickname);
+			}, 1000);
 		});
 	});
 
@@ -111,7 +114,9 @@ io.on('connection', function(socket) {
 				playerCurrentScore: 0
 			});
 
-			io.in(room).emit('addPlayer', socket.nickname);
+			setTimeout(function() {
+				io.in(room).emit('addPlayer', socket.nickname);
+			}, 1000);
 
 			if (activeGames[room].players.length === 3) {
 				console.log('starting new game in five seconds!');
