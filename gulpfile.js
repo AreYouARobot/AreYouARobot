@@ -13,7 +13,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('lint', function() {
-  gulp.src(['client/app/**/*.js'])
+  gulp.src(['client/app/**/*.js', 'server/**/*js'])
     .pipe(jshint())
     .pipe(jshint.reporter(stylish));
 });
