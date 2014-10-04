@@ -7,7 +7,7 @@
   window._app = {};
 
   var defaultRouteConfig = function($urlRouterProvider){
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/login')
   };
 
   var restangularConfig = function(Restangular, $window, $state){
