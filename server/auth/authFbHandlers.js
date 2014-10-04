@@ -14,7 +14,7 @@ var fbTokenUrlGenerator = function(accessCode){
   return fbConstants.tokenUrl + '?client_id=' + fbConstants.clientId + '&redirect_uri=' + fbConstants.redirectUri + '&client_secret=' + fbConstants.clientSecret + '&code=' + accessCode;
 };
 
-var exchangeCodeForToken = function(accessCode){
+module.exports.exchangeCodeForToken = exchangeCodeForToken = function(accessCode){
   var fbTokenUrl = fbTokenUrlGenerator(accessCode);
   console.log(fbTokenUrl, "this is fbTokenUrl that uses the fbTokenUrlGenerator+AccessCode");
   var parseToken = function(data){
