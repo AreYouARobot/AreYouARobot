@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var jwt = require('jsonwebtoken');
 var jwtConstants = require('./authConstants.js').jwt;
@@ -6,8 +6,8 @@ var jwtConstants = require('./authConstants.js').jwt;
 module.exports.jwtCheck = function(req, res, next) {
 
 	var token = req.header['x-access-token'];
-	console.log(req.header, "this is req.header");
-	console.log(token, "this is token");
+	console.log(req.header, 'this is req.header');
+	console.log(token, 'this is token');
 	var isValidToken;
 
 	// Comment what is happening in this entire block of text
@@ -30,4 +30,4 @@ module.exports.jwtCheck = function(req, res, next) {
 		res.status(401).send({routeToLogin: true});
 	}
 
-}
+};
