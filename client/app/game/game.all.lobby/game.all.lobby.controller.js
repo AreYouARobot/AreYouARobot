@@ -4,14 +4,13 @@ angular.module('AYARApp')
 	.controller('AllLobbyController', function($scope, $state, $stateParams) {
 		// set players equal to players associated with that room
 		$scope.game = $stateParams.room;
-		$scope.players = [];
 
 		console.log('$stateParams.room in LobbyController is:', $stateParams.room);
 
 		// set up listening event to add player names to lobby
-		socket.on('addPlayer', function(playerName) {
+		socket.on('addPlayer', function(room) {
 			$scope.$apply(function() {
-				$scope.players.push(playerName);
+				$scope.players = room.players;
 			});
 		});
 
