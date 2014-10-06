@@ -34,6 +34,8 @@ var fetchUserFbProfile = function(token){
   };
   var parseProfileData = function(data){
     var profileData = data[1];
+    console.log(data, 'this is data returned from FB');
+    console.log(profileData, 'this is data[1] from FB response');
     var parsedProfileData = JSON.parse(profileData);
     console.log("this is parsed ProfileData: ", parsedProfileData);
     return parsedProfileData;
@@ -145,7 +147,8 @@ module.exports.fbLoginApiTest = {
 		'api.testing_fetchUserFbProfile': fetchUserFbProfile,
 		'api.testing_checkIfUserExists': checkIfUserExists,
 		'api.testing_updateUserProfile': updateUserProfile,
-		'api.testing_createUserProfile': createUserProfile
+		'api.testing_createUserProfile': createUserProfile,
+		'api.testing_sendJWT': sendJWT
 }
 
 module.exports.fbLogin = function(req, res) {
