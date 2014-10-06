@@ -5,16 +5,8 @@ var Promise = require('bluebird');
 
 module.exports = {
 
-	signin: function() {
-		
-	},
-
-	signup: function() {
-
-	},
-
 	checkAuth: function() {
-		
+				
 	}
 
 }
