@@ -7,3 +7,6 @@ before_script:
 services:
 - mongodb
 script: gulp
+before_install:
+- openssl aes-256-cbc -K $encrypted_062c64f1a6d2_key -iv $encrypted_062c64f1a6d2_iv
+  -in devConstants.js.enc -out ./server/config/devConstants.js -d
