@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var fs = require('fs');
 var morgan = require('morgan');
@@ -23,7 +23,7 @@ module.exports = function(app, express) {
 	// Routing
 	var userRouter = express.Router();
 	var authHandling = express.Router();
-	var gameHandling = express.Router();
+	// var gameHandling = express.Router();
 
 	app.use('/api/user', jwtCheck, userRouter); // User router for all user requests
 	// require('../api/user/user.router.js')(userRouter);

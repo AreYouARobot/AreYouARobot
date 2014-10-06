@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var should = require('chai').should();
 var request = require('supertest');
@@ -61,4 +61,4 @@ describe('GET api/user/', function() {
 	// 	});
 	// });
 
-})
+});

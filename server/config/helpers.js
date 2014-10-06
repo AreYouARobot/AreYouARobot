@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var jwt = require('jsonwebtoken');
 
@@ -10,7 +10,7 @@ module.exports = {
 		next(error);
 	},
 
-	errorHandler: function(error, req, res, next) {
+	errorHandler: function(error, req, res) {
 		// Send error message to client
 		// Message for graceful error handling on app
 		res.send(500, {error: error.message});
@@ -27,7 +27,7 @@ module.exports = {
 		try {
 			// Decode token and attach user to the request for inside controllers
 			user = jwt.decode(token, 'secret');
-			req.username = username;
+			// req.username = username;
 			next();
 		} catch(error) {
 			return next(error);
