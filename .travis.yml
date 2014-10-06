@@ -1,4 +1,4 @@
-before_install: openssl aes-256-cbc -K $encrypted_5da27c777dbe_key -iv $encrypted_5da27c777dbe_iv -in devConstants.js.enc -out devConstants.js -d
+before_install: openssl aes-256-cbc -K $encrypted_6ba402953e09_key -iv $encrypted_6ba402953e09_iv -in devConstants.js.enc -out ./server/config/devConstants.js -d
 language: node_js
 node_js:
   - '0.10'
