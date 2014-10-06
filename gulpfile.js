@@ -24,7 +24,7 @@ gulp.task('test', function (cb) {
     configFile: __dirname + '/karma.conf.js',
     singleRun: true
   }, function() {
-    gulp.src(['server/api/user/user.model.spec.js', 'server/auth/auth.FbHandlers.specs.js'])
+    gulp.src(['server/api/user/user.model.spec.js', 'server/auth/auth.FbHandlers.specs.js', 'server/game/mechanics.specs.js'])
       .pipe(mocha())
       .on('end', function() {
         console.log('hit end');
