@@ -7,8 +7,6 @@ var app = express();
 var database = require('./config/dbConnectionConfig.js');
 var game = require('./game/mechanics.js');
 
-var $storage = require('./storage.js');
-
 var http = require('http');
 http = http.Server(app);
 
@@ -27,7 +25,7 @@ require('./config/middleware.js')(app, express);
 // // mongoose.connect(database); // connect to mongo database named 'areyouarobot-dev'
 
 // // Seed the MongoDB with sample user data
-if(database.seedDB) { require('./config/seed'); };
+if(database.seedDB) { require('./config/seed'); }
 
 http.listen(port);
 console.log('Server running on port %d', port);

@@ -16,6 +16,19 @@ beforeEach(function(done) {
 	mockgoose.reset();
 	User.create({
 		_id: objectId,
+		facebook_user_id: '1487872791469482',
+		facebook_access_token: 'CAAMLUdhmuKMBAMMYfUxjIzYN7YTflYf6l6pzaDvxmD9ZC8o7ZAuOPIb0ehzXqdIM8dSx64Jg299BFZCMUlkKaYokpzckTEY8ZC5XbjYz4Onh4q6MnSPKochFaJEKNzrjIivXT1bODA3OTJzF0uZCqgZB09LLrXqoUC3PQwHwFA0OViKJW6dSAqmynUcsGAaP4Ve9ItMRcB4yetMgrtZCVXy',
+		username: 'Ayar Tester',
+		email: 'ayartest1@gmail.com',
+		pic: 'google.com/images',
+		points: 30,
+		achievements: []
+	}, function(err, model) {
+		done(err);
+	});
+
+	User.create({
+		_id: objectId,
 		facebook_user_id: 'somethingmadeup',
 		facebook_access_token: 'somethingmadeup',
 		username: 'user1test',
@@ -32,13 +45,13 @@ afterEach(function(done) {
 	// Reset database after every test
 	mockgoose.reset();
 	done();
-})
+});
 
 describe('User Model', function() {
 	it('User should have an objectId property', function(done) {
 		User.find(function(err, users) {
 			// Returns an array
-			if (err) return done(err);
+			if (err) { return done(err); }
 			users[0]._id.should.exist;
 			done();
 		});
@@ -47,7 +60,7 @@ describe('User Model', function() {
 	describe('Facebook User ID Property', function() {
 		it('User should have a facebook_user_id property', function(done) {
 			User.find(function(err, users) {
-				if (err) return done(err);
+				if (err) { return done(err); }
 				users[0].facebook_user_id.should.exist;
 				done();
 			});
@@ -55,7 +68,7 @@ describe('User Model', function() {
 
 		it('facebook_user_id property should be a string', function(done) {
 			User.find(function(err, users) {
-				if (err) return done(err);
+				if (err) { return done(err); }
 				var typeOfFbUserId = typeof (users[0].facebook_user_id);
 				typeOfFbUserId.should.equal('string');
 				done();
@@ -66,7 +79,7 @@ describe('User Model', function() {
 	describe('Facebook Access Token Property', function() {
 		it('User should have a facebook_access_token property', function(done) {
 			User.find(function(err, users) {
-				if (err) return done(err);
+				if (err) { return done(err); }
 				users[0].facebook_access_token.should.exist;
 				done();
 			});
@@ -74,7 +87,7 @@ describe('User Model', function() {
 		
 		it('facebook_access_token should be a string', function(done) {
 			User.find(function(err, users) {
-				if (err) return done(err);
+				if (err) { return done(err); }
 				var typeOfFbAccessToken = typeof (users[0].facebook_access_token);
 				typeOfFbAccessToken.should.equal('string');
 				done();
@@ -85,7 +98,7 @@ describe('User Model', function() {
 	describe('Username Property', function() {
 		it('User should have a username property', function(done) {
 			User.find(function(err, users) {
-				if (err) return done(err);
+				if (err) { return done(err); }
 				users[0].username.should.exist;
 				done();
 			});
@@ -93,7 +106,7 @@ describe('User Model', function() {
 
 		it('username should be a string', function(done) {
 			User.find(function(err, users) {
-				if (err) return done(err);
+				if (err) { return done(err); }
 				var typeOfUsername = typeof (users[0].username);
 				typeOfUsername.should.equal('string');
 				done();
@@ -104,7 +117,7 @@ describe('User Model', function() {
 	describe('Email Property', function() {
 		it('User should have an email property', function(done) {
 			User.find(function(err, users) {
-				if (err) return done(err);
+				if (err) { return done(err); }
 				users[0].email.should.exist;
 				done();
 			});
@@ -112,7 +125,7 @@ describe('User Model', function() {
 		
 		it('email should be a string', function(done) {
 			User.find(function(err, users) {
-				if (err) return done(err);
+				if (err) { return done(err); }
 				var typeOfEmail = typeof (users[0].email);
 				typeOfEmail.should.equal('string');
 				done();
@@ -123,7 +136,7 @@ describe('User Model', function() {
 	describe('Pic Property', function() {
 		it('User should have a pic property', function(done) {
 			User.find(function(err, users) {
-				if (err) return done(err);
+				if (err) { return done(err); }
 				users[0].pic.should.exist;
 				done();
 			});
@@ -131,7 +144,7 @@ describe('User Model', function() {
 		
 		it('Pic should be a URL in string format', function(done) {
 			User.find(function(err, users) {
-				if (err) return done(err);
+				if (err) { return done(err); }
 				var typeOfPic = typeof (users[0].pic);
 				typeOfPic.should.equal('string');
 				done();
@@ -142,7 +155,7 @@ describe('User Model', function() {
 	describe('Points Property', function() {
 		it('User should have a points property', function(done) {
 			User.find(function(err, users) {
-				if (err) return done(err);
+				if (err) { return done(err); }
 				users[0].points.should.exist;
 				done();
 			});
@@ -150,7 +163,7 @@ describe('User Model', function() {
 		
 		it('points should be a number', function(done) {
 			User.find(function(err, users) {
-				if (err) return done(err);
+				if (err) { return done(err); }
 				var typeOfPoints = typeof (users[0].points);
 				typeOfPoints.should.equal('number');
 				done();
@@ -161,7 +174,7 @@ describe('User Model', function() {
 	describe('Achievements Property', function() {
 		it('User should have an achivements property', function(done) {
 			User.find(function(err, users) {
-				if (err) return done(err);
+				if (err) { return done(err); }
 				users[0].achievements.should.exist;
 				done();
 			});
@@ -169,7 +182,7 @@ describe('User Model', function() {
 		
 		it('achievements should be an array', function(done) {
 			User.find(function(err, users) {
-				if (err) return done(err);
+				if (err) { return done(err); }
 				var typeOfAchievements = Array.isArray(users[0].achievements);
 				typeOfAchievements.should.equal(true);
 				done();

@@ -5,9 +5,6 @@ var request = require('supertest');
 var app = require('../app.js');
 var authfbHandlers = require('./authFbHandlers.js');
 
-
-var token, user, url, headers, response, results;
-
 describe('FB OAuth', function() {
 	describe('Facebook Token URL Generator', function() {
 		it('fbTokenUrlGeneator should be a function', function(done) {

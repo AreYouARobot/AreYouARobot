@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 // How does this play with SocketIO?
 // I would need the JWT to obtain the OBJECT ID? 
@@ -14,23 +14,23 @@ module.exports = {
 
 	// With the JWT, decode the JWT and grab the object ID
 	decodeJWT: function(clientToken, callback) {
-		console.log(clientToken, "THIS IS CLIENT TOKEN");
+		console.log(clientToken, 'THIS IS CLIENT TOKEN');
 		var isValidToken;
 		var	userObjId;
 
 		jwt.verify(clientToken, jwtConstants.secret, function(err, decoded) {
 			// isValidToken = !err && typeof decoded.id === 'string';
 			isValidToken = true;
-			console.log(decoded, "this is DECODED");
+			console.log(decoded, 'this is DECODED');
 
 			if (isValidToken) {
 				userObjId = decoded.id;
-				console.log(userObjId, "this is userObjId");
+				console.log(userObjId, 'this is userObjId');
 				callback(userObjId);
 			} else {
 				return null;
 			}
-		})
+		});
 	},
 
 	pickWinnerAndScoring: function(gameObj) {
@@ -98,7 +98,7 @@ module.exports = {
 
 		playersArray.forEach(function(playerObj) {
 			User.findByIdAndUpdate(playerObj.playerObjID, {$inc: { points: playerObj.playerCurrentScore}}, function(err, user) {
-				if (err) return err;
+				if (err) { return err; }
 				console.log('user object after db save is', user);
 				return user;
 			});
@@ -109,7 +109,7 @@ module.exports = {
 	// Since there are multiple individuals' scores to update, loop through every object in an array to be updated? Batch queries? Need to research
 
 	
-}
+};
 
 	// assignScores: function(guesserWinner) {
 	// 	// If winner is guesser, we're good. Just do a +30
