@@ -3,7 +3,7 @@
 var mongoose = require('mongoose');
 
 if (!process.env.isProduction) {
-	var devDbConnect = require('./devConstants.js').dbConnectionInfo;
+	var devDbConnect = require('./developmentdb.js').mongo;
 }
 
 // connectionString = process.env.CUSTOMCONNSTR_MONGOLAB_URI || devDbConnect.uri
