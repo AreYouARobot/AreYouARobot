@@ -137,6 +137,17 @@ var sendJWT = function(accountDetails, res, fbProfileInfo) {
 
 // Export the fbLogin function that handles authentication
 // All the helper functions were written above to not clutter up the login function itself
+
+module.exports.fbLoginApiTest = {
+	
+		'api.testing_fbTokenUrlGenerator': fbTokenUrlGenerator,
+		'api.testing_exchangeCodeForToken': exchangeCodeForToken,
+		'api.testing_fetchUserFbProfile': fetchUserFbProfile,
+		'api.testing_checkIfUserExists': checkIfUserExists,
+		'api.testing_updateUserProfile': updateUserProfile,
+		'api.testing_createUserProfile': createUserProfile
+}
+
 module.exports.fbLogin = function(req, res) {
 
 	// So something comes in the req.body. What do I need?
