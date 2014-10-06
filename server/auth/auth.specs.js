@@ -8,5 +8,3 @@ describe('FBLogin', function() {
 	it('fbLogin should be a function', function() {
 	});
 });
-
-
