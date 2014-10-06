@@ -1,3 +1,5 @@
 <h1>Your game ID is: {{gameID}}</h1>
-<input ng-model="playerName" type="text" placeholder="Enter Your Name"></input>
-<button ng-click="createGame()">Click to join your game</button>
+<form class="newGameForm">
+<ig ng-model="playerName" type="text" label="Enter Your Name"></ig>
+<material-button class="nameButton material-button-raised" ng-click="createGame()">Click to join!</material-button>
+</form>

@@ -1,0 +1,18 @@
+.newOrJoinButton {
+  height: 15vh;
+  width: 20vw;
+  border: 1px black solid;
+}
+
+.newGameForm {
+  margin-top: 1vh;
+}
+.nameButton {
+  border: 1px black solid;
+  height: 10vh;
+  width: 13vw;
+}
+
+.joinGame {
+  margin-top: 1vh;
+}

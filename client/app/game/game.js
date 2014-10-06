@@ -81,6 +81,15 @@ angular.module('AYARApp')
         templateUrl: '/app/game/game.all.waitForStart/game.all.waitForStart.html',
         controller: 'AllWaitForStartController'
       });
+  })
+  .controller('GameController', function($scope, $materialDialog) {
+    $scope.dialogBasic = function(ev) {
+      $materialDialog.show({
+        templateUrl: '',
+        targetEvent: ev,
+        controller: DialogController
+      });
+    };
   });
 
 // SAVE THIS FOREVER THIS WORKS

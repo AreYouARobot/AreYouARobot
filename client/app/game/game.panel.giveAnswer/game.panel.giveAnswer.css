@@ -11,13 +11,21 @@
 
 .answerInput {
   margin-top: 2vh;
+  font-size: 5vh;
 }
 
 .answerInfo {
   margin-top: 2vh;
   height: 25vh;
-  font-family: TOYZARUX;
+  font-family: snacker;
 }
+
+.answerInfoContainer {
+  display: scroll;
+}
+/*.robotQuote {
+  font-size: 10vh;
+}*/
 
 .answerFaces {
   border-radius: 30px;
@@ -27,9 +35,10 @@
 }
 
 .answerInfo h2 {
-  font-size: 3vh;
+  overflow: scroll;
+  font-size: 5vh;
 }
 
 .answerInfo h3 {
-  font-size: 2.75vh;
+  font-size: 5vh;
 }

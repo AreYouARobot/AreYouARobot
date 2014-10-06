@@ -1,5 +1,5 @@
-<form>
-	<input ng-model="gameID" type="text" placeholder="Enter Your Game ID"></input>
-	<input ng-model="playerName" type="text" placeholder="Enter Your Name"></input>
-	<button ng-click="joinGame()">Join Game!</button>
+<form class="joinGame">
+	<ig ng-model="gameID" type="text" label="Enter Game ID"></ig>
+	<ig ng-model="playerName" type="text" label="Enter Your Name"></ig>
+	<material-button class="nameButton material-button-raised" ng-click="joinGame()">Join Game!</material-button>
 </form>
