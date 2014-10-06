@@ -3,14 +3,12 @@
 var should = require('chai').should();
 var request = require('supertest');
 var app = require('../app.js');
-var authfbHandlers = require('./authFbHandlers.js').fbLoginApiTest;
-
-var 
+var authfbHandlers = require('./authFbHandlers.js');
 
 describe('FB OAuth', function() {
 	describe('Facebook Token URL Generator', function() {
 		it('fbTokenUrlGeneator should be a function', function(done) {
-			var fbTokenUrlGenerator = authfbHandlers['api.testing_fbTokenUrlGenerator'];
+			var fbTokenUrlGenerator = authfbHandlers.fbLoginApiTest['api.testing_fbTokenUrlGenerator'];
 			fbTokenUrlGenerator.should.be.a('function');
 			done();
 		});
@@ -25,7 +23,7 @@ describe('FB OAuth', function() {
 
 	describe('Exchanging Access Code for Token', function() {
 		it('exchangeCodeForToken should be a fuction', function(done) {
-			var exchangeCodeForToken = authfbHandlers['api.testing_exchangeCodeForToken'];
+			var exchangeCodeForToken = authfbHandlers.fbLoginApiTest['api.testing_exchangeCodeForToken'];
 			exchangeCodeForToken.should.be.a('function');
 			done();
 		});
@@ -33,7 +31,7 @@ describe('FB OAuth', function() {
 
 	describe('Fetch Facebook Profile', function() {
 		it('fetchUserFbProfile should be a function', function(done) {
-			var fetchUserFbProfile = authfbHandlers['api.testing_fetchUserFbProfile'];
+			var fetchUserFbProfile = authfbHandlers.fbLoginApiTest['api.testing_fetchUserFbProfile'];
 			fetchUserFbProfile.should.be.a('function');
 			done();
 		});
@@ -41,7 +39,7 @@ describe('FB OAuth', function() {
 
 	describe('Checking if User exists', function() {
 		it('checkIfUserExists should be a function', function(done) {
-			var checkIfUserExists = authfbHandlers['api.testing_checkIfUserExists'];
+			var checkIfUserExists = authfbHandlers.fbLoginApiTest['api.testing_checkIfUserExists'];
 			checkIfUserExists.should.be.a('function');
 			done();
 		});
@@ -49,7 +47,7 @@ describe('FB OAuth', function() {
 
 	describe('Updating the User Profile', function() {
 		it('updateUserProfile should be a function', function(done) {
-			var updateUserProfile = authfbHandlers['api.testing_updateUserProfile'];
+			var updateUserProfile = authfbHandlers.fbLoginApiTest['api.testing_updateUserProfile'];
 			updateUserProfile.should.be.a('function');
 			done();
 		});
@@ -57,7 +55,7 @@ describe('FB OAuth', function() {
 
 	describe('Creating a new User Profile', function() {
 		it('createUserProfile should be a function', function(done) {
-			var createUserProfile = authfbHandlers['api.testing_createUserProfile'];
+			var createUserProfile = authfbHandlers.fbLoginApiTest['api.testing_createUserProfile'];
 			createUserProfile.should.be.a('function');
 			done();
 		});
@@ -65,7 +63,7 @@ describe('FB OAuth', function() {
 
 	describe('Sending the JWT after obtaining User Information', function() {
 		it('sendJWT should be a function', function(done) {
-			var sendJWT = authfbHandlers['api.testing_sendJWT'];
+			var sendJWT = authfbHandlers.fbLoginApiTest['api.testing_sendJWT'];
 			sendJWT.should.be.a('function');
 			done();
 		});
