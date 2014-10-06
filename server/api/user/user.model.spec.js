@@ -27,18 +27,18 @@ beforeEach(function(done) {
 		done(err);
 	});
 
-	User.create({
-		_id: objectId,
-		facebook_user_id: 'somethingmadeup',
-		facebook_access_token: 'somethingmadeup',
-		username: 'user1test',
-		email: 'user1test@user1test.com',
-		pic: 'google.com/images',
-		points: 20,
-		achievements: []
-	}, function(err, model) {
-		done(err);
-	});
+	// User.create({
+	// 	_id: objectId,
+	// 	facebook_user_id: 'somethingmadeup',
+	// 	facebook_access_token: 'somethingmadeup',
+	// 	username: 'user1test',
+	// 	email: 'user1test@user1test.com',
+	// 	pic: 'google.com/images',
+	// 	points: 20,
+	// 	achievements: []
+	// }, function(err, model) {
+	// 	done(err);
+	// });
 });
 
 afterEach(function(done) {
