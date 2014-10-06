@@ -43,6 +43,11 @@ io.on('connection', function(socket) {
 	// listen for user disconnecting and console log
 	socket.on('disconnect', function() {
 		console.log('user disconnected');
+		// delete game
+		delete activeGames[room];
+		console.log('double check game is deleted', activeGames);
+		// emit gameOver event, taking all users back to create/join page
+		io.in(room).emit('gameOver');
 	});
 	
 	// listen for creation of new game using roomID
@@ -83,7 +88,7 @@ io.on('connection', function(socket) {
 			activeGames[room] = newGame;
 			
 			setTimeout(function() {
-				io.in(room).emit('addPlayer', socket.nickname);
+				io.in(room).emit('addPlayer', activeGames[room]);
 			}, 1000);
 		});
 	});
@@ -115,7 +120,7 @@ io.on('connection', function(socket) {
 			});
 
 			setTimeout(function() {
-				io.in(room).emit('addPlayer', socket.nickname);
+				io.in(room).emit('addPlayer', activeGames[room]);
 			}, 1000);
 
 			if (activeGames[room].players.length === 3) {
