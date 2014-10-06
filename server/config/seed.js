@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var User = require('../api/user/user.model.js');
 

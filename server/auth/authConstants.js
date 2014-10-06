@@ -1,9 +1,9 @@
-'use strict'
+'use strict';
 
 if (!process.env.isProduction){
   var fbConstants = require('../config/devConstants.js').fbConstants;
   var jwtConstants = require('../config/devConstants.js').jwtConstants;
-};
+}
 
 module.exports.fb = {
 	clientId: process.env.fbClientId || fbConstants.clientId,
