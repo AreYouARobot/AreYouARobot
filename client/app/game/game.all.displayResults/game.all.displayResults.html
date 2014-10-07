@@ -4,13 +4,9 @@
   <br/>
   <br/>
   <div class="endResults" align="center">
-    <!-- <h3>Question: {{game.question}}</h3>
-    <h3>Choice: {{game.guesserChoice}}</h3>
-    <h3>Game Result: {{game.gameResult}}</h3> -->
-    <h3 class="results">Question: What is your favorite color? What is your favorite color?What is your favorite color?
-      What is your favorite color?</h3>
-    <h3 class="results">Choice: I like bananas!</h3>
-    <h3 class="results">Game Result: something</h3>
+    <h3 class="results">Question: {{game.question}}</h3>
+    <h3 class="results">Choice: {{game.guesserChoice}}</h3>
+    <h3 class="results">Game Result: {{game.gameResult}}</h3>
     <div ng-repeat="player in game.players">
       <p>{{player.playerName}} scored {{player.playerCurrentScore}} points!</p>
     </div>
