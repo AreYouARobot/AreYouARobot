@@ -6,7 +6,8 @@
 
 .panelAnswers h2 {
   /*position: absolute;*/
-  font-family: snacker;
+  overflow: scroll;
+  font-family: cartoon;
   font-size: 5vh;
 }
 

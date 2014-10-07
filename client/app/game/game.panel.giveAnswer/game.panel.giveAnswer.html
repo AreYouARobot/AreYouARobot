@@ -3,15 +3,15 @@
     <img src="{{item.face}}" class="face botFace">
   </div>
   <div class="material-tile-content">
-    <h2 class="gameQuestion">{{game.question}}</h2><hr>
+    <h2 class="gameQuestion">What is your favorite color John? My favorite color is blue.</h2><hr>
     <h2 class="roboAnswer" style="color: antiquewhite; padding-bottom: 2%">{{game.answers[0].answer}}</h2>
     <h3 class="robotQuote">{{item.who}}</h3>
   </div>
 </material-item-content>
 
 <form class="answerInput" ng-submit="panelSendAnswer()">
-  <ig ng-model="answer" label="What is your answer?" value="{{answer}}"></ig>
-  <material-button class="material-button-raised">Submit</material-button>
+  <ig ng-model="answer" label="What is your answer?" value="{{answer}}" maxlength="10"></ig>
+  <material-button style="font-size: 4vh" class="material-button-raised">Submit</material-button>
 </form>
 
 

@@ -71,7 +71,7 @@ angular.module('AYARApp')
       })
       // New View -- Lobby
       .state('game.lobby', {
-        url: '/lobby:room',
+        url: '/lobby/:room',
         templateUrl: '/app/game/game.all.lobby/game.all.lobby.html',
         controller: 'AllLobbyController'
       })

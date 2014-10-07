@@ -1,7 +1,9 @@
 .newOrJoinButton {
-  height: 15vh;
-  width: 20vw;
+  height: 16vh;
+  width: 24vw;
   border: 1px black solid;
+  font-size: 4vh;
+  white-space: normal;
 }
 
 .newGameForm {
@@ -9,6 +11,7 @@
 }
 .nameButton {
   border: 1px black solid;
+  white-space: normal;
   height: 10vh;
   width: 13vw;
 }

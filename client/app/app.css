@@ -3,7 +3,7 @@ form {
 }
 
 textarea, input[type="text"] {
-  font-size: 5vh;
+  font-size: 3.5vh;
 }
 
 material-button {
@@ -12,29 +12,37 @@ material-button {
   /*padding: 2vh;*/
   font-size: 5vh;
   width: 10vw;
-  font-family: snacker;
+  font-family: chunky;
 }
 
 material-input-group {
   font-size: 8vh;
 }
 
+.material-tile-content h2 {
+  padding-top: .5vh;
+  font-size: 3.5vh;
+  overflow: scroll;
+}
+
 material-input-group input {
-  font-size: 5vh;
+  font-size: 3vh;
   color: black;
   margin-top: 1vh;
   padding: .5em;
   height: 7vh;
   width: 21vw;
   text-align: center;
-  font-family: snacker;
+  font-family: chunky;
   background-color: antiquewhite;
+  font-weight: normal;
 }
 
 material-input-group label {
   color: #2B344D;
-  /*font-size: .65em;*/
-  font-family: snacker;
+  font-family: chunky;
+  font-size: 5vh;
+  font-weight: normal;
   margin-bottom: 6vh;
 }
 

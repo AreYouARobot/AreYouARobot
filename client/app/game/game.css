@@ -58,3 +58,17 @@ h1 {
   height: 15vh;
   width: 11vw;
 }
+
+.gameNextButton {
+  width: 12vw;
+  font-size: 4vh;
+}
+
+.endResults {
+  overflow: auto;
+}
+.results {
+  font-family: villa;
+  overflow: auto;
+  font-size: 5vh;
+}
