@@ -7,8 +7,8 @@
 .panelAnswers h2 {
   /*position: absolute;*/
   overflow: scroll;
-  font-family: cartoon;
-  font-size: 5vh;
+  font-family: Courier;
+  font-size: 3.5vh;
 }
 
 .choiceButton {
@@ -24,7 +24,7 @@
 }
 
 .panelAnswers:hover {
-  background-color: yellow;
+  background-color: antiquewhite;
 }
 
 /*.choiceButton .ng-show {

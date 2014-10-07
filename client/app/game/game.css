@@ -61,14 +61,14 @@ h1 {
 
 .gameNextButton {
   width: 12vw;
-  font-size: 4vh;
+  font-size: 3vh;
 }
 
 .endResults {
-  overflow: auto;
+  overflow: scroll;
 }
-.results {
-  font-family: villa;
-  overflow: auto;
+
+.lobbyNames {
+  font-family: Courier;
   font-size: 5vh;
 }

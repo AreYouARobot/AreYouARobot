@@ -10,9 +10,15 @@ material-button {
   margin-top: 2vh;
   background-color: antiquewhite;
   /*padding: 2vh;*/
-  font-size: 5vh;
+  font-size: 3vh;
+  white-space: wrap;
   width: 10vw;
   font-family: courier;
+}
+
+material-button .material-button-inner {
+  font-size: 3vh;
+  white-space: wrap;
 }
 
 material-input-group {
