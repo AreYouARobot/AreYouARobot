@@ -224,7 +224,7 @@ io.on('connection', function(socket) {
 				console.log('sending game results in ', activeGames[room]);
 
 				// send appropriate data to upvote/downvote
-				upvoteOrDownvote();
+				upvoteOrDownvote(room);
 				
 				// send to all players in the room
 				io.in(room).emit('displayResults', activeGames[room]);
@@ -286,7 +286,7 @@ io.on('connection', function(socket) {
 	});
 });
 
-var upvoteOrDownvote = function () {
+var upvoteOrDownvote = function (room) {
 	// check if player picked bot response or not
 	var botResponse;
 
