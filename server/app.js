@@ -235,6 +235,8 @@ io.on('connection', function(socket) {
 	});
 
 	socket.on('gameNextTurn', function(room) {
+		console.log('in gameNextTurn with activeGames', activeGames);
+		console.log('in gameNextTurn passed in room', room);
 		if (activeGames[room].players[activeGames[room].currentGuesserIndex].playerID === socket.id) {
 
 		console.log('the guesser is the one that clicked');
@@ -301,10 +303,16 @@ var upvoteOrDownvote = function (room) {
 			best: botResponse
 		});
 
+		var headers = {
+		  'Content-Type': 'application/json',
+		  'Content-Length': data.length
+		};
+
 		var options = {
-			host: 'http://ayar-robot.azurewebsites.net',
+			host: 'ayar-robot.azurewebsites.net',
 			path: '/api/upvote',
-			method: 'POST'
+			method: 'POST',
+			headers: headers
 		};
 
 		var callback = function(response) {
@@ -328,10 +336,16 @@ var upvoteOrDownvote = function (room) {
 			worst: botResponse
 		});
 
+		var headers = {
+		  'Content-Type': 'application/json',
+		  'Content-Length': data.length
+		};
+
 		var options = {
-			host: 'http://ayar-robot.azurewebsites.net',
+			host: 'ayar-robot.azurewebsites.net',
 			path: '/api/downvote',
-			method: 'POST'
+			method: 'POST',
+			headers: headers
 		};
 
 		var callback = function(response) {
