@@ -222,6 +222,9 @@ io.on('connection', function(socket) {
 			console.log('sending game results in five seconds!');
 			setTimeout(function() {
 				console.log('sending game results in ', activeGames[room]);
+
+				// send appropriate data to upvote/downvote
+				upvoteOrDownvote();
 				
 				// send to all players in the room
 				io.in(room).emit('displayResults', activeGames[room]);
@@ -283,4 +286,77 @@ io.on('connection', function(socket) {
 	});
 });
 
+var upvoteOrDownvote = function () {
+	// check if player picked bot response or not
+	var botResponse;
+
+	activeGames[room].answers.forEach(function(answer) {
+		if (answer.isBot) {
+			botResponse = answer;
+		}
+	});
+
+	var upvote = function() {
+		var data = JSON.stringify({
+			best: botResponse
+		});
+
+		var options = {
+			host: 'http://ayar-robot.azurewebsites.net',
+			path: '/api/upvote',
+			method: 'POST'
+		};
+
+		var callback = function(response) {
+		  var str = ''
+		  response.on('data', function (chunk) {
+		    str += chunk;
+		  });
+
+		  response.on('end', function () {
+		    console.log(str);
+		  });
+		};
+
+		var req = http.request(options, callback);
+		req.write(data);
+		req.end();
+	};
+
+	var downvote = function() {
+		var data = JSON.stringify({
+			worst: botResponse
+		});
+
+		var options = {
+			host: 'http://ayar-robot.azurewebsites.net',
+			path: '/api/downvote',
+			method: 'POST'
+		};
+
+		var callback = function(response) {
+		  var str = ''
+		  response.on('data', function (chunk) {
+		    str += chunk;
+		  });
+
+		  response.on('end', function () {
+		    console.log(str);
+		  });
+		};
+
+		var req = http.request(options, callback);
+		req.write(data);
+		req.end();
+	};
+
+	if (activeGames[room].gameResult === 'Player Guessed Correctly!') {
+		// post to api/downvote
+		downvote();
+	} else {
+		upvote();
+	}
+};
+
 exports = module.exports = app;
+
