@@ -3,7 +3,7 @@
 var fs = require('fs');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
-var helpers = require('./helpers.js');
+// var helpers = require('./helpers.js');
 var jwtCheck = require('../auth/authJWT.js').jwtCheck;
 
 module.exports = function(app, express) {
@@ -26,7 +26,7 @@ module.exports = function(app, express) {
 	// var gameHandling = express.Router();
 
 	app.use('/api/user', jwtCheck, userRouter); // User router for all user requests
-	// require('../api/user/user.router.js')(userRouter);
+	require('../api/user/user.router.js')(userRouter);
 
 	app.use('/auth', authHandling);
 	require('../auth/authRouting.js')(authHandling);
@@ -34,7 +34,7 @@ module.exports = function(app, express) {
 	// app.use('/game', jwtCheck, gameHandling);
 	// require('../game/gamerouting.js')(gameHandling);
 
-	app.use(helpers.errorLogger);
-	app.use(helpers.errorHandler); 
+	// app.use(helpers.errorLogger);
+	// app.use(helpers.errorHandler); 
 
 };

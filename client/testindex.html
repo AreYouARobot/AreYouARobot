@@ -21,6 +21,10 @@
 			<button class="sendMsg">Send Msg</button>
 		</div>
 
+		<div class="getUserProfile">
+			<button class="getProfile">Get User Profile</button>
+		</div>
+
 		<div class="fboauth">
 			<button class="fblogin">Click to Login to Facebook</button>
 		</div>
@@ -125,6 +129,21 @@
 					}
 				})
 			}
+
+			$('.getProfile').click(function() {
+				console.log("click works");
+				$.ajax({
+					url: '/api/user',
+					method: "GET",
+					success: function(data) {
+						console.log(data);
+						console.log("get request successful");
+					},
+					error: function() {
+						console.log("get request failed");
+					}
+				});
+			})
 
 		</script>
 

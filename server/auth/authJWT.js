@@ -5,10 +5,11 @@ var jwtConstants = require('./authConstants.js').jwt;
 
 module.exports.jwtCheck = function(req, res, next) {
 
-	var token = req.header['x-access-token'];
-	console.log(req.header, 'this is req.header');
+	var token = req.headers['x-access-token'];
+	console.log(req.headers, 'this is req.header');
 	console.log(token, 'this is token');
 	var isValidToken;
+	var userObjId;
 
 	// Comment what is happening in this entire block of text
 	if(!!token) {
@@ -16,10 +17,15 @@ module.exports.jwtCheck = function(req, res, next) {
 
 			// After jwt verifies the token with the secret, it takes a callback
 			// What is decoded.id ? It's the success portion of the callback?
+			console.log(decoded.id, 'this is decoded.id');
+			console.log(typeof decoded.id, 'this is typeof decoded.id');
+			console.log(err, 'this is err');
 			isValidToken = !err && typeof decoded.id === 'string';
 
 			if(isValidToken) {
-				req.userId = decoded.id;
+				userObjId = decoded.id;
+				console.log('This is userObjId: ', userObjId);
+				req.userObjId = userObjId;
 				next();
 			} else {
 				res.status(401).send({routeToLogin: true});
