@@ -292,7 +292,7 @@ var upvoteOrDownvote = function () {
 
 	activeGames[room].answers.forEach(function(answer) {
 		if (answer.isBot) {
-			botResponse = answer;
+			botResponse = answer.answer;
 		}
 	});
 
