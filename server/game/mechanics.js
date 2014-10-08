@@ -90,6 +90,12 @@ module.exports = {
 
 	},
 
+	increaseCountsForAchivements: function(gameObj) {
+		var playersArray = gameObj.players;
+		// 
+
+	}
+
 	updateUserScoresInDB: function(gameObj) {
 
 		// gameObj now has everyone's scores that should be updated for that round.
