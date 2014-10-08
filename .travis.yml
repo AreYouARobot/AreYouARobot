@@ -7,8 +7,3 @@ before_script:
 - bower install
 services:
 - mongodb
-before_install:
-- openssl aes-256-cbc -K $encrypted_6ba402953e09_key -iv $encrypted_6ba402953e09_iv
-  -in devConstants.js.enc -out ./server/config/devConstants.js -d
-script:
-- '[ "${TRAVIS_PULL_REQUEST}" = "false" ]'
