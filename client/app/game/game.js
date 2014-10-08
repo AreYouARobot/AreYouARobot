@@ -82,15 +82,26 @@ angular.module('AYARApp')
         controller: 'AllWaitForStartController'
       });
   })
-  .controller('GameController', function($scope, $materialDialog) {
-    $scope.dialogBasic = function(ev) {
-      $materialDialog.show({
-        templateUrl: '',
+  .controller('ShowDialogController', ['$scope', '$materialDialog', function($scope, $materialDialog) {
+    $scope.dialogBasic = function(ev, template) {
+      $materialDialog({
+        templateUrl: template,
         targetEvent: ev,
-        controller: DialogController
+        controller: function($scope, $hideDialog) {
+          $scope.hide = function() {
+            $hideDialog();
+          }
+        }
       });
+     };
+  }]);
+
+  function DialogController($scope, $materialDialog) {
+    $scope.hide = function() {
+      console.log('here');
+      $hideDialog();
     };
-  });
+  }
 
 // SAVE THIS FOREVER THIS WORKS
 // .state('game.gAskQuestion', {
