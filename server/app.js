@@ -8,7 +8,7 @@ var database = require('./config/dbConnectionConfig.js');
 var game = require('./game/mechanics.js');
 
 var httpModule = require('http');
-http = httpModule.Server(app);
+var http = httpModule.Server(app);
 
 var io = require('socket.io');
 io = io(http);
