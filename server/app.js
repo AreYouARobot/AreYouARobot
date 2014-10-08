@@ -7,8 +7,8 @@ var app = express();
 var database = require('./config/dbConnectionConfig.js');
 var game = require('./game/mechanics.js');
 
-var http = require('http');
-http = http.Server(app);
+var httpModule = require('http');
+http = httpModule.Server(app);
 
 var io = require('socket.io');
 io = io(http);
@@ -318,7 +318,7 @@ var upvoteOrDownvote = function (room) {
 		  });
 		};
 
-		var req = http.request(options, callback);
+		var req = httpModule.request(options, callback);
 		req.write(data);
 		req.end();
 	};
@@ -345,7 +345,7 @@ var upvoteOrDownvote = function (room) {
 		  });
 		};
 
-		var req = http.request(options, callback);
+		var req = httpModule.request(options, callback);
 		req.write(data);
 		req.end();
 	};
