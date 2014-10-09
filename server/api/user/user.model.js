@@ -10,7 +10,11 @@ var UserSchema = new Schema({
 	email: {type: String, lowercase: true},
 	pic: String,
 	points: {type: Number, default: 0},
-	achievements: Array,
+	numOfGamesWon: {type: Number, default: 0},
+	numOfGamesPlayed: {type: Number, default: 0},
+	numOfPerfectGames: {type: Number, default: 0},
+	timesGuessedBotCorrectly: {type: Number, default: 0},
+	achievements: [],
 	completed_setup: Boolean,
 	ceatedDateTime: {type: Date, default: Date.now }
 });

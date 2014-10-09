@@ -9,6 +9,7 @@ angular.module('AYARApp')
 
       // loginUrlWithParameters = loginUrlWithParameters + facebookParams.oauthRedirectUrlDeployed;
       loginUrlWithParameters = loginUrlWithParameters + facebookParams.oauthRedirectUrlLocal;
+
       // Look into eventlistener for pageload URL. If URL contains localhost, use localhost for oauthredirectUrl
       // Else configure it to use the server/deployed URL
 
