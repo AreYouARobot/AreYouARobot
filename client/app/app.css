@@ -8,7 +8,8 @@ textarea, input[type="text"] {
 
 material-button {
   margin-top: 2vh;
-  background-color: antiquewhite;
+  /*background-color: antiquewhite;*/
+  background-color: #D13F32;
   font-size: 3vh;
   white-space: wrap;
   width: 10vw;
@@ -62,7 +63,8 @@ material-tabs {
 material-tab {
   font-size: 8vh;
   height: 10vh;
-  background-color: antiquewhite;
+  /*background-color: antiquewhite;*/
+  background-color: #D13F32;
 }
 
 .tabs-header {
@@ -70,10 +72,10 @@ material-tab {
 }
 
 material-tab material-tab-label.active {
-  color: #F79C65;
+  color: #1D7872;
 }
 
-material-tab:hover {
+material-tab:hover material-tab-label{
   color: grey;
 }
 
@@ -88,7 +90,7 @@ material-divider {
 }
 
 material-ink-bar {
-  background: black;
+  background: antiquewhite;
 }
 
 material-tab .material-ripple-container {
