@@ -3,56 +3,73 @@ form {
 }
 
 textarea, input[type="text"] {
-  font-size: 5vh;
+  font-size: 3.5vh;
 }
 
 material-button {
   margin-top: 2vh;
   background-color: antiquewhite;
-  /*padding: 2vh;*/
-  font-size: 5vh;
+  font-size: 3vh;
+  white-space: wrap;
   width: 10vw;
-  font-family: snacker;
+  font-family: courier;
+}
+
+material-button .material-button-inner {
+  font-size: 3vh;
+  white-space: wrap;
 }
 
 material-input-group {
   font-size: 8vh;
 }
 
+.material-tile-content h2 {
+  padding-top: .5vh;
+  font-size: 3.5vh;
+  overflow: scroll;
+}
+
 material-input-group input {
-  font-size: 5vh;
+  font-size: 3vh;
   color: black;
   margin-top: 1vh;
   padding: .5em;
   height: 7vh;
   width: 21vw;
   text-align: center;
-  font-family: snacker;
+  font-family: courier;
   background-color: antiquewhite;
+  font-weight: normal;
 }
 
 material-input-group label {
   color: #2B344D;
-  /*font-size: .65em;*/
-  font-family: snacker;
+  font-family: courier;
+  font-size: 5vh;
+  font-weight: normal;
   margin-bottom: 6vh;
 }
 
 material-tabs {
   font-family: cartoonblocks;
 }
+
+.navBar material-tab-label {
+  color: black;
+}
+
 material-tab {
   font-size: 8vh;
   height: 10vh;
   background-color: antiquewhite;
-  color: black;
 }
 
 .tabs-header {
   height: 10vh;
 }
 
-material-tab.active {
+material-tab material-tab-label.active {
   color: #F79C65;
 }
 
@@ -84,4 +101,14 @@ material-tab .material-ripple-container {
 
 .tabs-header-items-container {
   background-color: antiquewhite;
+}
+
+.dialogue {
+  width: 55vw;
+  height: 90vh;
+  background-color: antiquewhite;
+}
+
+.dialogueOkay {
+  background-color: white;
 }

@@ -6,3 +6,15 @@
   border-radius: 1vh;
   border: .5vh solid black;
 }
+
+.gameNextButton {
+  width: 14vw;
+  height: 7vh;
+  font-size: 3vh;
+}
+
+.results {
+  font-family: Courier;
+  font-size: 3.5vh;
+  overflow: scroll;
+}

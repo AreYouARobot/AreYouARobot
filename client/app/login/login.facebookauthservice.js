@@ -46,7 +46,7 @@ angular.module('AYARApp')
           });
 
       };
-      
+
       //REMOVE WHEN NOT IN USE
       var profileInfo;
       this.fbProfileInfo = function(){return profileInfo;};

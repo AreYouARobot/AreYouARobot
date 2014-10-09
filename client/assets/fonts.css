@@ -6,8 +6,49 @@
 }
 
 @font-face {
+  font-family: chunky;
+  src: url("chunky font.ttf");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: fantasy;
+  src: url("NederlandFantasy.ttf");
+  font-style: bold;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: bubble;
+  src: url("font bubble.ttf");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: villa;
+  src: url("Villa.ttf");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
   font-family: orangejuice;
   src:url("orange-juice.ttf");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: tequila;
+  src: url("Tequilla Sunrise.ttf");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: cartoon;
+  src: url("Cartoon 2 US.ttf");
   font-style: normal;
   font-weight: normal;
 }
@@ -29,6 +70,13 @@
 @font-face {
   font-family: PW;
   src: url('PWPerspective.ttf');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: agentOrange;
+  src: url('AGENTORANGE.TTF');
   font-style: normal;
   font-weight: normal;
 }

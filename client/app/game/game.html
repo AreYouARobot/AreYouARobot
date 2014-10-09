@@ -3,13 +3,13 @@
   <center>
   <h1>AYAR?</h1>
   <!-- <hr style="margin: 0"> -->
-  <div ng-controller="GuesserAskQuestionController">
-  <material-tabs selected="data.selectedIndex" center>
-          <material-tab label="A"></material-tab>
-          <material-tab label="Y"></material-tab>
-          <material-tab label="A"></material-tab>
-          <material-tab label="R"></material-tab>
-          <material-tab label="?"></material-tab>
+  <div ng-controller="ShowDialogController">
+  <material-tabs class="navBar" selected="data.selectedIndex" center>
+          <material-tab class="navButton material-tab" label="A"></material-tab>
+          <material-tab ng-click="dialogBasic($event, '/app/homepage/nav-views/robotInfo.html')"label="Y"></material-tab>
+          <material-tab ng-click="dialogBasic($event, '/app/homepage/nav-views/teamInfo.html')"label="A"></material-tab>
+          <material-tab ng-click="dialogBasic($event, '/app/homepage/nav-views/robotInfo.html')" label="R"></material-tab>
+          <material-tab ng-click="dialogBasic($event, '/app/homepage/nav-views/gameHelp.html')"label="?"></material-tab>
   </material-tabs>
 <div ui-view></div>
 </div>

@@ -10,7 +10,7 @@ angular.module('AYARApp')
     };
 
     $scope.item = {
-      face: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTOOOI6lAMyoWVamiRU6AmP8jlJZtycx4w2oARZOZOcRHYRYTai',
-      who: '- Optimus Prime',
+      face: 'http://media-cache-ec0.pinimg.com/236x/c7/97/d7/c797d77e149595e06aea1d04be2d312a.jpg',
+      who: "- Robot",
     };
   });

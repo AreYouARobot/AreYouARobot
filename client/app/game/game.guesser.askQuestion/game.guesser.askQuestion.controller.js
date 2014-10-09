@@ -31,7 +31,7 @@ angular.module('AYARApp')
 	    template:
 	      '<material-input-group>' +
 	        '<label for="{{fid}}">{{label}}</label>' +
-	        '<material-input id="{{fid}}" type="text" ng-model="value">' +
+	        '<material-input maxlength="80" id="{{fid}}" type="text" ng-model="value">' +
 	      '</material-input-group>'
 	  };
 	});

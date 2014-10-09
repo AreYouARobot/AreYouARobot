@@ -71,7 +71,7 @@ angular.module('AYARApp')
       })
       // New View -- Lobby
       .state('game.lobby', {
-        url: '/lobby:room',
+        url: '/lobby/:room',
         templateUrl: '/app/game/game.all.lobby/game.all.lobby.html',
         controller: 'AllLobbyController'
       })
@@ -81,7 +81,27 @@ angular.module('AYARApp')
         templateUrl: '/app/game/game.all.waitForStart/game.all.waitForStart.html',
         controller: 'AllWaitForStartController'
       });
-  });
+  })
+  .controller('ShowDialogController', ['$scope', '$materialDialog', function($scope, $materialDialog) {
+    $scope.dialogBasic = function(ev, template) {
+      $materialDialog({
+        templateUrl: template,
+        targetEvent: ev,
+        controller: function($scope, $hideDialog) {
+          $scope.hide = function() {
+            $hideDialog();
+          }
+        }
+      });
+     };
+  }]);
+
+  function DialogController($scope, $materialDialog) {
+    $scope.hide = function() {
+      console.log('here');
+      $hideDialog();
+    };
+  }
 
 // SAVE THIS FOREVER THIS WORKS
 // .state('game.gAskQuestion', {
