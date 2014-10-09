@@ -39,13 +39,28 @@ io.on('connection', function(socket) {
 	console.log('user connected');
 
 	// listen for user disconnecting and console log
-	socket.on('disconnect', function() {
+	socket.on('disconnect', function(data) {
 		console.log('user disconnected');
+		
+		// find game player was in
+		var disconnectedRoom;
+		
+		for (var game in activeGames) {
+			console.log(game);
+			activeGames[game].players.forEach(function(player) {
+				if (player.playerID === socket.id) {
+					disconnectedRoom = game;
+				}
+			});
+		}
+
 		// delete game
-		delete activeGames[room];
+		delete activeGames[disconnectedRoom];
+
 		console.log('double check game is deleted', activeGames);
+		
 		// emit gameOver event, taking all users back to create/join page
-		io.in(room).emit('gameOver');
+		io.in(disconnectedRoom).emit('gameOver');
 	});
 	
 	// listen for creation of new game using roomID
