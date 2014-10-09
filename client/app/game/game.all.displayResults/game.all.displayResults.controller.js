@@ -20,8 +20,8 @@ angular.module('AYARApp')
 			$state.go('game.panelWaitingForQuestion', {room: $stateParams.room.room});
 		});
 
-		socket.on('gameOver', function() {
-			console.log('Game Over!');
-			$state.go('game.createOrJoinGame');
-		});
+		// socket.on('gameOver', function() {
+		// 	console.log('Game Over!');
+		// 	$state.go('game.createOrJoinGame');
+		// });
 	});
