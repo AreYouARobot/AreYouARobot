@@ -41,10 +41,10 @@ io.on('connection', function(socket) {
 	// listen for user disconnecting and console log
 	socket.on('disconnect', function(data) {
 		console.log('user disconnected');
-		
+
 		// find game player was in
 		var disconnectedRoom;
-		
+
 		for (var game in activeGames) {
 			console.log(game);
 			activeGames[game].players.forEach(function(player) {
@@ -58,14 +58,14 @@ io.on('connection', function(socket) {
 		delete activeGames[disconnectedRoom];
 
 		console.log('double check game is deleted', activeGames);
-		
+
 		// emit gameOver event, taking all users back to create/join page
 		io.in(disconnectedRoom).emit('gameOver');
 	});
-	
+
 	// listen for creation of new game using roomID
 	socket.on('createGame', function(gameInfo) {
-		
+
 		// player joined, passing in gameID and playerName through gameInfo
 		console.log('got a player in createGame on server', gameInfo);
 
@@ -103,7 +103,7 @@ io.on('connection', function(socket) {
 			};
 
 			activeGames[room] = newGame;
-			
+
 			setTimeout(function() {
 				io.in(room).emit('addPlayer', activeGames[room]);
 			}, 1000);
@@ -147,13 +147,13 @@ io.on('connection', function(socket) {
 				console.log('starting new game in five seconds!');
 				setTimeout(function() {
 					console.log('starting game in gameInstance', activeGames[room]);
-					
+
 					// send different messages to guesser and panel to start game
 					for (var i = 0; i < activeGames[room].players.length; i++) {
 						if (i === activeGames[room].currentGuesserIndex) {
-							io.sockets.connected[activeGames[room].players[i].playerID].emit('startGuesser', activeGames[room]);		
+							io.sockets.connected[activeGames[room].players[i].playerID].emit('startGuesser', activeGames[room]);
 						} else {
-							io.sockets.connected[activeGames[room].players[i].playerID].emit('startPanel', activeGames[room]);		
+							io.sockets.connected[activeGames[room].players[i].playerID].emit('startPanel', activeGames[room]);
 						}
 					}
 				}, 5000);
@@ -181,9 +181,9 @@ io.on('connection', function(socket) {
 		// send different messages to guesser and panel to start game
 		for (var i = 0; i < activeGames[room].players.length; i++) {
 			if (i === activeGames[room].currentGuesserIndex) {
-				io.sockets.connected[activeGames[room].players[i].playerID].emit('guesserWait', activeGames[room]);		
+				io.sockets.connected[activeGames[room].players[i].playerID].emit('guesserWait', activeGames[room]);
 			} else {
-				io.sockets.connected[activeGames[room].players[i].playerID].emit('sendPanelQuestion', activeGames[room]);		
+				io.sockets.connected[activeGames[room].players[i].playerID].emit('sendPanelQuestion', activeGames[room]);
 			}
 		}
 	});
@@ -208,14 +208,14 @@ io.on('connection', function(socket) {
 
 			// shuffle answers
 			shuffle.knuthShuffle(activeGames[room].answers);
-			
+
 			setTimeout(function() {
 				console.log('sending panel answers in ', activeGames[room]);
-				
+
 				// send to all players in the room
 				io.in(room).emit('guesserChooseAnswer', activeGames[room]);
 			}, 5000);
-		}	
+		}
 	});
 
 	// listen for guesser choice
@@ -236,7 +236,7 @@ io.on('connection', function(socket) {
 // THIS IS WHERE DECIDE WINNER LOGIC WILL GO
 // THIS IS WHERE SCORING LOGIC WILL ALSO GO
 // THIS IS WHERE LEARNING LOGIC FOR ROBOT WILL ALSO GO
-// **********************************************			
+// **********************************************
 
 			// check if answer is correct
 			activeGames[room] = game.pickWinnerAndScoring(activeGames[room]);
@@ -247,7 +247,7 @@ io.on('connection', function(socket) {
 
 				// send appropriate data to upvote/downvote
 				upvoteOrDownvote(room);
-				
+
 				// send to all players in the room
 				io.in(room).emit('displayResults', activeGames[room]);
 			}, 5000);
@@ -262,7 +262,7 @@ io.on('connection', function(socket) {
 		if (activeGames[room].players[activeGames[room].currentGuesserIndex].playerID === socket.id) {
 
 		console.log('the guesser is the one that clicked');
-		
+
 			// update currentGuesserIndex to move to next player
 			activeGames[room].currentGuesserIndex++;
 
@@ -270,12 +270,12 @@ io.on('connection', function(socket) {
 			if (activeGames[room].currentGuesserIndex >= activeGames[room].players.length) {
 
 				game.scoreGameUpdateMetricsAndAchivementsThenSendToDB(activeGames[room]);
-				
-				// delete game
-				// delete activeGames[room];
-				// console.log('double check game is deleted', activeGames);
 
-				// io.in(room).emit('gameOver');
+				// delete game
+				delete activeGames[room];
+				console.log('double check game is deleted', activeGames);
+
+				io.in(room).emit('gameOver');
 
 				// emit gameOver event, taking all users back to create/join page
 			} else {
@@ -292,13 +292,13 @@ io.on('connection', function(socket) {
 					console.log('starting new game in five seconds!');
 					setTimeout(function() {
 						console.log('starting game in gameInstance', activeGames[room]);
-						
+
 						// send different messages to guesser and panel to start game
 						for (var i = 0; i < activeGames[room].players.length; i++) {
 							if (i === activeGames[room].currentGuesserIndex) {
-								io.sockets.connected[activeGames[room].players[i].playerID].emit('startGuesser', activeGames[room]);		
+								io.sockets.connected[activeGames[room].players[i].playerID].emit('startGuesser', activeGames[room]);
 							} else {
-								io.sockets.connected[activeGames[room].players[i].playerID].emit('startPanel', activeGames[room]);		
+								io.sockets.connected[activeGames[room].players[i].playerID].emit('startPanel', activeGames[room]);
 							}
 						}
 					}, 5000);
