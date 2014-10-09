@@ -89,7 +89,11 @@ io.on('connection', function(socket) {
 					playerName: socket.nickname,
 					playerID: socket.id,
 					playerObjID: playerObjID,
-					playerCurrentScore: 0
+					playerCurrentScore: 0,
+					// Added three properties to the player object of players array for achievements
+					playerGuessBotAnswer: 0,
+					playerGotPerfectGame: 0,
+					playerWonGame: 0
 				}],
 				currentGuesserIndex: 0,
 				question: '',
@@ -129,7 +133,10 @@ io.on('connection', function(socket) {
 				playerName: socket.nickname,
 				playerID: socket.id,
 				playerObjID: playerObjID,
-				playerCurrentScore: 0
+				playerCurrentScore: 0,
+				playerGuessBotAnswer: 0,
+				playerGotPerfectGame: 0,
+				playerWonGame: 0
 			});
 
 			setTimeout(function() {
@@ -262,15 +269,15 @@ io.on('connection', function(socket) {
 			// check to see if game is over
 			if (activeGames[room].currentGuesserIndex >= activeGames[room].players.length) {
 
-				game.updateUserScoresInDB(activeGames[room]);
-
+				game.scoreGameUpdateMetricsAndAchivementsThenSendToDB(activeGames[room]);
+				
 				// delete game
-				delete activeGames[room];
+				// delete activeGames[room];
+				// console.log('double check game is deleted', activeGames);
 
-				console.log('double check game is deleted', activeGames);
+				// io.in(room).emit('gameOver');
 
 				// emit gameOver event, taking all users back to create/join page
-				io.in(room).emit('gameOver');
 			} else {
 
 				console.log('starting new round in room', room);

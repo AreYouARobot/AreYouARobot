@@ -14,7 +14,7 @@ var UserSchema = new Schema({
 	numOfGamesPlayed: {type: Number, default: 0},
 	numOfPerfectGames: {type: Number, default: 0},
 	timesGuessedBotCorrectly: {type: Number, default: 0},
-	achievements: Array,
+	achievements: [],
 	completed_setup: Boolean,
 	ceatedDateTime: {type: Date, default: Date.now }
 });
