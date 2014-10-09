@@ -9,6 +9,10 @@ angular.module('AYARApp')
 
       // loginUrlWithParameters = loginUrlWithParameters + facebookParams.oauthRedirectUrlDeployed;
       loginUrlWithParameters = loginUrlWithParameters + facebookParams.oauthRedirectUrlLocal;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 22b2f13... Commented out callback. Need to configure delete game room async issue with achievements.
       // Look into eventlistener for pageload URL. If URL contains localhost, use localhost for oauthredirectUrl
       // Else configure it to use the server/deployed URL
 

@@ -248,7 +248,7 @@ module.exports = {
 		var updatedGameObj = gameMechHelpers.updateUserMetricsPreDB(gameObj) // THIS PART WORKS
 		console.log(updatedGameObj, "THIS IS UPDATED GAME OBJ");
 		gameMechHelpers.updateUserMetricsAndAchievementsInDB(updatedGameObj);
-		callback();
+		// callback();
 	}
 
 
