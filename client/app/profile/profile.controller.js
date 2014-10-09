@@ -2,7 +2,7 @@
 
 angular.module('AYARApp')
 .controller('ProfileController', function ($scope, userProfile) {
-  $scope.user = userProfile[0];
+  // $scope.user = userProfile[0];
 })
 
 .service('ProfilePages', ['Restangular', function(Restangular) {

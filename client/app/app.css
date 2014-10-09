@@ -107,6 +107,9 @@ material-tab .material-ripple-container {
   width: 55vw;
   height: 90vh;
   background-color: antiquewhite;
+  overflow: scroll;
+  font-family: Courier;
+  padding: 1vw;
 }
 
 .dialogueOkay {
