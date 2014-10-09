@@ -1,31 +1,46 @@
 .panelAnswers {
-  font-family: Tahoma;
+  font-family: Courier;
   color: black;
+  width: 100vw;
   transition: background-color .6s;
+  height: 22vh;
+  /*border-bottom: 1px dashed white;*/
+  /*overflow: scroll;*/
 }
-
+/*
 .panelAnswers h2 {
-  /*position: absolute;*/
+  overflow: hidden;
+  font-family: Courier;
+  font-size: 3.5vh;
+}*/
+
+.textAnswer {
   overflow: scroll;
   font-family: Courier;
   font-size: 3.5vh;
+  white-space: pre-line;
 }
 
 .choiceButton {
   border: .16vw solid black;
   position: absolute;
   width: 12vw;
-  top: 5vh;
-  right: 4vw;
+  top: 4vh;
+  right: 13vw;
   /*width: 80%;*/
   height: 7vh;
-  background-color: #E4E8C2;
+  background-color: antiquewhite;
   /*transition: display 1s !important;*/
 }
 
 .panelAnswers:hover {
-  background-color: antiquewhite;
+  background-color: #E4E8C2;
+  /*opacity: 0.4;*/
 }
+
+/*.panelAnswers:hover material-button {
+  opacity: 1;
+}*/
 
 /*.choiceButton .ng-show {
   transition: 1s linear all;
@@ -52,10 +67,14 @@
   padding:0 10px;
 }
 
-/*.panelAnswers:hover material-button {
-  display: block;
+.panelAnswers:hover .textAnswer {
+  opacity: 0.2;
 }
-*/
+
+.panelAnswers:hover material-button {
+  opacity: 0.8;
+}
+
 /*.choiceButton:hover {
   display: block;
 }*/

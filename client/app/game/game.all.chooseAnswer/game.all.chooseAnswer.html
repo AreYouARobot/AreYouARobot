@@ -1,16 +1,18 @@
 <material-content class="chooseAnswer">
-  <material-item ng-repeat="answer in game.answers">
-    <material-item-content ng-mouseenter="show = true" ng-mouseleave="show = false" class="panelAnswers">
+  <!-- <material-item ng-repeat="answer in game.answers"> -->
+  <material-item>
+    <material-item ng-mouseenter="show = true" ng-mouseleave="show = false" class="panelAnswers">
       <div class="material-tile-left">
         <img src="http://cdn.tasty.s3.amazonaws.com/assets/img/default-icon-user.png" class="face" />
       </div>
       <div layout="horizontal" class="material-tile-content">
-        <div flex>
-        <h2>{{answer.answer}}</h2></div>
-        <div flex ng-show="show" class="animate-show">
-        <material-button ng-click="guesserChooseAnswer(answer)" flex class="choiceButton">This one!</material-button></div>
+        <!-- <div flex style="overflow: scroll">
+        <h2>{{answer.answer}}</h2></div> -->
+        <h2 class="textAnswer">This is a longer test answer! Hopefully it's not ugly. This is some more text.</h2><!-- </div> -->
+        <!-- <div flex ng-show="show" class="animate-show"> -->
+        <material-button ng-show="show" ng-click="guesserChooseAnswer(answer)" flex class="choiceButton animate-show">This one!</material-button><!-- </div> -->
       </div>
-    </material-item-content>
-    <material-divider ng-if="!last"></material-divider>
+    </material-item>
+    <!-- <material-divider ng-if="!last"></material-divider> -->
   </material-item>
 </material-content>

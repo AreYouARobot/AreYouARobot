@@ -87,7 +87,11 @@ angular.module('AYARApp')
       $materialDialog({
         templateUrl: template,
         targetEvent: ev,
-        controller: function($scope, $hideDialog) {
+        controller: function($scope, $hideDialog, ProfilePages) {
+          ProfilePages.getProfilePage()
+            .then(function(userProfile){
+              $scope.user = userProfile[0];
+            })
           $scope.hide = function() {
             $hideDialog();
           }
@@ -96,12 +100,12 @@ angular.module('AYARApp')
      };
   }]);
 
-  function DialogController($scope, $materialDialog) {
-    $scope.hide = function() {
-      console.log('here');
-      $hideDialog();
-    };
-  }
+  // function DialogController($scope, $materialDialog) {
+  //   $scope.hide = function() {
+  //     console.log('here');
+  //     $hideDialog();
+  //   };
+  // }
 
 // SAVE THIS FOREVER THIS WORKS
 // .state('game.gAskQuestion', {
