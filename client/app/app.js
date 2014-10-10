@@ -43,7 +43,8 @@
     .module('AYARApp', [
       'ngMaterial',
       'ui.router',
-      'restangular'
+      'restangular',
+      'ngAria'
       ])
 
     .config(['$urlRouterProvider', defaultRouteConfig])

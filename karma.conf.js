@@ -22,6 +22,8 @@ module.exports = function(config) {
       'client/lib/bower_components/angular-mocks/angular-mocks.js',
       'client/lib/bower_components/lodash/dist/lodash.js',
       'client/lib/bower_components/restangular/dist/restangular.js',
+      'client/lib/bower_components/angular-aria/angular-aria.js',
+      'client/lib/bower_components/hammerjs/hammer.js',
       'client/lib/bower_components/ui-router/release/angular-ui-router.js',
       'client/lib/bower_components/angular-material/angular-material.js',
       'client/lib/bower_components/angular-animate/angular-animate.js',

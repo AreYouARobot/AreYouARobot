@@ -11,7 +11,7 @@ angular.module('AYARApp')
 
     $scope.item = {
       face: 'http://media-cache-ec0.pinimg.com/236x/c7/97/d7/c797d77e149595e06aea1d04be2d312a.jpg',
-      who: "- Robot",
+      who: '- Robot',
     };
 
     socket.on('gameOver', function() {

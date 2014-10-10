@@ -84,17 +84,17 @@ angular.module('AYARApp')
   })
   .controller('ShowDialogController', ['$scope', '$materialDialog', function($scope, $materialDialog) {
     $scope.dialogBasic = function(ev, template) {
-      $materialDialog({
+      $materialDialog.show({
         templateUrl: template,
         targetEvent: ev,
-        controller: function($scope, $hideDialog, ProfilePages) {
+        controller: function($scope, ProfilePages) {
           ProfilePages.getProfilePage()
             .then(function(userProfile){
               $scope.user = userProfile[0];
-            })
+            });
           $scope.hide = function() {
-            $hideDialog();
-          }
+            $materialDialog.hide();
+          };
         }
       });
      };
@@ -103,7 +103,7 @@ angular.module('AYARApp')
   // function DialogController($scope, $materialDialog) {
   //   $scope.hide = function() {
   //     console.log('here');
-  //     $hideDialog();
+  //     $materialDialog.hide();
   //   };
   // }
 

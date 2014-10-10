@@ -1,4 +1,4 @@
-<material-dialogue class="dialogue">
+<!-- <material-dialogue class="dialogue">
   <div class="dialog-content">
     <div class="text">
       <h2 style="font-weight: bold">Game Mechanics!</h2><br>
@@ -26,3 +26,33 @@
     </material-button>
   </div>
 </material-dialogue>
+ -->
+
+ <material-dialog aria-label="awjgiouw">
+   <div class="dialog-content">
+     <div class="text">
+           <h2 style="font-weight: bold">Game Mechanics!</h2><br>
+           <h2>Scoring</h2><br>
+           <ul>
+             <li>If guesser chooses the bot's response correctly, the guesser receives 30 points and the panel receives 0.</li>
+             <li>Otherwise, 2 of out the 3 panel players will receive 10 points for fooling the guesser while the guesser receives 0.</li>
+             <li>The panel player whose answer resulted in the guesser selecting their response will receive 15 points instead of the 10 points.</li>
+           </ul><br>
+           <h2>Overall Winner and Round Winner</h2>
+           <ul>
+             <li>Overall winner is decided after a round-robin.</li>
+             <li>The player with the most points after the round-robin will be selected as the winner.</li>
+             <li>Round winner is split between either the guesser or the entire panel.</li>
+           </ul><br>
+           <h2>Achievements</h2>
+           <ul>
+             <li>yungcollin's achievements</li>
+           </ul>
+         </div>
+   </div>
+   <div class="dialog-actions" layout="horizontal" layout-align="end">
+     <material-button ng-click="hide()">
+       Okay
+     </material-button>
+   </div>
+ </material-dialog>

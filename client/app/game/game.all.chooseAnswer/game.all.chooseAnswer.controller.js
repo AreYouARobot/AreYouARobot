@@ -3,7 +3,6 @@
 angular.module('AYARApp')
   .controller('AllChooseAnswerController', function(gameStorage, $scope, $state, $stateParams) {
   	console.log('you have made it this far with responses.', $stateParams.room.answers);
-
 		$scope.game = $stateParams.room;
 
 		// $scope.question = $stateParams.room.question;
