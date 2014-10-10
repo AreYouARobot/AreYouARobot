@@ -53,6 +53,10 @@ h1 {
   width: 20vw;
 }
 
+.splashRobo:hover {
+  cursor: pointer;
+}
+
 .click-me {
   position: absolute;
   top: -1vw;

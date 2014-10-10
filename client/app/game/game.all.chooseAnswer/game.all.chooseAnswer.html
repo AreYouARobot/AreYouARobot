@@ -1,6 +1,6 @@
 <material-content class="chooseAnswer">
   <!-- <material-item ng-repeat="answer in game.answers"> -->
-  <material-list>
+  <material-list ng-repeat="answer in game.answers">
   <material-item>
     <material-item-content ng-mouseenter="show = true" ng-mouseleave="show = false" class="panelAnswers">
       <div class="material-tile-left">
@@ -10,7 +10,7 @@
         <!-- <div flex style="overflow: scroll">
         <h2>{{answer.answer}}</h2></div> -->
         <!-- </div> -->
-        <h2 class="textAnswer">This is a test answer. Let's see how long this goes.</h2>
+        <h2 class="textAnswer">{{answer.answer}}</h2>
         <!-- <div flex ng-show="show" class="animate-show"> -->
         <material-button ng-show="show" ng-click="guesserChooseAnswer(answer)" class="choiceButton">This one!</material-button>
 
