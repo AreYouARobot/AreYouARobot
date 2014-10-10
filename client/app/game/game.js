@@ -91,7 +91,20 @@ angular.module('AYARApp')
           ProfilePages.getProfilePage()
             .then(function(userProfile){
               $scope.user = userProfile[0];
+              $scope.achievementsToRender = renderAchievements();
             });
+
+          var renderAchievements = function() {
+            var achievementsMap = ProfilePages.achievements;
+            var userAchievements = $scope.user.achievements;
+            var achievementsToRender = [];
+            for (var i = 0; i < userAchievements.length; i++) {
+              if (achievementsMap.hasOwnProperty(userAchievements[i])) {
+                achievementsToRender.push({ 'achievementImage': achievementsMap[userAchievements[i]]});
+              }
+            }
+            return achievementsToRender;
+          };
           $scope.hide = function() {
             $materialDialog.hide();
           };

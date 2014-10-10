@@ -12,6 +12,12 @@
     <div class="text">
       <h2>{{user.username}}</h2>
       <h3>Points achieved: {{user.points}}</h3>
+      <h3>Achievements:</h3>
+      <ul style="list-style-type: none">
+        <li ng-repeat="achievement in achievementsToRender">
+          <img src="{{ achievement.achievementImage }}" />
+        </li>
+      <ul>
     </div>
   </div>
   <div class="dialog-actions">
