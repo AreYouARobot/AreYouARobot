@@ -1,7 +1,7 @@
 .panelAnswers {
   font-family: Courier;
   color: black;
-  width: 100vw;
+  /*width: 50vw;*/
   transition: background-color .6s;
   height: 22vh;
   /*border-bottom: 1px dashed white;*/
@@ -15,64 +15,63 @@
 }*/
 
 .textAnswer {
-  overflow: scroll;
+  /*overflow: scroll;*/
   font-family: Courier;
   font-size: 3.5vh;
-  white-space: pre-line;
+  white-space: pre-wrap;
 }
 
 .choiceButton {
   border: .16vw solid black;
-  position: absolute;
   width: 12vw;
   top: 4vh;
-  right: 13vw;
+  right: 15vw;
+  position: absolute;
+  z-index: 5;
+  display: none;
   /*width: 80%;*/
   height: 7vh;
   background-color: antiquewhite;
-  /*transition: display 1s !important;*/
+  transition: display 1s !important;
 }
 
 .panelAnswers:hover {
   background-color: #E4E8C2;
+  transition: display 1s !important;
   /*opacity: 0.4;*/
 }
 
-/*.panelAnswers:hover material-button {
-  opacity: 1;
-}*/
+.panelAnswers:hover .choiceButton {
+  transition: 1s linear all;
+  display: block;
+}
 
 /*.choiceButton .ng-show {
   transition: 1s linear all;
 }*/
 
-.animate-show {
-  /*line-height: 0;*/
+/*.animate-show {
+  line-height:20px;
   opacity:1;
-  padding: 10px;
-  /*border:1px solid black;*/
-  /*background: antiquewhite;*/
+  padding:10px;
+  border:1px solid black;
+  background:white;
 }
 
 .animate-show.ng-hide-add.ng-hide-add-active,
 .animate-show.ng-hide-remove.ng-hide-remove-active {
-  -webkit-transition: all linear 0.5s;
-  transition: all linear 0.4s;
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
 }
 
 .animate-show.ng-hide {
-  line-height: 0;
-  /*line-height:0;*/
+  line-height:0;
   opacity:0;
   padding:0 10px;
-}
+}*/
 
 .panelAnswers:hover .textAnswer {
   opacity: 0.2;
-}
-
-.panelAnswers:hover material-button {
-  opacity: 0.8;
 }
 
 /*.choiceButton:hover {

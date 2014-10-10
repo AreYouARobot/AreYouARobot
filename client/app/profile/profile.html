@@ -1,8 +1,22 @@
-<div class="header container">
+<!-- <div class="header container">
   <img id="pic" src="http://25.media.tumblr.com/abae84d3f00414e18b2aa29b1e571bb0/tumblr_msz10zJc751svwlszo5_250.gif"></img>
   <div id="name">{{user.username}}</div>
   <div id="points">{{user.points}}</div>
 </div>
 <div class="achievement container">
   <div ng-repeat="achievement in user.achievements">{{achievement}}</div>
-</div>
+</div> -->
+
+ <material-dialog aria-label="blue">
+  <div class="dialog-content">
+    <div class="text">
+      <h2>{{user.username}}</h2>
+      <h3>Points achieved: {{user.points}}</h3>
+    </div>
+  </div>
+  <div class="dialog-actions">
+    <material-button class="dialogueOkay" ng-click="hide()">
+      Okay
+    </material-button>
+  </div>
+</material-dialog>
