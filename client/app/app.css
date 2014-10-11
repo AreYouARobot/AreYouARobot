@@ -60,12 +60,11 @@ material-tabs {
   color: black;
 }
 
-material-tab {
+/*material-tab {
   font-size: 8vh;
   height: 10vh;
-  /*background-color: antiquewhite;*/
   background-color: #D13F32;
-}
+}*/
 
 .tabs-header {
   height: 10vh;
@@ -105,15 +104,20 @@ material-tab .material-ripple-container {
   background-color: antiquewhite;
 }
 
-.dialogue {
-  width: 55vw;
+.dialog {
+  background-color: rgb(255, 255, 215);
+  /*width: 55vw;
   height: 90vh;
   background-color: antiquewhite;
   overflow: scroll;
   font-family: Courier;
-  padding: 1vw;
+  padding: 1vw;*/
+}
+
+.teamButton {
+  top: -1vh;
 }
 
 .dialogueOkay {
-  background-color: white;
+  /*background-color: white;*/
 }

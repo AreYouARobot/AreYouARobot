@@ -1,0 +1,44 @@
+/*nav*/
+
+material-tab {
+  font-size: 8vh;
+  height: 10vh;
+  /*background-color: antiquewhite;*/
+  background-color: #F06060;
+}
+
+h1 {
+  font-family: cartoonblocks;
+  color: #2B344D;
+  font-size: 10vh;
+  margin-bottom: 10px;
+}
+
+html {
+  /*background-color: #E4E8C2;*/
+  background-color: ##016073;
+}
+
+body {
+  /*background-color: #E4E8C2;*/
+  background-color: #8CBEB2;
+}
+
+.testContainer {
+  width: 45vw;
+  height: 90vh;
+  padding-top: .75em;
+  /*background-color: #F79C65;*/
+  background-color: #F3B562;
+  border-width: 5px;
+  box-shadow: 10px 10px 5px #888888;
+  margin: 0 auto;
+  margin-top: 1%;
+  /*padding-bottom: 6%;*/
+  margin-bottom: 1%;
+}
+
+/*#robotInfo {
+  background-color: antiquewhite;
+  font-family: Courier;
+}*/
