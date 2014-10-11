@@ -3,28 +3,23 @@
 var jwt = require('jsonwebtoken');
 var jwtConstants = require('./authConstants.js').jwt;
 
+// jwtCheck runs on each call to the user api routes
 module.exports.jwtCheck = function(req, res, next) {
 
 	var token = req.headers['x-access-token'];
-	console.log(req.headers, 'this is req.header');
-	console.log(token, 'this is token');
 	var isValidToken;
 	var userObjId;
 
-	// Comment what is happening in this entire block of text
+	// Checks if there's a token
 	if(!!token) {
 		jwt.verify(token, jwtConstants.secret, function(err, decoded) {
 
-			// After jwt verifies the token with the secret, it takes a callback
-			// What is decoded.id ? It's the success portion of the callback?
-			console.log(decoded.id, 'this is decoded.id');
-			console.log(typeof decoded.id, 'this is typeof decoded.id');
-			console.log(err, 'this is err');
+			// JWT verify takes the token sent from the request header and decodes it with the secret.
+			// The decoded id is then stored and used to query Mongo for the rest of the user information
 			isValidToken = !err && typeof decoded.id === 'string';
 
 			if(isValidToken) {
 				userObjId = decoded.id;
-				console.log('This is userObjId: ', userObjId);
 				req.userObjId = userObjId;
 				next();
 			} else {

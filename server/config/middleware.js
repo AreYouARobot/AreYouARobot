@@ -3,8 +3,8 @@
 var fs = require('fs');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
-// var helpers = require('./helpers.js');
 var jwtCheck = require('../auth/authJWT.js').jwtCheck;
+// var helpers = require('./helpers.js');
 
 module.exports = function(app, express) {
 
@@ -34,7 +34,5 @@ module.exports = function(app, express) {
 	// app.use('/game', jwtCheck, gameHandling);
 	// require('../game/gamerouting.js')(gameHandling);
 
-	// app.use(helpers.errorLogger);
-	// app.use(helpers.errorHandler); 
 
 };

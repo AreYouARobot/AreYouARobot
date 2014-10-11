@@ -2,6 +2,8 @@
 
 var fbHandling = require('./authFbHandlers.js');
 
+// Auth Routing handles authentication requests for our application
+// Requests get routed here from middleware.js
 module.exports = function(app) {
 	// app = router injected from middleware.js
 
