@@ -76,44 +76,44 @@ var gameMechHelpers = {
 			for (var i = 0; i < user.achievements.length; i++) {
 				var achievement = user.achievements[i]; // Inidividual achievement object
 				if (achievement.hasOwnProperty('fiveBotGuesses') === false) {
-					if (user.timesGuessedBotCorrectly >= 1) {
+					if (user.timesGuessedBotCorrectly === 5) {
 						console.log('timesguessedBotCorrectly is greater or equal to 1');
 						achievementsToUpdate.push('5botguesses');
 					}
 				}
 				if (achievement.hasOwnProperty('oneHPoints') === false) {
-					if (user.points >= 50) {
+					if (user.points >= 100) {
 						console.log('points is greater or equal to 50');
 						achievementsToUpdate.push('100points');
 					}
 				}
 				if (achievement.hasOwnProperty('fiveWins') === false) {
-					if (user.numOfGamesWon >= 1) {
+					if (user.numOfGamesWon === 5) {
 						console.log('numofgameswon is greater or equal to 1');
 						achievementsToUpdate.push('5wins')
 					}
 				}
 				if (achievement.hasOwnProperty('tenGamesPlayed') === false) {
-					if (user.numOfGamesPlayed >= 1) {
+					if (user.numOfGamesPlayed === 10) {
 						console.log('numofgamesplayed is greater or equal to 1');
 						achievementsToUpdate.push('10gamesplayed')
 					}	
 				} 
 			}
 		} else {
-			if (user.timesGuessedBotCorrectly >= 1) {
+			if (user.timesGuessedBotCorrectly === 5) {
 				console.log('timesguessedBotCorrectly is greater or equal to 1');
 				achievementsToUpdate.push('5botguesses');
 			}
-			if (user.points >= 50) {
+			if (user.points >= 100) {
 				console.log('points is greater or equal to 50');
 				achievementsToUpdate.push('100points');
 			}
-			if (user.numOfGamesWon >= 1) {
+			if (user.numOfGamesWon === 5) {
 				console.log('numofgameswon is greater or equal to 1');
 				achievementsToUpdate.push('5wins')
 			}
-			if (user.numOfGamesPlayed >= 1) {
+			if (user.numOfGamesPlayed === 10) {
 				console.log('numofgamesplayed is greater or equal to 1');
 				achievementsToUpdate.push('10gamesplayed')
 			}	
