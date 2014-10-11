@@ -1,11 +1,12 @@
 <div class="papaDiv" layout="vertical">
   <div flex class="testContainer">
   <center>
-  <h1>AYAR?</h1>
+  <a class="header" href="http://areyouarobot.azurewebsites.net/#/login"><h1>AYAR?</h1></a>
   <!-- <hr style="margin: 0"> -->
   <div ng-controller="ShowDialogController">
   <material-tabs class="navBar" selected="data.selectedIndex" center>
-          <material-tab class="navButton material-tab" label="A"></material-tab>
+          <material-tab class="navButton material-tab" label="A">
+          </material-tab>
           <material-tab ng-click="dialogBasic($event, '/app/profile/profile.html')"label="Y"></material-tab>
           <material-tab ng-click="dialogBasic($event, '/app/homepage/nav-views/teamInfo.html')"label="A"></material-tab>
           <material-tab ng-click="dialogBasic($event, '/app/homepage/nav-views/robotInfo.html')" label="R"></material-tab>

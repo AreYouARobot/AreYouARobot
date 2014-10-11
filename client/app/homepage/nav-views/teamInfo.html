@@ -1,6 +1,27 @@
- <material-dialog aria-label="team">
+ <material-dialog class="dialog" aria-label="team">
   <div class="dialog-content">
-      <div class="teamprofiles" align="center">
+
+    <material-content ng-controller="HomepageController">
+    <material-list>
+      <material-item ng-repeat="item in team">
+        <material-item-content>
+          <div class="material-tile-left">
+            <img style="height: 25vh; width: 12vw; border-radius: 15vw"ng-src="{{item.face}}" class="face" alt="{{item.who}}">
+          </div>
+          <div class="material-tile-content">
+            <h2 style="font-size: 6vh">{{item.what}}</h2>
+            <h3 style="font-size: 3vh">{{item.who}}</h3>
+            <p style="font-size: 2vh">
+              {{item.notes}}
+            </p>
+          </div>
+        </material-item-content>
+        <material-divider inset ng-if="!$last"></material-divider>
+      </material-item>
+    </material-list>
+  </material-content>
+
+  <!--     <div class="teamprofiles" align="center">
         <table class="stef">
           <tr>
             <th colspan="2" style="font-size: 24px">Stef Contreras</th>
@@ -61,10 +82,10 @@
           </tr>
         </table>
 
-      </div>
+      </div> -->
   </div>
   <div class="dialog-actions">
-    <material-button ng-click="hide()">
+    <material-button class="teamButton" ng-click="hide()">
       Okay
     </material-button>
   </div>

@@ -12,14 +12,15 @@
 </div>
  -->
 
- <material-dialog aria-label="blue">
+ <material-dialog id="robotInfo" class="dialog" aria-label="blue">
   <div class="dialog-content">
     <div class="text">
-      <p>The marquee feature of Are You A Robot is its custom-tailored chat bot that turns questions from users into clever responses. There are several steps that take place from the time a user enters a question to the time a response is sent back to the players:<p>
+      <h1 align="middle">AYAR?'s Robot</h1>
+      <p>The marquee feature of <b>Are You A Robot</b> is its custom-tailored chat bot that turns questions from users into clever responses. There are several steps that take place from the time a user enters a question to the time a response is sent back to the players:<p>
       <ul>
         <li>User's question is parsed to determine what the "context" of the sentence is (i.e.; what the bot's response focus on). This is currently done by identifying the last noun-phrase in the question, using the Part Of Speech (POS) NPM module (<a href="https://www.npmjs.org/package/pos">https://www.npmjs.org/package/pos</a>).<br></li>
-        <li>The context of the sentence is then sent through existing Markov chains (<a href="http://en.wikipedia.org/wiki/Markov_chain">http://en.wikipedia.org/wiki/Markov_chain</a>) that have been constructed using a variety of text of corpora. The context is injected as the "middle" of the bot's response, from which sentences are generated bi-directionally using the Markov chain probabilities, until a "marker" designating the beginning and end of the sentence are reached:<br>
-        Beginning Marker <---------- context ----------> Ending Marker</li>
+        <li>The context of the sentence is then sent through existing Markov chains (<a href="http://en.wikipedia.org/wiki/Markov_chain">http://en.wikipedia.org/wiki/Markov_chain</a>) that have been constructed using a variety of text of corpora. The context is injected as the "middle" of the bot's response, from which sentences are generated bi-directionally using the Markov chain probabilities, until a "marker" designating the beginning and end of the sentence are reached:<br><br>
+        <h3>Beginning Marker <---------- context ----------> Ending Marker<h3></li><br>
         <li>The sentence is bundled up and sent in the response to the original player's request from the robot server to all client instances of the game using Socket.IO as the middleware managing the broadcasts and emissions between each player and the central web server.</li>
       </ul>
       <p>We realize our bot isn't perfect, at least not yet. That's why we heavily depend on the players of the game to help our bot grow and learn. Each time a player identifies a bot's response correctly, the probability of that sentence as a whole and the corresponding sentence fragments being generated again is adjusted downward. Similarly, each time a bot's response tricks a player into thinking it is a human, the probabilities are adjusted upward. By focusing heavily on designing a gamified user experience and incentivizing users to keep playing and earn more points, achievements, etc., we're not-so-secretly making real-time improvements to our bot all the time!</p>

@@ -1,32 +1,5 @@
-html {
-  /*background-color: #E4E8C2;*/
-  background-color: #71B095;
-}
-
-body {
-  /*background-color: #E4E8C2;*/
-  background-color: #71B095;
-}
-
-h1 {
-  font-family: cartoonblocks;
-  color: #2B344D;
-  font-size: 10vh;
-  margin-bottom: 10px;
-}
-
-.testContainer {
-  width: 45vw;
-  height: 90vh;
-  padding-top: .75em;
-  /*background-color: #F79C65;*/
-  background-color: #DEDBA7;
-  border-width: 5px;
-  box-shadow: 10px 10px 5px #888888;
-  margin: 0 auto;
-  margin-top: 1%;
-  /*padding-bottom: 6%;*/
-  margin-bottom: 1%;
+.header:hover {
+  text-decoration: none;
 }
 
 .load {
