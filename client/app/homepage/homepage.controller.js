@@ -45,6 +45,6 @@ angular.module('AYARApp')
           what: 'Collin Wu',
           who: 'Game Master, Facebook Authentication Expert, Back-End Engineer',
           // when: '3:08PM',
-          notes: "Collin gets really excited about driving user engagement and the concept of gamification."
+          notes: "Collin is excited about driving user engagement and the concept of gamification. It was only fitting for him to implement the game mechanics such as scoring and achievements for the game. Collin also implemented the main application server, the user database, and the Facebook OAuth workflow. When he's not working around the stack, he's out running or strategizing for fantasy sports."
         }];
   });
