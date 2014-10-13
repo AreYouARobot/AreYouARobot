@@ -1,16 +1,29 @@
 <div class="papaDiv" layout="vertical">
   <div flex class="testContainer">
   <center>
-  <a class="header" href="http://areyouarobot.azurewebsites.net/#/login"><h1>AYAR?</h1></a>
-  <!-- <hr style="margin: 0"> -->
+  <a class="header" href="http://areyouarobot.azurewebsites.net/#/login"><h1><span class="AYAR">A</span>re <span class="AYAR">Y</span>ou <span class="AYAR"> A</span> <span class="AYAR">R</span>obot?</h1></a>
+  <!-- <a class="header" href="http://areyouarobot.azurewebsites.net/#/login"><h1><span class="AYAR">A</span><span class="littleAYAR">r</span><span class="littleAYAR">e</span><span class="AYAR">Y</span><span class="AYAR">A</span><span class="AYAR">R</span></h1></a> -->
   <div ng-controller="ShowDialogController">
   <material-tabs class="navBar" selected="data.selectedIndex" center>
-          <material-tab class="navButton material-tab" label="A">
-          </material-tab>
-          <material-tab ng-click="dialogBasic($event, '/app/profile/profile.html')"label="Y"></material-tab>
-          <material-tab ng-click="dialogBasic($event, '/app/homepage/nav-views/teamInfo.html')"label="A"></material-tab>
+    <material-item class="navTabs">
+      <material-tab class="navButton material-tab" label="A"></material-tab>
+      <material-tooltip class="toolTip">Home</material-tooltip></material-item>
+    <material-item class="navTabs">
+      <material-tab ng-click="dialogBasic($event, '/app/profile/profile.html')"label="Y"></material-tab>
+      <material-tooltip class="toolTip">Profile</material-tooltip>
+    </material-item class="navTabs">
+    <material-item class="navTabs">
+      <material-tab ng-click="dialogBasic($event, '/app/homepage/nav-views/teamInfo.html')"label="A"></material-tab>
+      <material-tooltip class="toolTip">Meet the Team</material-tooltip>
+    </material-item>
+    <material-item class="navTabs">
           <material-tab ng-click="dialogBasic($event, '/app/homepage/nav-views/robotInfo.html')" label="R"></material-tab>
-          <material-tab ng-click="dialogBasic($event, '/app/homepage/nav-views/gameHelp.html')"label="?"></material-tab>
+    <material-tooltip class="toolTip">About the Robot</material-tooltip>
+    </material-item>
+    <material-item class="navTabs">
+      <material-tab ng-click="dialogBasic($event, '/app/homepage/nav-views/gameHelp.html')"label="?"></material-tab>
+      <material-tooltip class="toolTip">Game Help</material-tooltip>
+    </material-item>
   </material-tabs>
 <div ui-view></div>
 </div>

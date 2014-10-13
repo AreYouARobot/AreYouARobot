@@ -2,30 +2,33 @@
   font-family: Courier;
   color: black;
   /*width: 50vw;*/
+  text-align: center;
   transition: background-color .6s;
   height: 22vh;
   /*border-bottom: 1px dashed white;*/
   /*overflow: scroll;*/
 }
-/*
+
 .panelAnswers h2 {
+  text-align: center;
   overflow: hidden;
   font-family: Courier;
   font-size: 3.5vh;
-}*/
+}
 
 .textAnswer {
-  /*overflow: scroll;*/
+  /*overflow: hidden;*/
+  text-align: center;
   font-family: Courier;
   font-size: 3.5vh;
-  white-space: pre-wrap;
+  /*white-space: pre-wrap;*/
 }
 
 .choiceButton {
   border: .16vw solid black;
-  width: 12vw;
-  top: 4vh;
-  right: 15vw;
+  width: 25vw;
+  top: 5vh;
+  right: 29vw;
   position: absolute;
   z-index: 5;
   display: none;
@@ -50,7 +53,7 @@
   transition: 1s linear all;
 }*/
 
-/*.animate-show {
+.animate-show {
   line-height:20px;
   opacity:1;
   padding:10px;
@@ -68,7 +71,7 @@
   line-height:0;
   opacity:0;
   padding:0 10px;
-}*/
+}
 
 .panelAnswers:hover .textAnswer {
   opacity: 0.2;
