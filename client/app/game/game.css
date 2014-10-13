@@ -52,3 +52,32 @@
   font-family: Courier;
   font-size: 5vh;
 }
+
+.AYAR {
+  background-color: #dfdfe9;
+  border: 2px solid black;
+  /*color: #8CBEB2;*/
+  color: black;
+  border-radius: 15vh;
+  font-size: 10vh;
+  height: 10.2vh;
+  width: 10vh;
+  display: inline-block;
+}
+
+.littleAYAR {
+  background-color: antiquewhite;
+  border-radius: 6.5vh;
+  font-size: 6vh;
+  height: 6.5vh;
+  width: 6.5vh;
+  display: inline-block;
+}
+
+.navTabs {
+  width: 100vw;
+}
+
+.toolTip {
+  /*font-family: Courier;*/
+}

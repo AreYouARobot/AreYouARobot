@@ -1,57 +1,50 @@
-<!-- <material-dialogue class="dialogue">
-  <div class="dialog-content">
-    <div class="text">
-      <h2 style="font-weight: bold">Game Mechanics!</h2><br>
-      <h2>Scoring</h2><br>
-      <ul>
-        <li>If guesser chooses the bot's response correctly, the guesser receives 30 points and the panel receives 0.</li>
-        <li>Otherwise, 2 of out the 3 panel players will receive 10 points for fooling the guesser while the guesser receives 0.</li>
-        <li>The panel player whose answer resulted in the guesser selecting their response will receive 15 points instead of the 10 points.</li>
-      </ul><br>
-      <h2>Overall Winner and Round Winner</h2>
-      <ul>
-        <li>Overall winner is decided after a round-robin.</li>
-        <li>The player with the most points after the round-robin will be selected as the winner.</li>
-        <li>Round winner is split between either the guesser or the entire panel.</li>
-      </ul><br>
-      <h2>Achievements</h2>
-      <ul>
-        <li>yungcollin's achievements</li>
-      </ul>
-    </div>
-  </div>
-  <div class="dialog-actions">
-    <material-button class="dialogueOkay" ng-click="hide()">
-      Okay
-    </material-button>
-  </div>
-</material-dialogue>
- -->
-
  <material-dialog class="dialog" aria-label="awjgiouw">
    <div class="dialog-content">
      <div class="text">
-           <h2 style="font-weight: bold">Game Mechanics!</h2><br>
-           <h2>Scoring</h2><br>
-           <ul>
-             <li>If guesser chooses the bot's response correctly, the guesser receives 30 points and the panel receives 0.</li>
-             <li>Otherwise, 2 of out the 3 panel players will receive 10 points for fooling the guesser while the guesser receives 0.</li>
-             <li>The panel player whose answer resulted in the guesser selecting their response will receive 15 points instead of the 10 points.</li>
-           </ul><br>
-           <h2>Overall Winner and Round Winner</h2>
-           <ul>
-             <li>Overall winner is decided after a round-robin.</li>
-             <li>The player with the most points after the round-robin will be selected as the winner.</li>
-             <li>Round winner is split between either the guesser or the entire panel.</li>
-           </ul><br>
-           <h2>Achievements</h2>
-           <ul>
-             <li>yungcollin's achievements</li>
-           </ul>
-         </div>
+      <h2 style="font-weight: bold">Rules of the Game!</h2><br>
+        <ul>
+          <li>Three players are needed for a game. There will always be a bot as the fourth player.</li>
+          <li>In a game, a player can either be the "guesser" or part of the "panel".</li>
+          <li>A game consists of three rounds where each player gets a turn to be a guesser.</li>
+          <li>The winner of the game is determined at the end of the game as whoever has the highest score.</li>
+        </ul>
+      <h2>Guesser</h2>
+        <ul>
+          <li>As the guesser, your first task is to ask the panel a question (the bot is amongst the panel).</li>
+          <li>Upon receiving the panel's response to your question, your objective is to guess which response might be the bot's response.</li>
+          <li>If you guess the bot's response correctly, you win the round!</li>
+        </ul>
+      <h2>Panel</h2>
+        <ul>
+          <li>As the panel, upon receiving the guesser's question, you will also know what the bot's response to the question will be</li>
+          <li>Winning the round for you will be to have the guesser pick your response as their answer.</li>
+          <li>In the event that your answer was not chosen, but that the guesser still picked the incorrect answer, you will still "win" the round as part of the panel</li>
+          <li>Knowing the bot's answer before providing your own response to the question gives you an advantage. Use it wisely!</li>
+        </ul>
+      <h2 style="font-weight: bold">Game Mechanics!</h2><br>
+      <h2>Scoring</h2><br>
+        <ul>
+          <li>If guesser chooses the bot's response correctly, the guesser receives 30 points and the panel receives 0.</li>
+          <li>Otherwise, 2 of out the 3 panel players will receive 10 points for fooling the guesser while the guesser receives 0.</li>
+          <li>The panel player whose answer resulted in the guesser selecting their response will receive 15 points instead of the 10 points.</li>
+        </ul><br>
+      <h2>Overall Winner and Round Winner</h2>
+        <ul>
+          <li>Overall winner is decided after a round-robin.</li>
+          <li>The player with the most points after the round-robin will be selected as the winner.</li>
+          <li>Round winner is split between either the guesser or the entire panel.</li>
+        </ul><br>
+      <h2>Achievements</h2>
+        <ul>
+          <li>Include the number of times the player guessed the bot correctly 5 times.</li>
+          <li>Includes a marker for when a player achieves their first 100 points.</li>
+          <li>Includes an achievement when the player gets their first 5 wins.</li>
+          <li>Includes an achievement when the player plays their first 10 games</li>
+        </ul>
+    </div>
    </div>
    <div class="dialog-actions" layout="horizontal" layout-align="end">
-     <material-button ng-click="hide()">
+     <material-button class="teamButton" ng-click="hide()">
        Okay
      </material-button>
    </div>

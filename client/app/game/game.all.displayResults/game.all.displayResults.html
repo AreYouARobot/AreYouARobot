@@ -8,9 +8,9 @@
     <h3 class="results">Choice: {{game.guesserChoice}}</h3>
     <h3 class="results">Game Result: {{game.gameResult}}</h3>
     <div ng-repeat="player in game.players">
-      <p>{{player.playerName}} scored {{player.playerCurrentScore}} points!</p>
+      <h3 class="results">{{player.playerName}} scored {{player.playerCurrentScore}} points!</h3>
     </div>
-    <material-button class="material-button-raised gameNextButton" ng-click="gameNextTurn()">Play next turn</material-button>
+    <material-button style="width: 28vw" class="material-button-raised gameNextButton" ng-click="gameNextTurn()">Play next turn</material-button>
   </div>
 </div>
 

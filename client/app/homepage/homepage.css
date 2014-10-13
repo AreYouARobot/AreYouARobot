@@ -9,14 +9,15 @@ material-tab {
 
 h1 {
   font-family: cartoonblocks;
-  color: #2B344D;
-  font-size: 10vh;
+  color: black;
+  outline: 1px;
+  font-size: 8vh;
   margin-bottom: 10px;
 }
 
 html {
   /*background-color: #E4E8C2;*/
-  background-color: ##016073;
+  background-color: #016073;
 }
 
 body {
@@ -25,16 +26,15 @@ body {
 }
 
 .testContainer {
-  width: 45vw;
+  width: 90vw;
   height: 90vh;
   padding-top: .75em;
-  /*background-color: #F79C65;*/
+  border: 1px solid black;
   background-color: #F3B562;
-  border-width: 5px;
-  box-shadow: 10px 10px 5px #888888;
+  border-width: 2px;
+  box-shadow: 8px 8px 4px #888888;
   margin: 0 auto;
   margin-top: 1%;
-  /*padding-bottom: 6%;*/
   margin-bottom: 1%;
 }
 
@@ -42,3 +42,11 @@ body {
   background-color: antiquewhite;
   font-family: Courier;
 }*/
+
+.social {
+  display: inline-block;
+}
+
+.icon:hover {
+  cursor: pointer;
+}

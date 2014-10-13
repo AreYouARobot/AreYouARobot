@@ -16,6 +16,10 @@ material-button {
   font-family: courier;
 }
 
+.newOrJoinButton .material-button-raised {
+  background-color: antiquewhite;
+}
+
 material-button .material-button-inner {
   font-size: 3vh;
   white-space: wrap;
@@ -28,7 +32,7 @@ material-input-group {
 .material-tile-content h2 {
   padding-top: .5vh;
   font-size: 3.5vh;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 material-input-group input {
@@ -37,7 +41,7 @@ material-input-group input {
   margin-top: 1vh;
   padding: .5em;
   height: 7vh;
-  width: 21vw;
+  width: 35vw;
   text-align: center;
   font-family: courier;
   background-color: antiquewhite;
@@ -75,7 +79,7 @@ material-tab material-tab-label.active {
 }
 
 material-tab:hover material-tab-label{
-  color: grey;
+  color: antiquewhite;
 }
 
 *:focus {
@@ -93,7 +97,7 @@ material-ink-bar {
 }
 
 material-tab .material-ripple-container {
-  color: black;
+  color: #8CBEB2;
 }
 
 .chooseAnswer {
@@ -105,7 +109,7 @@ material-tab .material-ripple-container {
 }
 
 .dialog {
-  background-color: rgb(255, 255, 215);
+  background-color: #FEFFE3;
   /*width: 55vw;
   height: 90vh;
   background-color: antiquewhite;
