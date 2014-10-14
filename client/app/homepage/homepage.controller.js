@@ -27,7 +27,7 @@ angular.module('AYARApp')
           what: 'Stef Contreras',
           who: 'Product Visionary, Robot Master, Back-End Engineer',
           // when: '3:08PM',
-          notes: "Stef has always wanted a robot friend to keep her company, so she jumped at the chance to make one. Stef built out the Markov chain module, the Wiki parser, and the logic to build sentences.",
+          notes: "Stef has always wanted a robot friend to keep her company, so she jumped at the chance to make one. Stef built out the Markov chain module, the Wiki parser, and the logic to build sentences. When she's not hacking away, she's knitting all kinds of awesome socks.",
           git: 'https://github.com/stefceror',
           linkedin: 'http://linkedin.com/in/stefsnow',
           homepage: 'http://stefsnow.com'
