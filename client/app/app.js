@@ -2,6 +2,8 @@
 
 (function(){
 
+  // Angular Style Guide - Wrap modules in an IIFE.
+
   //Global object for storing callback functions
   // Quick comment for a new commit
   window._app = {};
@@ -52,14 +54,3 @@
     .run(['Restangular', '$window', '$state', restangularConfig]);
 
 })();
-
-// KEEP CODE IN CASE I WANT TO REFACTOR INTO NON-IIFE
-
-// angular.module('AYARApp', [
-//   'ui.router'
-//   ])
-//  .config(['$urlRouterProvider', function ($urlRouterProvider) {
-//     $urlRouterProvider
-//       // .when('/code=', '/game')
-//       .otherwise('/login');
-//   }])
