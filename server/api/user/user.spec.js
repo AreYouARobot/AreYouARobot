@@ -9,17 +9,17 @@ var app = require('../../app');
 describe('GET api/user/', function() {
 	it('response should be a JSON object', function(done) {
 		request(app)
-		.post('/api/user')
-		.set('x-access-token', '')
-
-		.expect('Content-Type', /json/)
+		.get('/api/user')
+		.set('x-access-token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjU0MmVmN2VjMzUyZjNlNmMzMmZjNzUzNCIsImlhdCI6MTQxMzIyNzcwOCwiZXhwIjoxNDEzMjM0OTA4fQ.G1lQ0YJYMSAdB8RgRWkYVLPuL2WQvhjV790Ecc6RZvc')
 		.expect(200)
 		.end(function(err, res) {
 			if (err) return done(err);
+			// console.log(res.userObjId, 'userObjId?');
+			// console.log(res, 'this is res');
+			// console.log(res.body, 'this is body of res');
 			res.should.be.instanceof(Object);
 			done();
 		});
 	});
-
 
 });

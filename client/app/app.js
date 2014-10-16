@@ -14,11 +14,11 @@
 
     var jwtRequestInterceptor = function(element, operation, route, url, headers){
       var jwt = $window.localStorage.getItem('jwt');
-      console.log('this is jwt: ', jwt);
+      // console.log('this is jwt: ', jwt);
       if (jwt){
         headers['x-access-token'] = jwt;
-        console.log(headers['x-access-token'], 'THIS IS HEADERS[\'x-access-token\']');
-        console.log(headers, 'THIS IS HEADERS');
+        // console.log(headers['x-access-token'], 'THIS IS HEADERS[\'x-access-token\']');
+        // console.log(headers, 'THIS IS HEADERS');
       }
       return {
         headers: headers
