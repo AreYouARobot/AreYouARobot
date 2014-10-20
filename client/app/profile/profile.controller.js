@@ -5,12 +5,14 @@ angular.module('AYARApp')
 //   // $scope.user = userProfile[0];
 // })
 
+// getProfilePage just obtains the user profile from the database/server.
 .service('ProfilePages', ['Restangular', function(Restangular) {
   this.getProfilePage = function() {
     return Restangular.all('api/user')
     .getList();
   };
 
+  // Returns an achievements hashmap that points to the location of the achievement images
 	this.achievements = {
   		'5botguesses': 'http://i.imgur.com/PRjw9ob.gif',
   		'100points': 'http://i.imgur.com/LDTNdAp.gif',
